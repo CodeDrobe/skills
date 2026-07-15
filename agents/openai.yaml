@@ -1,0 +1,4 @@
+interface:
+  display_name: "CodeDrobe Codex Skill"
+  short_description: "Create and apply AI-customized Codex themes on Windows or macOS"
+  default_prompt: "Use $codedrobe-codex-theme to create, apply, verify, update, or safely restore a Codex desktop theme."

@@ -1,0 +1,35 @@
+{
+  "name": "@codedrobe/codex-core",
+  "version": "0.2.0",
+  "description": "Cross-platform Codex theme runtime, portable theme format, and CodeDrobe Codex Skill.",
+  "type": "module",
+  "license": "Apache-2.0",
+  "files": [
+    "LICENSE",
+    "NOTICE",
+    "TRADEMARKS.md",
+    "ASSETS_LICENSE.md",
+    "README_zh.md",
+    "SKILL.md",
+    "agents",
+    "assets",
+    "evals",
+    "references",
+    "scripts",
+    "themes"
+  ],
+  "exports": {
+    "./theme-lib": "./scripts/theme-lib.mjs",
+    "./theme-package": "./scripts/theme-package.mjs"
+  },
+  "scripts": {
+    "test": "node scripts/self-test.mjs",
+    "pack:check": "npm pack --dry-run"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

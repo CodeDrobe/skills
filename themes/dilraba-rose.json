@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "id": "dilraba-rose",
+  "displayName": "Dilraba Rose / 迪丽热巴",
+  "version": "1.0.0",
+  "css": "dilraba-rose.css",
+  "art": "../assets/dilraba-rose-hero.png",
+  "copy": {
+    "brandTitle": "迪丽热巴专属定制皮肤",
+    "brandSubtitle": "Codex App 玫瑰限定版 ✦",
+    "signature": "Dilraba Dilmurat ♡",
+    "tagline": "与热巴一起，用灵感创造无限可能 ♡",
+    "projectPrefix": "选择项目 · ",
+    "projectLabel": "♡  选择项目",
+    "ribbon": "🌹"
+  },
+  "baseTheme": {
+    "mode": "light",
+    "codeTheme": "codex",
+    "accent": "#B85F6C",
+    "contrast": 78,
+    "ink": "#38292C",
+    "surface": "#FBF7F3",
+    "opaqueWindows": true,
+    "fonts": {
+      "windowsCode": "Cascadia Code",
+      "windowsUi": "Microsoft YaHei UI",
+      "macCode": "SF Mono",
+      "macUi": "PingFang SC"
+    },
+    "semanticColors": {
+      "diffAdded": "#CFE7D7",
+      "diffRemoved": "#F1C7CB",
+      "skill": "#C87582"
+    }
+  }
+}

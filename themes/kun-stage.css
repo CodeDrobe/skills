@@ -1,0 +1,789 @@
+:root.codedrobe-codex-skin {
+  color-scheme: dark !important;
+  --dream-ink: #ececff;
+  --dream-purple: #7167ff;
+  --dream-violet: #8b5cf6;
+  --dream-pink: #a78bfa;
+  --dream-blush: #0b1028;
+  --dream-pearl: rgba(11, 16, 40, .92);
+  --dream-line: rgba(139, 92, 246, .48);
+  --color-token-foreground: #ececff;
+  --color-token-description-foreground: rgba(207, 210, 239, .72);
+  --color-token-disabled-foreground: rgba(207, 210, 239, .56);
+  --color-token-input-foreground: #ececff;
+  --color-token-input-placeholder-foreground: rgba(207, 210, 239, .62);
+  --color-token-input-background: rgba(9, 13, 34, .96);
+  --color-token-editor-foreground: #ececff;
+  --color-token-editor-background: #070b1b;
+  --color-token-editor-widget-background: rgba(11, 16, 40, .98);
+  --color-token-terminal-foreground: #e1e4ff;
+  --color-token-terminal-background: #070b1b;
+  --color-token-dropdown-foreground: #ececff;
+  --color-token-dropdown-background: #0b1028;
+  --color-token-menu-background: rgba(11, 16, 40, .98);
+  --color-token-text-preformat-foreground: #e1e4ff;
+  --color-token-text-preformat-background: rgba(25, 31, 67, .88);
+  --color-token-text-code-block-background: rgba(18, 24, 55, .88);
+  --color-token-icon-foreground: #c7c9f4;
+  --color-token-badge-foreground: #d9dcff;
+  --color-token-badge-background: rgba(99, 102, 241, .18);
+  --color-token-list-hover-background: rgba(76, 71, 176, .28);
+  --color-token-list-active-selection-foreground: #f5f3ff;
+  --color-token-list-active-selection-background: rgba(67, 56, 202, .36);
+  --color-token-toolbar-hover-background: rgba(99, 102, 241, .18);
+  --color-token-scrollbar-slider-background: rgba(139, 92, 246, .22);
+  --color-token-scrollbar-slider-hover-background: rgba(139, 92, 246, .34);
+  --color-token-scrollbar-slider-active-background: rgba(167, 139, 250, .42);
+}
+
+html.codedrobe-codex-skin body {
+  background:
+    radial-gradient(circle at 78% 2%, rgba(255, 184, 215, .66), transparent 25%),
+    radial-gradient(circle at 24% 12%, rgba(210, 171, 255, .48), transparent 28%),
+    linear-gradient(135deg, #fff9fc 0%, #fceef8 48%, #f3eafd 100%) !important;
+  color: var(--dream-ink) !important;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "PingFang SC", "Microsoft YaHei UI", "Microsoft YaHei", system-ui, sans-serif !important;
+}
+
+html.codedrobe-codex-skin body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: .34;
+  background-image:
+    radial-gradient(circle, rgba(255,255,255,.98) 0 1px, transparent 2px),
+    radial-gradient(circle, rgba(250,151,211,.8) 0 1px, transparent 2px);
+  background-position: 0 0, 23px 31px;
+  background-size: 53px 53px, 67px 67px;
+}
+
+html.codedrobe-codex-skin aside.app-shell-left-panel {
+  background:
+    linear-gradient(180deg, rgba(255,250,253,.98), rgba(255,239,248,.96)) !important;
+  border: 1px solid rgba(229, 151, 198, .45) !important;
+  border-left: 0 !important;
+  border-radius: 0 20px 20px 0 !important;
+  box-shadow: 10px 0 32px rgba(142, 55, 147, .10), inset -1px 0 rgba(255,255,255,.9) !important;
+  backdrop-filter: none !important;
+  color: var(--dream-ink) !important;
+}
+
+html.codedrobe-codex-skin aside.app-shell-left-panel nav {
+  background: transparent !important;
+}
+
+html.codedrobe-codex-skin aside.app-shell-left-panel button {
+  color: #55266e !important;
+  transition: transform .16s ease, background .16s ease, box-shadow .16s ease !important;
+}
+
+html.codedrobe-codex-skin aside.app-shell-left-panel button:hover {
+  background: linear-gradient(90deg, rgba(255,211,235,.72), rgba(221,194,255,.62)) !important;
+  box-shadow: inset 0 0 0 1px rgba(207,110,190,.22) !important;
+  transform: translateX(1px);
+}
+
+html.codedrobe-codex-skin aside.app-shell-left-panel button[aria-label^="切换模式"] {
+  background: transparent !important;
+  border-color: transparent !important;
+  font-family: Georgia, "Times New Roman", serif !important;
+  font-size: 20px !important;
+  font-weight: 700 !important;
+  color: #7e36c3 !important;
+  text-shadow: 0 2px 10px rgba(255,89,183,.28);
+}
+
+html.codedrobe-codex-skin aside.app-shell-left-panel button[aria-label^="切换模式"]::after {
+  content: "✦";
+  margin-left: 2px;
+  color: #f16ab5;
+}
+
+html.codedrobe-codex-skin aside.app-shell-left-panel [class~="bg-token-list-hover-background"],
+html.codedrobe-codex-skin aside.app-shell-left-panel [aria-current="page"] {
+  background: linear-gradient(90deg, rgba(229,197,255,.78), rgba(255,202,231,.72)) !important;
+  border: 1px solid rgba(193,101,191,.30) !important;
+  box-shadow: 0 4px 16px rgba(146,70,162,.10) !important;
+}
+
+html.codedrobe-codex-skin main.main-surface {
+  background:
+    radial-gradient(circle at 84% 10%, rgba(255,180,221,.34), transparent 30%),
+    radial-gradient(circle at 20% 0%, rgba(214,181,255,.25), transparent 26%),
+    linear-gradient(180deg, #fff8fc 0%, #fff3f9 100%) !important;
+  border: 1px solid rgba(232, 166, 208, .45) !important;
+  border-right: 0 !important;
+  border-bottom: 0 !important;
+  border-radius: 20px 0 0 0 !important;
+  box-shadow: inset 0 1px rgba(255,255,255,.95), -8px 0 30px rgba(142,55,147,.08) !important;
+  overflow: hidden !important;
+}
+
+html.codedrobe-codex-skin main.main-surface > header.app-header-tint {
+  background:
+    linear-gradient(90deg, rgba(255,249,252,.95), rgba(255,227,243,.84), rgba(229,207,255,.78)) !important;
+  border-bottom: 1px solid rgba(229,151,198,.34) !important;
+  backdrop-filter: none !important;
+}
+
+#codedrobe-codex-skin-chrome {
+  position: fixed;
+  z-index: 31;
+  pointer-events: none;
+  overflow: hidden;
+  border-radius: 20px 0 0 0;
+}
+
+.dream-brand {
+  position: absolute;
+  left: 25px;
+  top: 3px;
+  height: 40px;
+  display: none;
+  align-items: center;
+  gap: 10px;
+  color: #7730ae;
+  text-shadow: 0 1px 0 white;
+}
+
+#codedrobe-codex-skin-chrome.dream-home-shell .dream-brand { display: flex; }
+.dream-brand .dream-note { font-size: 29px; color: #ba4dde; filter: drop-shadow(0 2px 4px rgba(255,102,190,.34)); }
+.dream-brand b { display: block; font-size: 15px; letter-spacing: .04em; }
+.dream-brand small { display: block; margin-top: 1px; color: #9e58bd; font-size: 10px; letter-spacing: .03em; }
+
+.dream-signature {
+  position: absolute;
+  right: 92px;
+  top: 6px;
+  display: none;
+  color: #ef73b8;
+  font: italic 20px/1.2 "Segoe Script", "Comic Sans MS", cursive;
+  text-shadow: 0 0 8px white, 0 2px 8px rgba(181,61,143,.24);
+  transform: rotate(-3deg);
+}
+#codedrobe-codex-skin-chrome.dream-home-shell .dream-signature { display: block; }
+
+.dream-sparkles { position: absolute; inset: 48px 0 0; opacity: .72; }
+.dream-sparkles i { position: absolute; width: 5px; height: 5px; border-radius: 50%; background: white; box-shadow: 0 0 10px 3px rgba(255,112,196,.66); }
+.dream-sparkles i::before, .dream-sparkles i::after { content: ""; position: absolute; left: 2px; top: -6px; width: 1px; height: 17px; background: linear-gradient(transparent, rgba(255,255,255,.95), transparent); }
+.dream-sparkles i::after { transform: rotate(90deg); }
+.dream-sparkles i:nth-child(1) { left: 7%; top: 11%; }
+.dream-sparkles i:nth-child(2) { left: 31%; top: 5%; opacity: .55; }
+.dream-sparkles i:nth-child(3) { left: 55%; top: 17%; opacity: .82; }
+.dream-sparkles i:nth-child(4) { left: 78%; top: 8%; opacity: .64; }
+.dream-sparkles i:nth-child(5) { left: 92%; top: 27%; opacity: .9; }
+.dream-sparkles i:nth-child(6) { left: 66%; top: 66%; opacity: .48; }
+
+.dream-polaroid {
+  position: absolute;
+  right: 11px;
+  bottom: 74px;
+  width: 116px;
+  height: 150px;
+  display: none;
+  background-image: var(--dream-art);
+  background-size: 915% auto;
+  background-position: 100% 100%;
+  border: 7px solid rgba(255,253,253,.96);
+  border-bottom-width: 20px;
+  box-shadow: 0 9px 20px rgba(105,47,107,.22), 0 0 0 1px rgba(197,119,163,.26);
+  transform: rotate(-7deg);
+  border-radius: 2px;
+}
+#codedrobe-codex-skin-chrome.dream-home-shell .dream-polaroid { display: block; }
+.dream-polaroid::before { content: "🎀"; position: absolute; left: -21px; top: -24px; font-size: 32px; filter: drop-shadow(0 3px 4px rgba(151,66,119,.25)); }
+
+.dream-ribbon {
+  position: absolute;
+  left: 50%;
+  bottom: 68px;
+  display: none;
+  align-items: center;
+  gap: 8px;
+  color: #d54f9a;
+  font-size: 30px;
+  transform: translateX(-50%);
+  filter: drop-shadow(0 4px 5px rgba(166,66,137,.26));
+}
+#codedrobe-codex-skin-chrome.dream-home-shell .dream-ribbon { display: flex; }
+.dream-ribbon span { font-size: 15px; color: #c36dff; }
+
+html.codedrobe-codex-skin [role="main"] {
+  background: transparent !important;
+  scrollbar-color: rgba(190,91,192,.52) transparent;
+}
+
+html.codedrobe-codex-skin .dream-home {
+  --thread-content-max-width: min(950px, calc(100cqw - 44px)) !important;
+  overflow-x: hidden !important;
+}
+
+.dream-home > div:first-child {
+  padding-top: 15px !important;
+  min-height: 100% !important;
+}
+
+.dream-home > div:first-child > div:first-child {
+  flex: 0 0 430px !important;
+  min-height: 430px !important;
+  align-items: flex-start !important;
+  padding-bottom: 0 !important;
+}
+
+.dream-home > div:first-child > div:first-child > div:first-child {
+  position: relative !important;
+  isolation: isolate;
+  width: calc(100% - 44px) !important;
+  max-width: none !important;
+  height: 252px !important;
+  min-height: 252px !important;
+  flex: 0 1 auto !important;
+  padding: 0 !important;
+  border: 2px solid rgba(255,193,221,.90) !important;
+  border-radius: 25px !important;
+  overflow: visible !important;
+  background-image:
+    linear-gradient(90deg, rgba(113,50,178,.06), rgba(255,129,196,.05)),
+    var(--dream-art) !important;
+  background-repeat: no-repeat !important;
+  background-size: 100% 100%, auto 300% !important;
+  background-position: center, right 22% !important;
+  box-shadow: 0 14px 34px rgba(150,60,151,.20), inset 0 0 0 4px rgba(255,255,255,.20) !important;
+}
+
+.dream-home > div:first-child > div:first-child > div:first-child::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  inset: 0 auto 0 0;
+  width: 58%;
+  border-radius: 23px 0 0 23px;
+  pointer-events: none;
+  background: linear-gradient(90deg, rgba(90,38,154,.98) 0%, rgba(112,48,170,.94) 54%, rgba(130,56,179,.66) 78%, transparent 100%);
+}
+
+.dream-home > div:first-child > div:first-child > div:first-child > div:first-child {
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  padding-left: 38px;
+}
+
+.dream-home > div:first-child > div:first-child > div:first-child > div:first-child > div:first-child {
+  width: 54% !important;
+  align-items: flex-start !important;
+  gap: 0 !important;
+}
+
+.dream-home [data-testid="home-icon"] {
+  display: none !important;
+}
+
+.dream-home [data-feature="game-source"] {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  justify-content: flex-start !important;
+  max-width: 100% !important;
+  color: white !important;
+  font-size: clamp(20px, 2vw, 30px) !important;
+  line-height: 1.3 !important;
+  font-weight: 750 !important;
+  text-align: left !important;
+  text-shadow: 0 2px 12px rgba(58,15,92,.42), 0 1px 0 rgba(255,255,255,.28);
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}
+
+.dream-home [data-feature="game-source"]::after {
+  content: var(--dream-tagline, "把灵感写进每一天 ♡");
+  display: block;
+  margin-top: 13px;
+  color: rgba(255,248,255,.94);
+  font-size: 15px;
+  line-height: 1.5;
+  font-weight: 500;
+  letter-spacing: .02em;
+}
+
+.dream-home [data-feature="game-source"] button {
+  margin: 0 5px;
+  padding: 2px 9px 3px;
+  border: 1px solid rgba(255,226,245,.72);
+  border-radius: 999px;
+  background: rgba(255,233,247,.22);
+  color: #ffe0f3 !important;
+  text-decoration-color: rgba(255,224,243,.72) !important;
+  text-underline-offset: 5px;
+  box-shadow: inset 0 0 12px rgba(255,255,255,.10);
+}
+
+.dream-home [data-feature="game-source"] button::before {
+  content: var(--dream-project-prefix, "选择项目 · ");
+  font-size: .48em;
+  font-weight: 600;
+  vertical-align: middle;
+  opacity: .86;
+}
+
+.dream-home > div:first-child > div:first-child > div:first-child > div:nth-child(2) {
+  left: 14px !important;
+  right: 14px !important;
+  top: 100% !important;
+  margin-top: 13px !important;
+}
+
+.dream-home .group\/home-suggestions {
+  overflow: visible !important;
+}
+
+.dream-home .group\/home-suggestions button {
+  position: relative !important;
+  min-height: 126px !important;
+  padding: 14px 13px 12px !important;
+  align-items: stretch !important;
+  justify-content: flex-start !important;
+  text-align: center !important;
+  border: 1px solid rgba(231,169,197,.82) !important;
+  border-radius: 23px !important;
+  background:
+    radial-gradient(circle at 50% 25%, rgba(255,255,255,.96), transparent 34%),
+    linear-gradient(145deg, rgba(255,251,247,.96), rgba(255,237,246,.96)) !important;
+  color: #4d2567 !important;
+  font-weight: 600 !important;
+  line-height: 1.45 !important;
+  box-shadow: 0 8px 18px rgba(120,55,119,.11), inset 0 0 0 3px rgba(255,255,255,.50) !important;
+  transform: translateY(0);
+  transition: transform .18s ease, box-shadow .18s ease !important;
+}
+
+.dream-home .group\/home-suggestions button:hover {
+  transform: translateY(-4px) !important;
+  box-shadow: 0 13px 26px rgba(144,55,137,.18), 0 0 0 2px rgba(205,112,230,.16) !important;
+}
+
+.dream-home .group\/home-suggestions button > span:first-child > span:first-child {
+  width: 38px;
+  height: 38px;
+  display: grid !important;
+  place-items: center;
+  margin: 0 auto;
+  border-radius: 50%;
+  color: white !important;
+  background: linear-gradient(145deg, #f68ec6, #a14fe0);
+  box-shadow: 0 0 0 7px rgba(255,218,233,.64), 0 5px 12px rgba(142,61,152,.24);
+}
+.dream-home .group\/home-suggestions button svg {
+  width: 21px !important;
+  height: 21px !important;
+  color: white !important;
+}
+.dream-home .group\/home-suggestions button > span:first-child {
+  justify-content: center !important;
+}
+.dream-home .group\/home-suggestions button > span:last-child {
+  align-items: center !important;
+  text-align: center !important;
+}
+
+html.codedrobe-codex-skin .composer-surface-chrome {
+  border: 2px solid rgba(228,132,188,.58) !important;
+  border-radius: 25px !important;
+  background:
+    radial-gradient(circle at 88% 22%, rgba(255,255,255,.92), transparent 24%),
+    linear-gradient(145deg, rgba(255,252,253,.96), rgba(255,235,246,.94)) !important;
+  box-shadow: 0 10px 25px rgba(132,54,125,.15), inset 0 0 0 4px rgba(255,255,255,.45) !important;
+  backdrop-filter: none !important;
+  overflow: visible !important;
+}
+
+html.codedrobe-codex-skin .composer-surface-chrome::before {
+  content: "♡";
+  position: absolute;
+  left: -13px;
+  top: -13px;
+  z-index: 20;
+  width: 27px;
+  height: 27px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  color: white;
+  background: linear-gradient(145deg, #ff96c9, #af55df);
+  box-shadow: 0 4px 12px rgba(136,53,133,.22);
+}
+
+.dream-home div:has(> .horizontal-scroll-fade-mask .group\/project-selector) {
+  position: relative;
+  padding-top: 28px !important;
+  border: 1px solid rgba(227,148,195,.44);
+  border-bottom: 0;
+  background: linear-gradient(180deg, rgba(255,248,252,.94), rgba(255,233,246,.88)) !important;
+}
+
+.dream-home div:has(> .horizontal-scroll-fade-mask .group\/project-selector)::before {
+  content: var(--dream-project-label, "♡  选择项目");
+  position: absolute;
+  left: 13px;
+  top: 6px;
+  z-index: 2;
+  color: #8e3fae;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: .04em;
+  text-shadow: 0 1px white;
+  white-space: nowrap;
+}
+
+.dream-home .group\/project-selector > button {
+  border-color: rgba(199,111,189,.38) !important;
+  background: linear-gradient(135deg, rgba(255,255,255,.92), rgba(244,224,255,.86)) !important;
+  color: #6f3296 !important;
+  box-shadow: 0 3px 10px rgba(125,57,133,.10) !important;
+}
+
+html.codedrobe-codex-skin .ProseMirror {
+  color: #55266c !important;
+  caret-color: #b33fd2 !important;
+}
+
+html.codedrobe-codex-skin button[class~="bg-token-foreground"] {
+  background: linear-gradient(145deg, #cf61f0, #a237ca) !important;
+  color: white !important;
+  box-shadow: 0 5px 12px rgba(158,54,176,.26) !important;
+}
+
+html.codedrobe-codex-skin article,
+html.codedrobe-codex-skin [data-message-author-role] {
+  border-radius: 20px;
+}
+
+@media (max-width: 1120px) {
+  .dream-polaroid { display: none !important; }
+  .dream-ribbon { bottom: 70px; font-size: 25px; }
+  .dream-home { --thread-content-max-width: min(860px, calc(100cqw - 30px)) !important; }
+  .dream-home > div:first-child > div:first-child > div:first-child { width: calc(100% - 28px) !important; }
+}
+
+@media (max-width: 900px) {
+  .dream-signature { display: none !important; }
+  .dream-brand { left: 15px; }
+  .dream-brand b { font-size: 13px; }
+  .dream-home > div:first-child > div:first-child { flex-basis: 396px !important; min-height: 396px !important; }
+  .dream-home > div:first-child > div:first-child > div:first-child { height: 224px !important; min-height: 224px !important; background-size: 100% 100%, auto 300% !important; }
+  .dream-home > div:first-child > div:first-child > div:first-child > div:first-child { padding-left: 26px; }
+  .dream-home > div:first-child > div:first-child > div:first-child > div:first-child > div:first-child { width: 66% !important; }
+  .dream-home [data-feature="game-source"] { font-size: 18px !important; }
+  .dream-home [data-feature="game-source"]::after { font-size: 12px; margin-top: 10px; }
+  .dream-home .group\/home-suggestions button { min-height: 114px !important; font-size: 12px !important; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dream-sparkles i { animation: none !important; }
+}
+
+/* KUN Stage: dark arena overrides. These stay below the shared layout rules so
+   the native Codex controls remain live while the decorative surface changes. */
+html.codedrobe-codex-skin body {
+  background:
+    radial-gradient(circle at 82% 0%, rgba(83, 65, 208, .22), transparent 31%),
+    radial-gradient(circle at 13% 20%, rgba(37, 99, 235, .12), transparent 28%),
+    linear-gradient(145deg, #03050d 0%, #070b1b 48%, #0a0d22 100%) !important;
+  color: #ececff !important;
+}
+
+html.codedrobe-codex-skin body::before {
+  opacity: .30;
+  background-image:
+    radial-gradient(circle, rgba(167,139,250,.86) 0 1px, transparent 1.8px),
+    linear-gradient(118deg, transparent 0 48%, rgba(99,102,241,.12) 49%, transparent 50%);
+  background-position: 0 0, center;
+  background-size: 71px 71px, 170px 170px;
+}
+
+html.codedrobe-codex-skin aside.app-shell-left-panel {
+  background:
+    linear-gradient(180deg, rgba(5,8,22,.99), rgba(8,12,31,.98)) !important;
+  border-color: rgba(129, 140, 248, .30) !important;
+  box-shadow: 10px 0 34px rgba(0,0,0,.36), inset -1px 0 rgba(139,92,246,.12) !important;
+  color: #e7e8ff !important;
+}
+
+html.codedrobe-codex-skin aside.app-shell-left-panel button {
+  color: #d8d9f5 !important;
+}
+
+html.codedrobe-codex-skin aside.app-shell-left-panel button:hover {
+  background: linear-gradient(90deg, rgba(76,71,176,.28), rgba(26,33,73,.54)) !important;
+  box-shadow: inset 0 0 0 1px rgba(139,92,246,.28), 0 0 18px rgba(76,71,176,.12) !important;
+}
+
+html.codedrobe-codex-skin aside.app-shell-left-panel button[aria-label^="切换模式"] {
+  color: #c4b5fd !important;
+  text-shadow: 0 0 16px rgba(139,92,246,.46);
+}
+
+html.codedrobe-codex-skin aside.app-shell-left-panel button[aria-label^="切换模式"]::after {
+  content: "♫";
+  color: #818cf8;
+}
+
+html.codedrobe-codex-skin aside.app-shell-left-panel [class~="bg-token-list-hover-background"],
+html.codedrobe-codex-skin aside.app-shell-left-panel [aria-current="page"] {
+  background: linear-gradient(90deg, rgba(67,56,202,.38), rgba(30,41,89,.58)) !important;
+  border-color: rgba(139,92,246,.38) !important;
+  box-shadow: 0 5px 20px rgba(0,0,0,.22), inset 3px 0 #8b5cf6 !important;
+}
+
+html.codedrobe-codex-skin main.main-surface {
+  background:
+    radial-gradient(circle at 84% 4%, rgba(79,70,229,.15), transparent 30%),
+    linear-gradient(180deg, #080c1d 0%, #050817 100%) !important;
+  border-color: rgba(129,140,248,.28) !important;
+  box-shadow: inset 0 1px rgba(196,181,253,.10), -8px 0 34px rgba(0,0,0,.32) !important;
+}
+
+html.codedrobe-codex-skin main.main-surface > header.app-header-tint {
+  background: linear-gradient(90deg, rgba(5,8,23,.98), rgba(10,14,36,.95), rgba(28,23,69,.92)) !important;
+  border-bottom-color: rgba(129,140,248,.24) !important;
+}
+
+.dream-brand {
+  color: #e6e1ff;
+  text-shadow: 0 0 14px rgba(139,92,246,.34);
+}
+
+.dream-brand .dream-note {
+  color: #a78bfa;
+  filter: drop-shadow(0 0 8px rgba(124,108,255,.62));
+}
+
+.dream-brand small { color: #a8abd2; }
+
+.dream-signature {
+  color: #b6adff;
+  font-family: "Segoe Script", "Bradley Hand", cursive;
+  text-shadow: 0 0 12px rgba(124,108,255,.62), 0 2px 10px rgba(0,0,0,.68);
+}
+
+.dream-sparkles { opacity: .88; }
+.dream-sparkles i {
+  background: #e0e7ff;
+  box-shadow: 0 0 12px 3px rgba(99,102,241,.55);
+}
+
+.dream-polaroid {
+  background-position: 68% center;
+  border-color: rgba(230,231,255,.94);
+  box-shadow: 0 12px 30px rgba(0,0,0,.52), 0 0 0 1px rgba(139,92,246,.44), 0 0 24px rgba(76,71,176,.20);
+}
+
+.dream-polaroid::before {
+  content: "♫";
+  color: #8b5cf6;
+  text-shadow: 0 0 8px #4338ca;
+}
+
+.dream-ribbon {
+  color: #d8d9ff;
+  font-family: Georgia, serif;
+  font-weight: 700;
+  filter: drop-shadow(0 0 9px rgba(139,92,246,.72));
+}
+.dream-ribbon span { color: #818cf8; }
+
+html.codedrobe-codex-skin [role="main"] {
+  background: #050817 !important;
+  color: #e7e8f7 !important;
+  scrollbar-color: rgba(129,140,248,.50) transparent;
+}
+
+.dream-home > div:first-child > div:first-child > div:first-child {
+  border-color: rgba(167,139,250,.48) !important;
+  background-image:
+    linear-gradient(90deg, rgba(3,5,15,.18), rgba(49,46,129,.06)),
+    var(--dream-art) !important;
+  background-position: center, center top !important;
+  background-size: 100% 100%, contain !important;
+  box-shadow:
+    0 18px 46px rgba(0,0,0,.45),
+    0 0 0 1px rgba(99,102,241,.18),
+    inset 0 0 0 3px rgba(196,181,253,.08) !important;
+}
+
+.dream-home > div:first-child > div:first-child > div:first-child::before {
+  width: 66%;
+  background: linear-gradient(90deg, rgba(3,6,20,.98) 0%, rgba(5,9,27,.94) 56%, rgba(7,11,31,.69) 80%, transparent 100%);
+}
+
+.dream-home [data-feature="game-source"] {
+  color: #f1f0ff !important;
+  text-shadow: 0 2px 16px rgba(0,0,0,.86), 0 0 24px rgba(67,56,202,.22);
+}
+
+.dream-home [data-feature="game-source"]::after {
+  color: #c5c7e8;
+}
+
+.dream-home [data-feature="game-source"] button {
+  border-color: rgba(167,139,250,.44);
+  background: rgba(10,14,37,.72);
+  color: #c4b5fd !important;
+  text-decoration-color: rgba(167,139,250,.62) !important;
+  box-shadow: inset 0 0 16px rgba(99,102,241,.13), 0 0 15px rgba(0,0,0,.18);
+}
+
+.dream-home .group\/home-suggestions button {
+  border-color: rgba(129,140,248,.34) !important;
+  background:
+    radial-gradient(circle at 50% 20%, rgba(99,102,241,.16), transparent 36%),
+    linear-gradient(145deg, rgba(15,20,48,.98), rgba(7,11,29,.99)) !important;
+  color: #e7e7fb !important;
+  box-shadow: 0 10px 24px rgba(0,0,0,.28), inset 0 0 0 2px rgba(196,181,253,.06) !important;
+}
+
+.dream-home .group\/home-suggestions button:hover {
+  border-color: rgba(167,139,250,.58) !important;
+  box-shadow: 0 15px 32px rgba(0,0,0,.42), 0 0 0 2px rgba(139,92,246,.16), 0 0 24px rgba(79,70,229,.16) !important;
+}
+
+.dream-home .group\/home-suggestions button > span:first-child > span:first-child {
+  color: #f5f3ff !important;
+  background: linear-gradient(145deg, #818cf8, #5b44cc);
+  box-shadow: 0 0 0 7px rgba(67,56,202,.18), 0 6px 16px rgba(0,0,0,.34), 0 0 18px rgba(124,108,255,.28);
+}
+
+.dream-home .group\/home-suggestions button > span:last-child,
+.dream-home .group\/home-suggestions button > span:last-child > span,
+.dream-home .group\/home-suggestions button [class*="text-token-"] {
+  color: #ececff !important;
+  opacity: 1 !important;
+  text-shadow: 0 1px 8px rgba(0,0,0,.72);
+}
+
+.dream-home .group\/home-suggestions button > span:last-child > span:last-child:not(:first-child) {
+  color: #bfc3e6 !important;
+}
+
+.dream-home .group\/home-suggestions button svg,
+.dream-home .group\/home-suggestions button svg * {
+  color: #ddd6fe !important;
+  stroke: currentColor !important;
+  opacity: 1 !important;
+}
+
+html.codedrobe-codex-skin .composer-surface-chrome {
+  border-color: rgba(139,92,246,.48) !important;
+  background:
+    radial-gradient(circle at 88% 22%, rgba(79,70,229,.15), transparent 25%),
+    linear-gradient(145deg, rgba(12,17,43,.99), rgba(5,9,25,.99)) !important;
+  box-shadow: 0 12px 30px rgba(0,0,0,.38), inset 0 0 0 3px rgba(196,181,253,.06), 0 0 24px rgba(67,56,202,.10) !important;
+}
+
+html.codedrobe-codex-skin .composer-surface-chrome::before {
+  content: "K";
+  color: #f4f2ff;
+  font: 700 14px/1 Georgia, serif;
+  background: linear-gradient(145deg, #8176ff, #4338ca);
+  box-shadow: 0 5px 14px rgba(0,0,0,.34), 0 0 14px rgba(139,92,246,.38);
+}
+
+.dream-home div:has(> .horizontal-scroll-fade-mask .group\/project-selector) {
+  border-color: rgba(129,140,248,.28);
+  background: linear-gradient(180deg, rgba(12,17,42,.98), rgba(6,10,27,.98)) !important;
+}
+
+.dream-home div:has(> .horizontal-scroll-fade-mask .group\/project-selector)::before {
+  color: #bdb6f7;
+  text-shadow: 0 0 10px rgba(99,102,241,.40);
+}
+
+.dream-home .group\/project-selector > button {
+  border-color: rgba(129,140,248,.34) !important;
+  background: linear-gradient(135deg, rgba(18,24,55,.98), rgba(9,13,34,.96)) !important;
+  color: #d4d4ef !important;
+  box-shadow: 0 4px 12px rgba(0,0,0,.24) !important;
+}
+
+html.codedrobe-codex-skin .ProseMirror {
+  color: #ececff !important;
+  caret-color: #a78bfa !important;
+}
+
+html.codedrobe-codex-skin button[class~="bg-token-foreground"] {
+  background: linear-gradient(145deg, #8478ff, #4f46c8) !important;
+  color: white !important;
+  box-shadow: 0 6px 16px rgba(0,0,0,.32), 0 0 16px rgba(99,102,241,.24) !important;
+}
+
+html.codedrobe-codex-skin article,
+html.codedrobe-codex-skin [data-message-author-role] {
+  color: #f0f1ff !important;
+}
+
+html.codedrobe-codex-skin :is(article, [data-message-author-role]) :is(p, span, li, h1, h2, h3, h4, h5, h6, code),
+html.codedrobe-codex-skin :is(article, [data-message-author-role]) [class*="text-token-"] {
+  color: #f0f1ff !important;
+  opacity: 1 !important;
+}
+
+html.codedrobe-codex-skin main.main-surface > header.app-header-tint :is(span, p, button),
+html.codedrobe-codex-skin main.main-surface > header.app-header-tint [class*="text-token-"] {
+  color: #e5e7ff !important;
+  opacity: 1 !important;
+}
+
+/* Conversation markup does not expose a stable role in every Codex build.
+   Keep native semantic git colors, but make ordinary thread copy readable. */
+html.codedrobe-codex-skin main.main-surface :is(p, li, h1, h2, h3, h4, h5, h6, code, span) {
+  color: #e9eaff !important;
+}
+
+html.codedrobe-codex-skin main.main-surface [class*="text-token-description"],
+html.codedrobe-codex-skin main.main-surface [class*="text-token-conversation-summary"] {
+  color: #bfc3e6 !important;
+  opacity: 1 !important;
+}
+
+html.codedrobe-codex-skin main.main-surface [class*="git-decoration-added"],
+html.codedrobe-codex-skin main.main-surface [class*="git-decoration-untracked"] {
+  color: #65d698 !important;
+}
+
+html.codedrobe-codex-skin main.main-surface [class*="git-decoration-delet"],
+html.codedrobe-codex-skin main.main-surface [class*="git-decoration-removed"] {
+  color: #ff8da1 !important;
+}
+
+html.codedrobe-codex-skin main.main-surface [class*="bg-token-input-background"] {
+  background-color: rgba(9, 13, 34, .96) !important;
+}
+
+html.codedrobe-codex-skin aside.app-shell-left-panel :is(span, p, h1, h2, h3, h4, label),
+html.codedrobe-codex-skin aside.app-shell-left-panel [class*="text-token-"] {
+  color: #cfd2ef !important;
+}
+
+html.codedrobe-codex-skin aside.app-shell-left-panel svg {
+  color: #9ea7f6 !important;
+  opacity: .94 !important;
+}
+
+html.codedrobe-codex-skin .composer-surface-chrome :is(span, p, label),
+html.codedrobe-codex-skin .composer-surface-chrome [class*="text-token-"],
+html.codedrobe-codex-skin .composer-surface-chrome [contenteditable="true"] {
+  color: #dfe1f8 !important;
+}
+
+html.codedrobe-codex-skin .composer-surface-chrome svg {
+  color: #aeb4ef !important;
+}
+
+html.codedrobe-codex-skin .dream-home .group\/project-selector :is(span, p),
+html.codedrobe-codex-skin .dream-home .horizontal-scroll-fade-mask :is(span, p) {
+  color: #c8cbea !important;
+}

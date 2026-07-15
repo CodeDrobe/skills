@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "id": "kun-stage",
+  "displayName": "KUN Stage / 蔡徐坤",
+  "version": "1.0.3",
+  "css": "kun-stage.css",
+  "art": "../assets/kun-stage-hero.png",
+  "copy": {
+    "brandTitle": "蔡徐坤专属主题",
+    "brandSubtitle": "Codex App KUN 舞台限定版 ✦",
+    "signature": "Keep Running · KUN",
+    "tagline": "与 KUN 一起，把灵感写进每一行代码 ⚡",
+    "projectPrefix": "KUN 宇宙 · ",
+    "projectLabel": "◈  选择创作舞台",
+    "ribbon": "K"
+  },
+  "baseTheme": {
+    "mode": "dark",
+    "codeTheme": "codex",
+    "accent": "#7C6CFF",
+    "contrast": 82,
+    "ink": "#E9EAFF",
+    "surface": "#070B1B",
+    "opaqueWindows": true,
+    "fonts": {
+      "windowsCode": "Cascadia Code",
+      "windowsUi": "Microsoft YaHei UI",
+      "macCode": "SF Mono",
+      "macUi": "PingFang SC"
+    },
+    "semanticColors": {
+      "diffAdded": "#2B6A64",
+      "diffRemoved": "#813E69",
+      "skill": "#8B5CF6"
+    }
+  }
+}

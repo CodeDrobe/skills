@@ -1,0 +1,60 @@
+{
+  "skill_name": "codedrobe-codex-theme",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "在我的 Mac 上给 Codex 安装现有 dream 皮肤，启动后截图验证，但如果 Codex 已打开不要擅自重启。",
+      "expected_output": "Uses the macOS scripts, preserves the signed app, asks before restart, and verifies the selected theme with a screenshot.",
+      "files": [],
+      "expectations": [
+        "Uses install-codedrobe.sh, start-codedrobe.sh, and verify-codedrobe.sh with theme dream",
+        "Does not modify ChatGPT.app or restart an open app without authorization",
+        "Treats screenshot and strict runtime verification as required"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "参考我给的一张海边照片，帮我做一个低饱和蓝绿色的 Codex 皮肤，名字叫 ocean-calm，文案不要明星元素。",
+      "expected_output": "Scaffolds an ocean-calm theme, uses local or generated artwork with consent, customizes manifest and CSS, increments version, and verifies visually.",
+      "files": [],
+      "expectations": [
+        "Creates a separate ocean-calm manifest and CSS instead of overwriting Dream",
+        "Uses safe local artwork handling and removes Fiona-specific copy",
+        "Preserves native controls and performs screenshot verification"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Codex 更新后皮肤只有侧边栏变粉了，首页横幅没了，帮我修复并确保以后不会假通过。",
+      "expected_output": "Diagnoses selector drift, updates the narrow compatibility selectors, and requires native-home hero/cards to pass verification.",
+      "files": [],
+      "expectations": [
+        "Does not claim that dynamic executable discovery guarantees DOM compatibility",
+        "Validates native home detection, hero, and suggestion cards",
+        "Rechecks both home and normal-task layouts"
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "把刚做好的 ocean-calm 主题导出成一个可以发给 Windows 用户直接导入的 .codex-theme 文件，不要依赖我本机的图片路径。",
+      "expected_output": "Validates the theme and uses export-theme.mjs to create a self-contained portable package with embedded CSS and artwork.",
+      "files": [],
+      "expectations": [
+        "Uses scripts/export-theme.mjs with theme ocean-calm and an explicit .codex-theme output path",
+        "Produces a single package containing the normalized manifest, CSS, and Base64 artwork",
+        "Does not leave absolute source-machine asset paths in the portable manifest"
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "我不懂命令行，帮我用 CodeDrobe 软件在 Mac 上导入朋友发来的 ocean-calm.codex-theme，应用后如果 Codex 已经打开要先问我，再告诉我怎么恢复原生界面。",
+      "expected_output": "Uses the Electron Desktop workflow, validates/imports the portable package, requires restart consent, and explains restore without asking the user to install Node.js or run scripts.",
+      "files": [],
+      "expectations": [
+        "Chooses CodeDrobe Desktop rather than the CLI for the beginner-facing request",
+        "Explains import, theme selection, apply/restart confirmation, and restore controls",
+        "Does not claim that packaged Desktop requires a separate Node.js installation"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "id": "dream",
+  "displayName": "Dream / Fiona",
+  "version": "1.1.0",
+  "css": "../assets/dream-skin.css",
+  "art": "../assets/dream-reference.png",
+  "copy": {
+    "brandTitle": "薛凯琪专属定制皮肤",
+    "brandSubtitle": "Codex App 限定版 ✦",
+    "signature": "Fiona Sit ♡",
+    "tagline": "与凯琪一起，把灵感写进每一天 ♡",
+    "projectPrefix": "选择项目 · ",
+    "projectLabel": "♡  选择项目",
+    "ribbon": "🎀"
+  },
+  "baseTheme": {
+    "mode": "light",
+    "codeTheme": "codex",
+    "accent": "#B65CFF",
+    "contrast": 64,
+    "ink": "#4A235F",
+    "surface": "#FFF4FA",
+    "opaqueWindows": true,
+    "fonts": {
+      "windowsCode": "Cascadia Code",
+      "windowsUi": "Microsoft YaHei UI",
+      "macCode": "SF Mono",
+      "macUi": "PingFang SC"
+    },
+    "semanticColors": {
+      "diffAdded": "#BCE8CF",
+      "diffRemoved": "#F7B8CE",
+      "skill": "#C47BFF"
+    }
+  }
+}
