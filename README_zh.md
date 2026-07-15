@@ -1,10 +1,16 @@
-# CodeDrobe Codex Skill
+# CodeDrobe — OpenAI Codex 主题 Skill 与运行时
+
+[![核心测试](https://github.com/anhao/codedrobe-codex-skill/actions/workflows/ci.yml/badge.svg)](https://github.com/anhao/codedrobe-codex-skill/actions/workflows/ci.yml)
+[![Apache-2.0 许可证](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](LICENSE)
+[![Node.js 20+](https://img.shields.io/badge/Node.js-20%2B-43853d)](https://nodejs.org/)
+[![macOS 与 Windows](https://img.shields.io/badge/platform-macOS%20%7C%20Windows-6f4d62)](#支持平台)
+[![Codex Skill](https://img.shields.io/badge/Codex-Skill-7c6cff)](SKILL.md)
 
 [English](README.md)
 
-官方网站：[codedrobe.app](https://codedrobe.app)
+官方网站：[codedrobe.app](https://codedrobe.app) · [下载 Desktop 应用](https://github.com/anhao/codedrobe-desktop/releases/latest)
 
-CodeDrobe Codex Skill 是一套开源 Codex 主题 Skill 与运行时，用于在 macOS 和 Windows 上为官方 Codex 桌面应用创建、应用、导出、验证和恢复自定义主题。
+CodeDrobe 是一套开源的 OpenAI Codex 主题 Skill、AI 主题生成器与跨平台运行时，用于在 macOS 和 Windows 上为官方 Codex 桌面应用创建、应用、导出、验证、分享和恢复自定义主题。
 
 ![CodeDrobe Desktop 管理 Codex 自定义主题](https://raw.githubusercontent.com/anhao/codedrobe-desktop/main/docs/images/desktop.png)
 

@@ -1,7 +1,7 @@
 {
   "name": "@codedrobe/codex-core",
   "version": "0.2.0",
-  "description": "Open-source Codex theme skill and cross-platform runtime for creating, applying, and sharing custom Codex desktop themes.",
+  "description": "Open-source OpenAI Codex theming skill, AI theme generator, and cross-platform runtime for custom Codex desktop themes.",
   "type": "module",
   "license": "Apache-2.0",
   "files": [

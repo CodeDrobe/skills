@@ -1,10 +1,16 @@
-# CodeDrobe Codex Skill
+# CodeDrobe — OpenAI Codex Theme Skill & Runtime
+
+[![Core CI](https://github.com/anhao/codedrobe-codex-skill/actions/workflows/ci.yml/badge.svg)](https://github.com/anhao/codedrobe-codex-skill/actions/workflows/ci.yml)
+[![License: Apache-2.0](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](LICENSE)
+[![Node.js 20+](https://img.shields.io/badge/Node.js-20%2B-43853d)](https://nodejs.org/)
+[![macOS and Windows](https://img.shields.io/badge/platform-macOS%20%7C%20Windows-6f4d62)](#supported-platforms)
+[![Codex Skill](https://img.shields.io/badge/Codex-Skill-7c6cff)](SKILL.md)
 
 [Chinese](README_zh.md)
 
-Website: [codedrobe.app](https://codedrobe.app)
+Website: [codedrobe.app](https://codedrobe.app) · [Download the Desktop app](https://github.com/anhao/codedrobe-desktop/releases/latest)
 
-CodeDrobe Codex Skill is an open-source Codex theming skill and runtime for creating, applying, exporting, verifying, and restoring custom themes for the official Codex desktop app on macOS and Windows.
+CodeDrobe is an open-source OpenAI Codex theming Skill, AI theme generator, and cross-platform runtime for creating, applying, exporting, verifying, sharing, and restoring custom themes for the official Codex desktop app on macOS and Windows.
 
 ![CodeDrobe Desktop managing custom themes for the Codex app](https://raw.githubusercontent.com/anhao/codedrobe-desktop/main/docs/images/desktop.png)
 
