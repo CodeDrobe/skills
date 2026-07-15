@@ -4,7 +4,9 @@
 
 Website: [codedrobe.app](https://codedrobe.app)
 
-CodeDrobe Codex Skill is a Codex Skill for creating, applying, exporting, verifying, and restoring custom themes for the official Codex desktop app on macOS and Windows.
+CodeDrobe Codex Skill is an open-source Codex theming skill and runtime for creating, applying, exporting, verifying, and restoring custom themes for the official Codex desktop app on macOS and Windows.
+
+![CodeDrobe Desktop managing custom themes for the Codex app](https://raw.githubusercontent.com/anhao/codedrobe-desktop/main/docs/images/desktop.png)
 
 It changes the renderer through the local Chromium DevTools Protocol (CDP). It does not patch the Codex application bundle, modify `app.asar`, or replace the official executable.
 
@@ -98,6 +100,12 @@ node scripts/export-theme.mjs --theme ocean-calm --output /absolute/ocean-calm.c
 ## Desktop app
 
 Prefer a graphical one-click theme manager? See [anhao/codedrobe-desktop](https://github.com/anhao/codedrobe-desktop).
+
+### Theme gallery
+
+| KUN Stage | Dream / Fiona | Dilraba Rose |
+| --- | --- | --- |
+| ![KUN Stage theme for Codex](https://raw.githubusercontent.com/anhao/codedrobe-desktop/main/docs/images/codex-01.png) | ![Dream Fiona theme for Codex](https://raw.githubusercontent.com/anhao/codedrobe-desktop/main/docs/images/codex-02.png) | ![Dilraba Rose theme for Codex](https://raw.githubusercontent.com/anhao/codedrobe-desktop/main/docs/images/codex-03.png) |
 
 ## Development
 

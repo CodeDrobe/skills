@@ -4,7 +4,9 @@
 
 官方网站：[codedrobe.app](https://codedrobe.app)
 
-CodeDrobe Codex Skill 是一个 Codex Skill，用于在 macOS 和 Windows 上为官方 Codex 桌面应用创建、应用、导出、验证和恢复自定义主题。
+CodeDrobe Codex Skill 是一套开源 Codex 主题 Skill 与运行时，用于在 macOS 和 Windows 上为官方 Codex 桌面应用创建、应用、导出、验证和恢复自定义主题。
+
+![CodeDrobe Desktop 管理 Codex 自定义主题](https://raw.githubusercontent.com/anhao/codedrobe-desktop/main/docs/images/desktop.png)
 
 它通过本机 Chromium DevTools Protocol（CDP）修改渲染界面，不会修改 Codex 应用包、替换官方可执行文件或改写 `app.asar`。
 
@@ -98,6 +100,12 @@ node scripts/export-theme.mjs --theme ocean-calm --output /absolute/ocean-calm.c
 ## 桌面软件
 
 如果希望使用图形化、一键操作的主题管理器，请前往 [anhao/codedrobe-desktop](https://github.com/anhao/codedrobe-desktop)。
+
+### 主题效果
+
+| KUN Stage | Dream / Fiona | Dilraba Rose |
+| --- | --- | --- |
+| ![Codex KUN Stage 主题](https://raw.githubusercontent.com/anhao/codedrobe-desktop/main/docs/images/codex-01.png) | ![Codex Dream Fiona 主题](https://raw.githubusercontent.com/anhao/codedrobe-desktop/main/docs/images/codex-02.png) | ![Codex Dilraba Rose 主题](https://raw.githubusercontent.com/anhao/codedrobe-desktop/main/docs/images/codex-03.png) |
 
 ## 开发验证
 
