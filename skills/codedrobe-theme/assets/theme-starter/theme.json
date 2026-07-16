@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 1,
+  "id": "my-theme",
+  "displayName": "My CodeDrobe Theme",
+  "version": "1.0.0",
+  "targets": {
+    "codex": {
+      "css": "codex.css",
+      "options": {
+        "baseTheme": {
+          "mode": "light",
+          "accent": "#7867A8",
+          "ink": "#2F2B3A",
+          "surface": "#F8F7FC"
+        }
+      },
+      "verification": {
+        "contexts": [
+          {
+            "name": "home",
+            "when": { "any": ["[role='main']:has([data-testid='home-icon'])"] },
+            "recommended": [
+              { "name": "home-suggestions", "any": [".group\\/home-suggestions"] }
+            ]
+          }
+        ]
+      }
+    },
+    "workbuddy": {
+      "css": "workbuddy.css",
+      "verification": {
+        "contexts": [
+          {
+            "name": "home",
+            "when": { "any": [".wb-home-page"] },
+            "required": [
+              { "name": "home-header", "any": [".wb-home-header"] },
+              { "name": "home-composer", "any": [".wb-home-composer"] }
+            ],
+            "recommended": [
+              { "name": "quick-actions", "any": [".quick-actions"] }
+            ]
+          },
+          {
+            "name": "conversation",
+            "when": { "any": [".chat-container:not(.chat-container--welcome)"] },
+            "required": [
+              {
+                "name": "conversation-composer",
+                "any": [".chat-container:not(.chat-container--welcome) [role='textbox'][contenteditable='true']"]
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

@@ -30,6 +30,15 @@ jobs:
       - name: Discover installable Skills
         run: npm test
 
+      - name: Pack bundled theme sources
+        run: |
+          npx --yes --package=@codedrobe/core@latest codedrobe theme pack \
+            skills/codedrobe-theme/assets/theme-starter/theme.json \
+            --output /tmp/theme-starter.codedrobe-theme
+          npx --yes --package=@codedrobe/core@latest codedrobe theme pack \
+            skills/codedrobe-theme/assets/examples/doll-sister/theme.json \
+            --output /tmp/doll-sister.codedrobe-theme
+
       - name: Reject unfinished Skill placeholders
         shell: bash
         run: |

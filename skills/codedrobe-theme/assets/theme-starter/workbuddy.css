@@ -1,0 +1,168 @@
+/* Replace selectors that are not present in the current `codedrobe dom snapshot`. */
+:root.codedrobe-host-workbuddy {
+  color-scheme: light !important;
+  --theme-bg: #f8f7fc;
+  --theme-surface: rgba(255, 255, 255, .92);
+  --theme-surface-strong: #ffffff;
+  --theme-sidebar: rgba(244, 241, 250, .94);
+  --theme-text: #2f2b3a;
+  --theme-muted: #756f82;
+  --theme-accent: #7867a8;
+  --theme-accent-soft: rgba(120, 103, 168, .15);
+  --theme-border: rgba(74, 62, 98, .16);
+  --theme-shadow: rgba(47, 43, 58, .12);
+}
+
+html.codedrobe-host-workbuddy,
+html.codedrobe-host-workbuddy body,
+html.codedrobe-host-workbuddy #root,
+html.codedrobe-host-workbuddy .teams-container {
+  background:
+    linear-gradient(rgba(248, 247, 252, .88), rgba(244, 241, 250, .94)),
+    var(--codedrobe-image-texture, none) center / 720px auto repeat !important;
+  color: var(--theme-text) !important;
+}
+
+html.codedrobe-host-workbuddy :is(.conversation-sidebar, .conversation-list) {
+  background: var(--theme-sidebar) !important;
+  border-right: 1px solid var(--theme-border) !important;
+  box-shadow: 10px 0 28px rgba(47, 43, 58, .06) !important;
+  color: var(--theme-text) !important;
+  backdrop-filter: blur(18px) saturate(1.06);
+}
+
+html.codedrobe-host-workbuddy .conversation-sidebar :is(a, button, [role="button"]) {
+  border-radius: 10px !important;
+  color: var(--theme-text) !important;
+  transition: background-color .16s ease, transform .16s ease !important;
+}
+
+html.codedrobe-host-workbuddy .conversation-sidebar :is(a, button, [role="button"]):hover {
+  background: var(--theme-accent-soft) !important;
+  transform: translateX(2px);
+}
+
+html.codedrobe-host-workbuddy .conversation-sidebar :is(.active, [aria-current="page"], [aria-selected="true"]) {
+  background: rgba(120, 103, 168, .22) !important;
+  box-shadow: inset 0 0 0 1px var(--theme-border) !important;
+}
+
+html.codedrobe-host-workbuddy :is(.teams-content-wrapper, .teams-main-content, .main-content, .chat-container, .wb-cb-chat) {
+  background: transparent !important;
+  color: var(--theme-text) !important;
+}
+
+html.codedrobe-host-workbuddy .teams-content-wrapper {
+  border-radius: 20px 0 0 !important;
+  box-shadow: -8px 0 28px rgba(47, 43, 58, .05) !important;
+  overflow: hidden;
+}
+
+html.codedrobe-host-workbuddy .wb-home-page {
+  width: min(920px, calc(100% - 32px)) !important;
+  max-width: none !important;
+  gap: 14px !important;
+}
+
+html.codedrobe-host-workbuddy .wb-home-header {
+  position: relative !important;
+  isolation: isolate;
+  min-height: 220px !important;
+  padding: 36px 42px !important;
+  overflow: hidden !important;
+  border: 1px solid var(--theme-border) !important;
+  border-radius: 24px !important;
+  background-color: var(--theme-surface-strong) !important;
+  background-image:
+    linear-gradient(90deg, rgba(255, 255, 255, .98) 0 42%, rgba(255, 255, 255, .72) 64%, transparent 88%),
+    var(--codedrobe-image-hero, linear-gradient(135deg, #ece7f7, #f8f7fc)) !important;
+  background-repeat: no-repeat !important;
+  background-position: center, right center !important;
+  background-size: 100% 100%, cover !important;
+  box-shadow: 0 16px 36px var(--theme-shadow) !important;
+}
+
+html.codedrobe-host-workbuddy :is(.wb-home-header__title, .wb-home-header__subtitle) {
+  position: relative;
+  z-index: 1;
+  width: 56% !important;
+  color: var(--theme-text) !important;
+  text-align: left !important;
+}
+
+html.codedrobe-host-workbuddy :is(.wb-scene-tabs, .quick-actions__item) {
+  border: 1px solid var(--theme-border) !important;
+  border-radius: 14px !important;
+  background: var(--theme-surface) !important;
+  color: var(--theme-text) !important;
+  box-shadow: 0 7px 18px rgba(47, 43, 58, .07) !important;
+}
+
+html.codedrobe-host-workbuddy .quick-actions__item {
+  transition: transform .16s ease, box-shadow .16s ease !important;
+}
+
+html.codedrobe-host-workbuddy .quick-actions__item:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 11px 24px var(--theme-shadow) !important;
+}
+
+html.codedrobe-host-workbuddy :is(.wb-home-composer__input-slot > section, .chat-container section:has([role="textbox"])) {
+  border: 1px solid var(--theme-border) !important;
+  border-radius: 20px !important;
+  background: var(--theme-surface-strong) !important;
+  color: var(--theme-text) !important;
+  box-shadow: 0 12px 30px var(--theme-shadow) !important;
+  backdrop-filter: blur(16px);
+}
+
+html.codedrobe-host-workbuddy [role="textbox"][contenteditable="true"] {
+  color: var(--theme-text) !important;
+  caret-color: var(--theme-accent) !important;
+}
+
+html.codedrobe-host-workbuddy :is(button, [role="button"]):focus-visible,
+html.codedrobe-host-workbuddy :is(a, input, textarea, [contenteditable="true"]):focus-visible {
+  outline: 2px solid rgba(120, 103, 168, .68) !important;
+  outline-offset: 2px !important;
+}
+
+html.codedrobe-host-workbuddy .chat-container:not(.chat-container--welcome) :is(table, pre, blockquote) {
+  border: 1px solid var(--theme-border) !important;
+  border-radius: 12px !important;
+  background: rgba(255, 255, 255, .78) !important;
+}
+
+html.codedrobe-host-workbuddy .chat-container:not(.chat-container--welcome) pre {
+  overflow: auto !important;
+  box-shadow: inset 0 1px rgba(255, 255, 255, .8) !important;
+}
+
+html.codedrobe-host-workbuddy :is(a, button, input, textarea, [contenteditable="true"]) {
+  accent-color: var(--theme-accent);
+}
+
+html.codedrobe-host-workbuddy * {
+  scrollbar-color: rgba(120, 103, 168, .38) transparent;
+}
+
+@media (max-width: 820px) {
+  html.codedrobe-host-workbuddy .wb-home-header {
+    padding: 28px !important;
+    background-image: linear-gradient(rgba(255, 255, 255, .86), rgba(255, 255, 255, .92)), var(--codedrobe-image-hero, none) !important;
+  }
+
+  html.codedrobe-host-workbuddy :is(.wb-home-header__title, .wb-home-header__subtitle) {
+    width: 100% !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.codedrobe-host-workbuddy *,
+  html.codedrobe-host-workbuddy *::before,
+  html.codedrobe-host-workbuddy *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+}

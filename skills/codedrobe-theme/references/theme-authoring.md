@@ -51,6 +51,8 @@ Use a manifest shaped like:
 
 Only include supported targets. A single package may support multiple apps and shares its embedded named images across targets.
 
+For a new theme, copy `assets/theme-starter/`. For a complete authored example, copy `assets/examples/doll-sister/`. Read `references/dom-snapshot.md` and replace detailed selectors from a fresh snapshot before treating either source as compatible with the installed app version.
+
 ## Image variables
 
 Reference named images from CSS:
@@ -102,6 +104,7 @@ Use `required` when missing nodes make the theme unusable. Use `recommended` for
 ## Package and iterate
 
 ```bash
+codedrobe dom snapshot --app workbuddy --output /absolute/workbuddy-home-dom.json
 codedrobe theme pack /absolute/my-theme/theme.json --output /absolute/my-theme.codedrobe-theme
 codedrobe theme inspect /absolute/my-theme.codedrobe-theme
 codedrobe probe --app workbuddy --theme /absolute/my-theme.codedrobe-theme

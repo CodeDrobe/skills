@@ -69,10 +69,20 @@ bunx @codedrobe/core@latest apps
 Example:
 
 ```bash
+codedrobe dom snapshot --app workbuddy --output /absolute/workbuddy-dom.json
 codedrobe apply --app workbuddy --theme /absolute/theme.codedrobe-theme
 codedrobe verify --app workbuddy --theme /absolute/theme.codedrobe-theme --screenshot /absolute/preview.png
 codedrobe restore --app workbuddy
 ```
+
+## Theme authoring resources
+
+The installed `codedrobe-theme` Skill includes two copyable source resources:
+
+- `assets/theme-starter/`: a complete neutral Codex/WorkBuddy CSS starting point.
+- `assets/examples/doll-sister/`: the complete Doll Sister / 玩偶姐姐 multi-app theme with generated hero and texture artwork.
+
+Templates are not treated as permanent application DOM contracts. The Skill captures a privacy-preserving `codedrobe dom snapshot` from each live home/conversation context, selects semantic candidates from that snapshot, then packs, probes, applies, screenshots, and repairs the theme.
 
 ## Repository layout
 
@@ -81,7 +91,8 @@ skills/
 ├── codedrobe-theme/
 │   ├── SKILL.md
 │   ├── agents/openai.yaml
-│   └── references/
+│   ├── references/
+│   └── assets/
 └── codedrobe-adapter-dev/
     ├── SKILL.md
     ├── agents/openai.yaml

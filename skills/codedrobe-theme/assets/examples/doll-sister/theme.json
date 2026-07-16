@@ -1,0 +1,120 @@
+{
+  "schemaVersion": 1,
+  "id": "doll-sister",
+  "displayName": "Doll Sister / 玩偶姐姐",
+  "version": "1.0.0",
+  "images": {
+    "hero": "assets/hero.png",
+    "texture": "assets/texture.png"
+  },
+  "copy": {
+    "brandTitle": "玩偶姐姐专属定制皮肤",
+    "brandSubtitle": "Codex App 娃娃屋限定版 ✦",
+    "signature": "Doll Sister ♡",
+    "tagline": "与玩偶姐姐一起，把灵感缝进每一行代码 ♡",
+    "projectPrefix": "灵感衣橱 · ",
+    "projectLabel": "🎀  选择今天的创作项目",
+    "ribbon": "🎀"
+  },
+  "targets": {
+    "codex": {
+      "css": "codex.css",
+      "options": {
+        "rendererProfile": "codex-theme-v1",
+        "baseTheme": {
+          "mode": "light",
+          "codeTheme": "codex",
+          "accent": "#B688BA",
+          "contrast": 76,
+          "ink": "#4C3658",
+          "surface": "#FFF9F7",
+          "opaqueWindows": true,
+          "fonts": {
+            "windowsCode": "Cascadia Code",
+            "windowsUi": "Microsoft YaHei UI",
+            "macCode": "SF Mono",
+            "macUi": "PingFang SC"
+          },
+          "semanticColors": {
+            "diffAdded": "#CDE8D7",
+            "diffRemoved": "#F2CCD7",
+            "skill": "#C39AC9"
+          }
+        }
+      },
+      "verification": {
+        "contexts": [
+          {
+            "name": "home",
+            "when": {
+              "any": ["[role='main']:has([data-testid='home-icon'])"]
+            },
+            "required": [
+              {
+                "name": "home-hero-shell",
+                "any": ["[role='main']:has([data-testid='home-icon']) > div:first-child > div:first-child > div:first-child"]
+              }
+            ],
+            "recommended": [
+              {
+                "name": "home-suggestions",
+                "any": [".group\\/home-suggestions"]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "workbuddy": {
+      "css": "workbuddy.css",
+      "verification": {
+        "required": [
+          {
+            "name": "chat-surface",
+            "any": [".chat-container", ".wb-cb-chat"]
+          }
+        ],
+        "contexts": [
+          {
+            "name": "home",
+            "when": {
+              "any": [".wb-home-page"]
+            },
+            "required": [
+              {
+                "name": "home-hero",
+                "any": [".wb-home-header"]
+              },
+              {
+                "name": "home-composer",
+                "any": [".wb-home-composer"]
+              }
+            ],
+            "recommended": [
+              {
+                "name": "scene-tabs",
+                "any": [".wb-scene-tabs"]
+              },
+              {
+                "name": "quick-actions",
+                "any": [".quick-actions"]
+              }
+            ]
+          },
+          {
+            "name": "conversation",
+            "when": {
+              "any": [".chat-container:not(.chat-container--welcome)"]
+            },
+            "required": [
+              {
+                "name": "conversation-composer-shell",
+                "any": [".chat-container:not(.chat-container--welcome) section:has([role='textbox'][contenteditable='true'])"]
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}
