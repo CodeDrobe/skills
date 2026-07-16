@@ -1,139 +1,104 @@
-# CodeDrobe — OpenAI Codex Theme Skill & Runtime
+# CodeDrobe Skills
 
-[![Core CI](https://github.com/anhao/codedrobe-codex-skill/actions/workflows/ci.yml/badge.svg)](https://github.com/anhao/codedrobe-codex-skill/actions/workflows/ci.yml)
-[![License: Apache-2.0](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](LICENSE)
-[![Node.js 20+](https://img.shields.io/badge/Node.js-20%2B-43853d)](https://nodejs.org/)
-[![macOS and Windows](https://img.shields.io/badge/platform-macOS%20%7C%20Windows-6f4d62)](#supported-platforms)
-[![Codex Skill](https://img.shields.io/badge/Codex-Skill-7c6cff)](SKILL.md)
+[![GitHub stars](https://img.shields.io/github/stars/CodeDrobe/skills?style=flat-square)](https://github.com/CodeDrobe/skills/stargazers)
+[![Validate Skills](https://github.com/CodeDrobe/skills/actions/workflows/ci.yml/badge.svg)](https://github.com/CodeDrobe/skills/actions/workflows/ci.yml)
+[![License](https://img.shields.io/badge/license-Apache--2.0-blue.svg?style=flat-square)](LICENSE)
 
-[Chinese](README_zh.md)
+Installable Agent Skills for creating and managing reversible themes across supported Chromium/Electron AI desktop apps. Runtime behavior lives in [`@codedrobe/core`](https://github.com/CodeDrobe/core); this repository contains concise workflows and app-specific guidance only.
 
-Website: [codedrobe.app](https://codedrobe.app) · [Download the Desktop app](https://github.com/anhao/codedrobe-desktop/releases/latest)
+[简体中文](README_zh.md)
 
-CodeDrobe is an open-source OpenAI Codex theming Skill, AI theme generator, and cross-platform runtime for creating, applying, exporting, verifying, sharing, and restoring custom themes for the official Codex desktop app on macOS and Windows.
+## Skill catalog
 
-![CodeDrobe Desktop managing custom themes for the Codex app](https://raw.githubusercontent.com/anhao/codedrobe-desktop/main/docs/images/desktop.png)
+| Skill | Audience | Status |
+| --- | --- | --- |
+| [`codedrobe-theme`](skills/codedrobe-theme/SKILL.md) | Users and theme authors | Available |
+| [`codedrobe-adapter-dev`](skills/codedrobe-adapter-dev/SKILL.md) | Core maintainers and contributors | Available |
+| `codedrobe-publish-theme` | Theme publishers | Planned after registry authentication is complete |
 
-It changes the renderer through the local Chromium DevTools Protocol (CDP). It does not patch the Codex application bundle, modify `app.asar`, or replace the official executable.
+`codedrobe-theme` supports the application targets currently provided by Core, including OpenAI Codex and Tencent WorkBuddy. New apps are added to Core adapters rather than creating one user Skill per application.
 
-## What this Skill can do
+## Install
 
-- Apply decorative themes while preserving native Codex controls and workflows.
-- Create a new theme from a design brief, color palette, or local reference image.
-- Help AI customize theme copy, CSS, artwork, and official base colors.
-- Launch the official Codex app with a loopback-only CDP connection.
-- Reapply a theme after navigation, renderer reloads, or Codex updates.
-- Verify the active theme and capture screenshots for visual review.
-- Export and share a self-contained `.codex-theme` file.
-- Safely remove the injected theme and restore the previous Codex appearance settings.
+The installer command is `npx skills` (plural).
 
-## Supported platforms
-
-- macOS 12 or later
-- Windows 10 or Windows 11
-- Node.js 20 or later for direct script usage
-- The official Codex desktop app
-
-## Install with npx
-
-Make sure [Node.js](https://nodejs.org/) is installed, then run the following command in a terminal:
+List the Skills in this repository:
 
 ```bash
-npx skills add anhao/codedrobe-codex-skill
+npx skills add CodeDrobe/skills --list
 ```
 
-The installer will detect supported AI coding agents and let you choose where to install the Skill. Use this command inside a project when you want a project-level installation.
-
-To make the Skill available globally for your user account:
+Install the user-facing theme Skill globally for Codex:
 
 ```bash
-npx skills add anhao/codedrobe-codex-skill --global
+npx skills add CodeDrobe/skills \
+  --skill codedrobe-theme \
+  --global \
+  --agent codex \
+  --yes
 ```
 
-Verify the installation:
+Install the adapter-development Skill separately:
 
 ```bash
-npx skills list
-npx skills list --global
+npx skills add CodeDrobe/skills \
+  --skill codedrobe-adapter-dev \
+  --global \
+  --agent codex \
+  --yes
 ```
 
-Update the installed Skill later:
+`--agent codex` selects the AI agent that receives the Skill. It does not select the desktop app to theme. The target app is selected later through `codedrobe --app codex` or `codedrobe --app workbuddy`.
+
+## Runtime
+
+Install Core once:
 
 ```bash
-npx skills update codedrobe-codex-theme
-npx skills update codedrobe-codex-theme --global
+npm install --global @codedrobe/core
+codedrobe apps
 ```
 
-The CLI command is `skills` in the plural: use `npx skills`, not `npx skill`.
+Or run it without a global install:
 
-## Use it with Codex
+```bash
+npx --yes @codedrobe/core@latest apps
+bunx @codedrobe/core@latest apps
+```
 
-After installing this repository as a Codex Skill, you can ask Codex naturally:
+Example:
+
+```bash
+codedrobe apply --app workbuddy --theme /absolute/theme.codedrobe-theme
+codedrobe verify --app workbuddy --theme /absolute/theme.codedrobe-theme --screenshot /absolute/preview.png
+codedrobe restore --app workbuddy
+```
+
+## Repository layout
 
 ```text
-Apply the Dream theme to Codex.
-Create a dark ocean theme from this reference image.
-Export the Dream theme as a .codex-theme file.
-Verify the current theme and save a screenshot.
-Restore the original Codex appearance.
+skills/
+├── codedrobe-theme/
+│   ├── SKILL.md
+│   ├── agents/openai.yaml
+│   └── references/
+└── codedrobe-adapter-dev/
+    ├── SKILL.md
+    ├── agents/openai.yaml
+    └── references/
 ```
 
-Codex reads [`SKILL.md`](SKILL.md) to select the correct creation, launch, verification, export, or restore workflow for the current platform.
+There is intentionally no root `SKILL.md`: the standard `skills/<name>/SKILL.md` layout allows `npx skills` to discover and install each Skill independently.
 
-## Command-line usage
+## Project boundaries
 
-Install and launch an existing theme on macOS:
+- [`CodeDrobe/core`](https://github.com/CodeDrobe/core): CLI, adapters, CDP runtime, host settings, package validation, and public API.
+- [`CodeDrobe/skills`](https://github.com/CodeDrobe/skills): installable agent workflows and references.
+- [`CodeDrobe/desktop`](https://github.com/CodeDrobe/desktop): visual theme manager built on Core.
+- Theme publishing: intentionally withheld until authentication, ownership, moderation, and revocation are implemented.
 
-```bash
-scripts/install-codedrobe.sh --theme dream
-scripts/start-codedrobe.sh --theme dream
-```
+See [CONTRIBUTING.md](CONTRIBUTING.md) before adding or changing a Skill.
 
-Install and launch an existing theme on Windows:
+## License and trademarks
 
-```powershell
-scripts/install-codedrobe.ps1 -Theme dream
-scripts/start-codedrobe.ps1 -Theme dream
-```
-
-Create and export a portable theme:
-
-```bash
-node scripts/create-theme.mjs --id ocean-calm --name "Ocean Calm" --art /absolute/cover.png
-node scripts/export-theme.mjs --theme ocean-calm --output /absolute/ocean-calm.codex-theme
-```
-
-## Desktop app
-
-Prefer a graphical one-click theme manager? See [anhao/codedrobe-desktop](https://github.com/anhao/codedrobe-desktop).
-
-### Theme gallery
-
-| KUN Stage | Dream / Fiona | Dilraba Rose |
-| --- | --- | --- |
-| ![KUN Stage theme for Codex](https://raw.githubusercontent.com/anhao/codedrobe-desktop/main/docs/images/codex-01.png) | ![Dream Fiona theme for Codex](https://raw.githubusercontent.com/anhao/codedrobe-desktop/main/docs/images/codex-02.png) | ![Dilraba Rose theme for Codex](https://raw.githubusercontent.com/anhao/codedrobe-desktop/main/docs/images/codex-03.png) |
-
-## Development
-
-Run the Core test suite and inspect the publishable package:
-
-```bash
-npm test
-npm run pack:check
-```
-
-Repository: [anhao/codedrobe-codex-skill](https://github.com/anhao/codedrobe-codex-skill)
-
-## Safety model
-
-- CDP is bound to `127.0.0.1` only.
-- The official Codex application package remains untouched.
-- Theme packages contain data, CSS, and local artwork only; theme JavaScript is not accepted.
-- Remote CSS resources are rejected during theme import.
-- Applying and restoring themes preserve unrelated Codex configuration.
-
-## License
-
-The Skill, runtime code, theme format, and documentation are licensed under the [Apache License 2.0](LICENSE), except where another notice applies.
-
-Binary artwork, third-party material, and paid theme content are not automatically covered by the code license. See [ASSETS_LICENSE.md](ASSETS_LICENSE.md). The Apache license does not grant rights to the CodeDrobe names or logos; see [TRADEMARKS.md](TRADEMARKS.md).
+Instructions and documentation are available under the [Apache License 2.0](LICENSE). Product names and trademarks belong to their respective owners. CodeDrobe is an independent project and is not endorsed by OpenAI or Tencent.

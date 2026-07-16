@@ -1,139 +1,104 @@
-# CodeDrobe — OpenAI Codex 主题 Skill 与运行时
+# CodeDrobe Skills
 
-[![核心测试](https://github.com/anhao/codedrobe-codex-skill/actions/workflows/ci.yml/badge.svg)](https://github.com/anhao/codedrobe-codex-skill/actions/workflows/ci.yml)
-[![Apache-2.0 许可证](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](LICENSE)
-[![Node.js 20+](https://img.shields.io/badge/Node.js-20%2B-43853d)](https://nodejs.org/)
-[![macOS 与 Windows](https://img.shields.io/badge/platform-macOS%20%7C%20Windows-6f4d62)](#支持平台)
-[![Codex Skill](https://img.shields.io/badge/Codex-Skill-7c6cff)](SKILL.md)
+[![GitHub stars](https://img.shields.io/github/stars/CodeDrobe/skills?style=flat-square)](https://github.com/CodeDrobe/skills/stargazers)
+[![Validate Skills](https://github.com/CodeDrobe/skills/actions/workflows/ci.yml/badge.svg)](https://github.com/CodeDrobe/skills/actions/workflows/ci.yml)
+[![License](https://img.shields.io/badge/license-Apache--2.0-blue.svg?style=flat-square)](LICENSE)
+
+面向 Chromium/Electron AI 桌面软件的可安装 Agent Skills。实际换肤、应用发现、CDP、验证和恢复能力统一由 [`@codedrobe/core`](https://github.com/CodeDrobe/core) 提供；本仓库只保留精简工作流和按需加载的应用参考。
 
 [English](README.md)
 
-官方网站：[codedrobe.app](https://codedrobe.app) · [下载 Desktop 应用](https://github.com/anhao/codedrobe-desktop/releases/latest)
+## Skill 目录
 
-CodeDrobe 是一套开源的 OpenAI Codex 主题 Skill、AI 主题生成器与跨平台运行时，用于在 macOS 和 Windows 上为官方 Codex 桌面应用创建、应用、导出、验证、分享和恢复自定义主题。
+| Skill | 面向用户 | 状态 |
+| --- | --- | --- |
+| [`codedrobe-theme`](skills/codedrobe-theme/SKILL.md) | 普通用户、主题作者 | 可安装 |
+| [`codedrobe-adapter-dev`](skills/codedrobe-adapter-dev/SKILL.md) | Core 维护者、贡献者 | 可安装 |
+| `codedrobe-publish-theme` | 主题发布者 | 主题仓库认证完成后开放 |
 
-![CodeDrobe Desktop 管理 Codex 自定义主题](https://raw.githubusercontent.com/anhao/codedrobe-desktop/main/docs/images/desktop.png)
+`codedrobe-theme` 同时支持 Core 当前提供的应用目标，包括 OpenAI Codex 和腾讯 WorkBuddy。以后增加新软件时扩展 Core 适配器，不再为每个应用复制一个换肤 Skill。
 
-它通过本机 Chromium DevTools Protocol（CDP）修改渲染界面，不会修改 Codex 应用包、替换官方可执行文件或改写 `app.asar`。
+## 安装
 
-## 这个 Skill 能做什么
+统一安装命令是复数形式的 `npx skills`。
 
-- 在保留 Codex 原生控件和工作流的前提下应用装饰性主题。
-- 根据设计描述、配色方案或本地参考图片创建新主题。
-- 使用 AI 定制主题文案、CSS、图片素材和官方基础配色。
-- 通过仅限本机访问的 CDP 连接启动官方 Codex 应用。
-- 在页面跳转、渲染器重载或 Codex 更新后重新应用主题。
-- 验证当前主题，并生成截图用于视觉检查。
-- 导出和分享独立的 `.codex-theme` 主题文件。
-- 安全移除注入主题，并恢复之前的 Codex 外观配置。
-
-## 支持平台
-
-- macOS 12 及以上版本
-- Windows 10 或 Windows 11
-- 直接运行脚本需要 Node.js 20 及以上版本
-- 官方 Codex 桌面应用
-
-## 使用 npx 安装
-
-请先安装 [Node.js](https://nodejs.org/)，然后在终端中执行：
+查看本仓库可安装的 Skills：
 
 ```bash
-npx skills add anhao/codedrobe-codex-skill
+npx skills add CodeDrobe/skills --list
 ```
 
-安装程序会检测当前电脑支持的 AI 编程工具，并让你选择要安装到哪个工具中。在项目目录内运行时，可以安装为当前项目使用的 Skill。
-
-如果希望当前用户的所有项目都能使用，可以全局安装：
+为 Codex 全局安装普通用户换肤 Skill：
 
 ```bash
-npx skills add anhao/codedrobe-codex-skill --global
+npx skills add CodeDrobe/skills \
+  --skill codedrobe-theme \
+  --global \
+  --agent codex \
+  --yes
 ```
 
-安装后可以运行以下命令检查：
+按需单独安装适配器开发 Skill：
 
 ```bash
-npx skills list
-npx skills list --global
+npx skills add CodeDrobe/skills \
+  --skill codedrobe-adapter-dev \
+  --global \
+  --agent codex \
+  --yes
 ```
 
-以后需要更新 Skill 时运行：
+`--agent codex` 表示把 Skill 安装给哪个 AI Agent，不表示要给哪个桌面软件换肤。运行时目标由 `codedrobe --app codex` 或 `codedrobe --app workbuddy` 选择。
+
+## Core 运行时
+
+推荐全局安装：
 
 ```bash
-npx skills update codedrobe-codex-theme
-npx skills update codedrobe-codex-theme --global
+npm install --global @codedrobe/core
+codedrobe apps
 ```
 
-注意命令中的 `skills` 是复数形式，应使用 `npx skills`，而不是 `npx skill`。
+也可以直接运行 npm 或 Bun 包：
 
-## 在 Codex 中使用
+```bash
+npx --yes @codedrobe/core@latest apps
+bunx @codedrobe/core@latest apps
+```
 
-将本仓库安装为 Codex Skill 后，可以直接用自然语言提出需求：
+示例：
+
+```bash
+codedrobe apply --app workbuddy --theme /absolute/theme.codedrobe-theme
+codedrobe verify --app workbuddy --theme /absolute/theme.codedrobe-theme --screenshot /absolute/preview.png
+codedrobe restore --app workbuddy
+```
+
+## 仓库结构
 
 ```text
-给 Codex 应用 Dream 主题。
-根据这张参考图片创建一个深色海洋主题。
-把 Dream 主题导出为 .codex-theme 文件。
-验证当前主题并保存截图。
-恢复 Codex 原生界面。
+skills/
+├── codedrobe-theme/
+│   ├── SKILL.md
+│   ├── agents/openai.yaml
+│   └── references/
+└── codedrobe-adapter-dev/
+    ├── SKILL.md
+    ├── agents/openai.yaml
+    └── references/
 ```
 
-Codex 会读取 [`SKILL.md`](SKILL.md)，根据当前平台选择主题创建、启动、验证、导出或恢复流程。
+仓库根目录不再放 `SKILL.md`，确保 `npx skills` 可以按标准 `skills/<name>/SKILL.md` 结构发现和选择安装每个 Skill。
 
-## 命令行使用
+## 仓库职责
 
-在 macOS 上安装并启动现有主题：
+- [`CodeDrobe/core`](https://github.com/CodeDrobe/core)：CLI、适配器、CDP、主机设置、主题包校验和公共 API。
+- [`CodeDrobe/skills`](https://github.com/CodeDrobe/skills)：可安装的 Agent 工作流和参考文档。
+- [`CodeDrobe/desktop`](https://github.com/CodeDrobe/desktop)：基于 Core 的可视化主题管理器。
+- 主题发布：认证、所有权、审核和撤销机制完成前不开放。
 
-```bash
-scripts/install-codedrobe.sh --theme dream
-scripts/start-codedrobe.sh --theme dream
-```
+新增或修改 Skill 前请阅读 [CONTRIBUTING.md](CONTRIBUTING.md)。
 
-在 Windows 上安装并启动现有主题：
+## 开源协议与商标
 
-```powershell
-scripts/install-codedrobe.ps1 -Theme dream
-scripts/start-codedrobe.ps1 -Theme dream
-```
-
-创建并导出可移植主题：
-
-```bash
-node scripts/create-theme.mjs --id ocean-calm --name "Ocean Calm" --art /absolute/cover.png
-node scripts/export-theme.mjs --theme ocean-calm --output /absolute/ocean-calm.codex-theme
-```
-
-## 桌面软件
-
-如果希望使用图形化、一键操作的主题管理器，请前往 [anhao/codedrobe-desktop](https://github.com/anhao/codedrobe-desktop)。
-
-### 主题效果
-
-| KUN Stage | Dream / Fiona | Dilraba Rose |
-| --- | --- | --- |
-| ![Codex KUN Stage 主题](https://raw.githubusercontent.com/anhao/codedrobe-desktop/main/docs/images/codex-01.png) | ![Codex Dream Fiona 主题](https://raw.githubusercontent.com/anhao/codedrobe-desktop/main/docs/images/codex-02.png) | ![Codex Dilraba Rose 主题](https://raw.githubusercontent.com/anhao/codedrobe-desktop/main/docs/images/codex-03.png) |
-
-## 开发验证
-
-运行 Core 测试并检查待发布包内容：
-
-```bash
-npm test
-npm run pack:check
-```
-
-Skill 仓库：[anhao/codedrobe-codex-skill](https://github.com/anhao/codedrobe-codex-skill)
-
-## 安全设计
-
-- CDP 仅绑定到 `127.0.0.1`。
-- 不修改官方 Codex 应用包。
-- 主题包只包含数据、CSS 和本地图片，不接受主题 JavaScript。
-- 导入主题时拒绝远程 CSS 资源。
-- 应用和恢复主题时保留其他 Codex 配置。
-
-## 许可证
-
-除非文件中另有说明，本仓库的 Skill、运行时代码、主题格式和文档使用 [Apache License 2.0](LICENSE) 开源。
-
-二进制图片、第三方素材和付费主题内容不会自动采用代码协议，具体参见 [ASSETS_LICENSE.md](ASSETS_LICENSE.md)。Apache 协议不会授予 CodeDrobe 名称和 Logo 的使用权，具体参见 [TRADEMARKS.md](TRADEMARKS.md)。
+指令和文档采用 [Apache License 2.0](LICENSE)。相关产品名称和商标归各自所有者所有。CodeDrobe 是独立项目，与 OpenAI、腾讯不存在官方隶属或背书关系。

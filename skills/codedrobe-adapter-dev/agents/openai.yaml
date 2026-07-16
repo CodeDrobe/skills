@@ -1,0 +1,4 @@
+interface:
+  display_name: "CodeDrobe Adapter Development"
+  short_description: "Add and validate Electron AI desktop app adapters"
+  default_prompt: "Use $codedrobe-adapter-dev to add or repair a CodeDrobe adapter against a real Electron renderer."

@@ -1,35 +1,17 @@
 {
-  "name": "@codedrobe/codex-core",
-  "version": "0.2.0",
-  "description": "Open-source OpenAI Codex theming skill, AI theme generator, and cross-platform runtime for custom Codex desktop themes.",
-  "type": "module",
+  "name": "@codedrobe/skills-repository",
+  "version": "0.0.0-private",
+  "private": true,
+  "description": "Installable Agent Skills for CodeDrobe.",
   "license": "Apache-2.0",
-  "files": [
-    "LICENSE",
-    "NOTICE",
-    "TRADEMARKS.md",
-    "ASSETS_LICENSE.md",
-    "README_zh.md",
-    "SKILL.md",
-    "agents",
-    "assets",
-    "evals",
-    "references",
-    "scripts",
-    "themes"
-  ],
-  "exports": {
-    "./theme-lib": "./scripts/theme-lib.mjs",
-    "./theme-package": "./scripts/theme-package.mjs"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CodeDrobe/skills.git"
   },
   "scripts": {
-    "test": "node scripts/self-test.mjs",
-    "pack:check": "npm pack --dry-run"
+    "test": "npx --yes skills add . --list"
   },
   "engines": {
     "node": ">=20"
-  },
-  "publishConfig": {
-    "access": "public"
   }
 }

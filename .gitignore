@@ -4,3 +4,9 @@ out/
 coverage/
 *.log
 .DS_Store
+
+# Local WeChat marketing drafts and generated artwork
+wechat-codedrobe-launch.md
+cover-image/
+imgs/
+.baoyu-skills/
