@@ -41,6 +41,7 @@ codedrobe apply --app <app-id> --app-path /custom/application/path --port <port>
 
 ```bash
 codedrobe launch --app <app-id> --port <port>
+codedrobe dom snapshot --app <app-id> --port <port> --output /absolute/dom.json
 codedrobe probe --app <app-id> --port <port> --timeout-ms 5000
 codedrobe apply --app <app-id> --port <port> --theme /absolute/theme.codedrobe-theme
 codedrobe apply --app <app-id> --port <port> --theme /absolute/theme.codedrobe-theme --watch
@@ -49,6 +50,8 @@ codedrobe restore --app <app-id> --port <port>
 ```
 
 Add `--no-launch` only when the renderer is already reachable. Add `--restart-existing` only after the user authorizes restarting the app.
+
+`dom snapshot` is read-only and excludes text, form values, accessible names, links, and media sources. Use `--max-nodes 1500` when the default snapshot reports `summary.truncated: true`; use `--include-hidden` only for a hidden route or dialog that must be styled.
 
 ## Theme operations
 

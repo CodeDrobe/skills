@@ -1,0 +1,521 @@
+:root.codedrobe-host-workbuddy {
+  color-scheme: light !important;
+  --doll-wb-ink: #4b3851;
+  --doll-wb-muted: #806b84;
+  --doll-wb-plum: #76507e;
+  --doll-wb-lavender: #b688ba;
+  --doll-wb-pink: #d99ab3;
+  --doll-wb-cream: #fffaf7;
+  --doll-wb-line: rgba(145, 99, 151, .23);
+  --doll-wb-shadow: rgba(86, 55, 91, .13);
+}
+
+html.codedrobe-host-workbuddy,
+html.codedrobe-host-workbuddy body,
+html.codedrobe-host-workbuddy #root,
+html.codedrobe-host-workbuddy .teams-container {
+  background:
+    linear-gradient(rgba(255, 250, 248, .88), rgba(251, 239, 244, .92)),
+    var(--codedrobe-image-texture) center / 720px auto repeat !important;
+  color: var(--doll-wb-ink) !important;
+  font-family: "Avenir Next", "PingFang SC", "Microsoft YaHei UI", sans-serif !important;
+}
+
+html.codedrobe-host-workbuddy body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 86% 8%, rgba(255, 255, 255, .98) 0 2px, transparent 3px),
+    radial-gradient(circle at 16% 19%, rgba(220, 159, 182, .42) 0 1px, transparent 2px);
+  background-size: 83px 83px, 67px 67px;
+  opacity: .42;
+}
+
+html.codedrobe-host-workbuddy .conversation-sidebar,
+html.codedrobe-host-workbuddy .conversation-list {
+  background:
+    linear-gradient(180deg, rgba(255, 252, 250, .95), rgba(248, 231, 238, .92)),
+    var(--codedrobe-image-texture) center / 590px auto repeat !important;
+  border-right: 1px solid var(--doll-wb-line) !important;
+  box-shadow: 12px 0 32px rgba(86, 55, 91, .08), inset -1px 0 rgba(255, 255, 255, .92) !important;
+  color: var(--doll-wb-ink) !important;
+  backdrop-filter: blur(18px) saturate(1.06) !important;
+}
+
+html.codedrobe-host-workbuddy .conversation-sidebar :is(a, button, div, p, span, svg) {
+  color: var(--doll-wb-ink) !important;
+}
+
+html.codedrobe-host-workbuddy .conversation-sidebar svg {
+  stroke: currentColor !important;
+}
+
+html.codedrobe-host-workbuddy :is(
+  .conversation-list-topbar,
+  .conversation-list-header,
+  .conversation-list-content,
+  .conversation-list-footer
+) {
+  background: transparent !important;
+}
+
+html.codedrobe-host-workbuddy .conversation-list-logo {
+  color: #754e7d !important;
+  font-family: "Iowan Old Style", "Songti SC", serif !important;
+  font-weight: 750 !important;
+  letter-spacing: .02em;
+  text-shadow: 0 1px 0 white;
+}
+
+html.codedrobe-host-workbuddy .conversation-list-logo::after {
+  content: "  ♡";
+  color: #d391aa;
+}
+
+html.codedrobe-host-workbuddy :is(
+  .conversation-list-version-badge,
+  .conversation-section-label,
+  .conversation-show-more-button,
+  .conversation-list-tab-button-sub
+) {
+  color: rgba(75, 56, 81, .52) !important;
+}
+
+html.codedrobe-host-workbuddy .conversation-list-tab-button,
+html.codedrobe-host-workbuddy .conversation-agent-card,
+html.codedrobe-host-workbuddy .conversation-list-topbar button {
+  border: 1px solid transparent !important;
+  border-radius: 12px !important;
+  background: transparent !important;
+  transition: transform .18s ease, background .18s ease, box-shadow .18s ease !important;
+}
+
+html.codedrobe-host-workbuddy :is(
+  .conversation-list-tab-button:hover,
+  .conversation-agent-card:hover,
+  .conversation-list-topbar button:hover
+) {
+  background: linear-gradient(90deg, rgba(237, 214, 232, .75), rgba(253, 242, 246, .88)) !important;
+  border-color: rgba(145, 99, 151, .15) !important;
+  box-shadow: 0 4px 13px rgba(86, 55, 91, .07) !important;
+  transform: translateX(2px);
+}
+
+html.codedrobe-host-workbuddy :is(
+  .conversation-list-tab-button.active,
+  .conversation-agent-card[aria-selected="true"],
+  .conversation-agent-card.active
+) {
+  background: linear-gradient(90deg, rgba(231, 204, 226, .93), rgba(251, 237, 242, .94)) !important;
+  border-color: rgba(145, 99, 151, .27) !important;
+  box-shadow: 0 5px 16px rgba(86, 55, 91, .09), inset 0 0 0 2px rgba(255, 255, 255, .46) !important;
+}
+
+html.codedrobe-host-workbuddy :is(
+  .teams-content-wrapper,
+  .teams-main-content,
+  .main-content,
+  .chat-container,
+  .wb-cb-chat
+) {
+  background: transparent !important;
+  color: var(--doll-wb-ink) !important;
+}
+
+html.codedrobe-host-workbuddy .teams-content-wrapper {
+  position: relative;
+  border-radius: 26px 0 0 0;
+  box-shadow: inset 1px 1px rgba(255, 255, 255, .92), -7px 0 25px rgba(86, 55, 91, .06);
+  overflow: hidden;
+}
+
+html.codedrobe-host-workbuddy .main-content--welcome {
+  background:
+    linear-gradient(rgba(255, 251, 249, .90), rgba(255, 247, 248, .94)),
+    var(--codedrobe-image-texture) center / 820px auto repeat !important;
+}
+
+html.codedrobe-host-workbuddy .wb-home-page {
+  width: min(860px, calc(100% - 32px)) !important;
+  max-width: none !important;
+  min-height: 638px !important;
+  height: 638px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 13px !important;
+  justify-content: flex-start !important;
+  overflow: visible !important;
+}
+
+html.codedrobe-host-workbuddy .wb-home-header {
+  position: relative !important;
+  isolation: isolate;
+  box-sizing: border-box !important;
+  width: 100% !important;
+  height: 244px !important;
+  min-height: 244px !important;
+  display: flex !important;
+  flex: 0 0 244px !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  justify-content: center !important;
+  padding: 0 0 0 42px !important;
+  overflow: hidden !important;
+  border: 1px solid rgba(145, 99, 151, .30) !important;
+  border-radius: 28px !important;
+  background-color: #fff9f7 !important;
+  background-image:
+    linear-gradient(90deg, #fff9f7 0%, rgba(255, 249, 247, .99) 45%, rgba(255, 249, 247, .75) 62%, rgba(255, 249, 247, .06) 83%),
+    var(--codedrobe-image-hero) !important;
+  background-repeat: no-repeat, no-repeat !important;
+  background-size: 100% 100%, auto 222% !important;
+  background-position: center, right 12% !important;
+  box-shadow: 0 16px 38px rgba(86, 55, 91, .15), inset 0 0 0 4px rgba(255, 255, 255, .34) !important;
+}
+
+html.codedrobe-host-workbuddy .wb-home-header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 55% 27%, rgba(255, 249, 219, .95) 0 2px, transparent 3px),
+    radial-gradient(circle at 28% 75%, rgba(218, 158, 182, .50) 0 1px, transparent 2px);
+  background-size: 73px 73px, 91px 91px;
+  opacity: .72;
+}
+
+html.codedrobe-host-workbuddy .wb-home-header::after {
+  content: "Doll Sister  ♡  WorkBuddy";
+  position: absolute;
+  left: 42px;
+  bottom: 28px;
+  color: #9a719f;
+  font: italic 15px/1.2 "Snell Roundhand", "Segoe Script", cursive;
+  letter-spacing: .04em;
+  text-shadow: 0 1px white;
+}
+
+html.codedrobe-host-workbuddy .wb-home-header__title,
+html.codedrobe-host-workbuddy .wb-home-header__subtitle {
+  width: 56% !important;
+  height: auto !important;
+  margin: 0 !important;
+  text-align: left !important;
+  color: var(--doll-wb-ink) !important;
+  text-shadow: 0 1px rgba(255, 255, 255, .96) !important;
+}
+
+html.codedrobe-host-workbuddy .wb-home-header__title {
+  font-size: 0 !important;
+  line-height: 1 !important;
+}
+
+html.codedrobe-host-workbuddy .wb-home-header__title::before {
+  content: "玩偶姐姐 × WorkBuddy";
+  display: block;
+  font: 760 clamp(25px, 3vw, 34px)/1.22 "Iowan Old Style", "Songti SC", serif;
+  letter-spacing: .025em;
+}
+
+html.codedrobe-host-workbuddy .wb-home-header__subtitle {
+  margin-top: 13px !important;
+  font-size: 0 !important;
+  line-height: 1 !important;
+}
+
+html.codedrobe-host-workbuddy .wb-home-header__subtitle::before {
+  content: "把灵感缝进今天的每一项工作 ♡";
+  display: block;
+  color: #765f7d;
+  font: 540 14px/1.55 "Avenir Next", "PingFang SC", sans-serif;
+  letter-spacing: .035em;
+}
+
+html.codedrobe-host-workbuddy .wb-home-page > div:has(> .wb-scene-tabs) {
+  box-sizing: border-box !important;
+  width: 100% !important;
+  height: 52px !important;
+  min-height: 52px !important;
+  display: flex !important;
+  align-items: center !important;
+  padding: 6px 10px !important;
+  border: 1px solid rgba(145, 99, 151, .20) !important;
+  border-radius: 18px !important;
+  background: linear-gradient(90deg, rgba(255, 253, 251, .91), rgba(245, 225, 235, .86)) !important;
+  box-shadow: 0 7px 18px rgba(86, 55, 91, .08), inset 0 0 0 3px rgba(255, 255, 255, .44) !important;
+}
+
+html.codedrobe-host-workbuddy .wb-scene-tabs {
+  width: auto !important;
+  height: 38px !important;
+  padding: 3px !important;
+  border: 0 !important;
+  border-radius: 14px !important;
+  background: rgba(235, 211, 231, .68) !important;
+}
+
+html.codedrobe-host-workbuddy .wb-scene-tabs__pill {
+  height: 32px !important;
+  border: 1px solid transparent !important;
+  border-radius: 11px !important;
+  background: transparent !important;
+  color: #735778 !important;
+  transition: transform .18s ease, box-shadow .18s ease !important;
+}
+
+html.codedrobe-host-workbuddy .wb-scene-tabs__pill:hover {
+  transform: translateY(-1px);
+}
+
+html.codedrobe-host-workbuddy .wb-scene-tabs__pill--active {
+  border-color: rgba(145, 99, 151, .21) !important;
+  background: linear-gradient(145deg, #d9a5bd, #a976b0) !important;
+  color: white !important;
+  box-shadow: 0 5px 13px rgba(86, 55, 91, .18), inset 0 1px rgba(255, 255, 255, .35) !important;
+}
+
+html.codedrobe-host-workbuddy .wb-scene-tabs__pill--active :is(span, svg) {
+  color: white !important;
+  stroke: currentColor !important;
+}
+
+html.codedrobe-host-workbuddy .wb-home-composer {
+  position: relative !important;
+  box-sizing: border-box !important;
+  width: 100% !important;
+  height: 303px !important;
+  min-height: 303px !important;
+  display: flex !important;
+  flex: 0 0 303px !important;
+  flex-direction: column !important;
+  gap: 10px !important;
+  padding: 0 !important;
+}
+
+html.codedrobe-host-workbuddy .wb-home-composer__chips {
+  width: calc(100% - 126px) !important;
+  height: 36px !important;
+  min-height: 36px !important;
+  overflow: visible !important;
+}
+
+html.codedrobe-host-workbuddy .quick-actions,
+html.codedrobe-host-workbuddy .quick-actions-container,
+html.codedrobe-host-workbuddy .quick-actions__list {
+  width: 100% !important;
+  height: 36px !important;
+  overflow: visible !important;
+}
+
+html.codedrobe-host-workbuddy .quick-actions__item {
+  min-height: 34px !important;
+  border: 1px solid rgba(145, 99, 151, .23) !important;
+  border-radius: 13px !important;
+  background:
+    linear-gradient(rgba(255, 253, 251, .92), rgba(249, 232, 240, .90)),
+    var(--codedrobe-image-texture) center / 480px auto !important;
+  color: #66506c !important;
+  box-shadow: 0 5px 13px rgba(86, 55, 91, .08), inset 0 1px rgba(255, 255, 255, .85) !important;
+  transition: transform .18s ease, box-shadow .18s ease !important;
+}
+
+html.codedrobe-host-workbuddy .quick-actions__item:hover {
+  transform: translateY(-3px) rotate(-.25deg) !important;
+  box-shadow: 0 10px 19px rgba(86, 55, 91, .13) !important;
+}
+
+html.codedrobe-host-workbuddy .quick-actions__item :is(span, svg) {
+  color: #76507e !important;
+  stroke: currentColor !important;
+}
+
+html.codedrobe-host-workbuddy .wb-home-composer__input-slot {
+  position: relative !important;
+  box-sizing: border-box !important;
+  width: 100% !important;
+  height: 247px !important;
+  min-height: 247px !important;
+  padding: 0 !important;
+  overflow: visible !important;
+}
+
+html.codedrobe-host-workbuddy .wb-home-composer__input-slot > section {
+  box-sizing: border-box !important;
+  width: 100% !important;
+  height: 236px !important;
+  min-height: 236px !important;
+  border: 1px solid rgba(145, 99, 151, .30) !important;
+  border-radius: 27px !important;
+  background:
+    linear-gradient(145deg, rgba(255, 253, 251, .96), rgba(248, 231, 238, .93)),
+    var(--codedrobe-image-texture) center / 620px auto !important;
+  color: var(--doll-wb-ink) !important;
+  box-shadow: 0 12px 29px rgba(86, 55, 91, .13), inset 0 0 0 4px rgba(255, 255, 255, .52) !important;
+  backdrop-filter: blur(18px) saturate(1.06) !important;
+  overflow: hidden !important;
+}
+
+html.codedrobe-host-workbuddy .wb-home-composer__input-slot::before {
+  content: "🎀";
+  position: absolute;
+  left: -15px;
+  top: -15px;
+  z-index: 20;
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  font-size: 19px;
+  background: linear-gradient(145deg, #f7dce6, #c99dce);
+  box-shadow: 0 5px 14px rgba(86, 55, 91, .18), 0 0 0 3px rgba(255, 255, 255, .72);
+  pointer-events: none;
+}
+
+html.codedrobe-host-workbuddy .wb-home-composer__input-slot::after {
+  content: "";
+  position: absolute;
+  right: 19px;
+  top: -95px;
+  z-index: 10;
+  width: 91px;
+  height: 116px;
+  border: 7px solid rgba(255, 253, 252, .98);
+  border-bottom-width: 19px;
+  border-radius: 3px;
+  background-image: var(--codedrobe-image-hero);
+  background-repeat: no-repeat;
+  background-size: 285% auto;
+  background-position: 82% center;
+  box-shadow: 0 10px 24px rgba(86, 55, 91, .18), 0 0 0 1px rgba(145, 99, 151, .20);
+  transform: rotate(5deg);
+  pointer-events: none;
+}
+
+html.codedrobe-host-workbuddy .wb-home-composer__input-slot img {
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+html.codedrobe-host-workbuddy .wb-home-composer [role="textbox"][contenteditable="true"] {
+  color: var(--doll-wb-ink) !important;
+  caret-color: #895b92 !important;
+}
+
+html.codedrobe-host-workbuddy .wb-home-composer [role="textbox"][contenteditable="true"] :is(p, span) {
+  color: rgba(75, 56, 81, .56) !important;
+}
+
+html.codedrobe-host-workbuddy .wb-home-composer button,
+html.codedrobe-host-workbuddy .wb-input-footer button {
+  border-color: rgba(145, 99, 151, .18) !important;
+  border-radius: 11px !important;
+  color: #66506c !important;
+}
+
+html.codedrobe-host-workbuddy .wb-input-footer {
+  border-top-color: rgba(145, 99, 151, .12) !important;
+  background: rgba(255, 250, 248, .35) !important;
+}
+
+html.codedrobe-host-workbuddy .main-content:not(.main-content--welcome),
+html.codedrobe-host-workbuddy .chat-container:not(.chat-container--welcome) {
+  background:
+    linear-gradient(rgba(255, 251, 249, .90), rgba(255, 247, 248, .94)),
+    var(--codedrobe-image-texture) center / 820px auto repeat !important;
+}
+
+html.codedrobe-host-workbuddy .chat-container:not(.chat-container--welcome) [role="textbox"][contenteditable="true"] {
+  color: var(--doll-wb-ink) !important;
+  caret-color: #895b92 !important;
+}
+
+html.codedrobe-host-workbuddy .chat-container:not(.chat-container--welcome) section:has([role="textbox"][contenteditable="true"]) {
+  position: relative !important;
+  border: 1px solid rgba(145, 99, 151, .28) !important;
+  border-radius: 24px !important;
+  background:
+    linear-gradient(145deg, rgba(255, 253, 251, .96), rgba(248, 231, 238, .92)),
+    var(--codedrobe-image-texture) center / 620px auto !important;
+  color: var(--doll-wb-ink) !important;
+  box-shadow: 0 11px 27px rgba(86, 55, 91, .12), inset 0 0 0 3px rgba(255, 255, 255, .50) !important;
+  overflow: visible !important;
+}
+
+html.codedrobe-host-workbuddy .chat-container:not(.chat-container--welcome) section:has([role="textbox"][contenteditable="true"])::before {
+  content: "🎀";
+  position: absolute;
+  left: -13px;
+  top: -14px;
+  z-index: 10;
+  width: 29px;
+  height: 29px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  font-size: 16px;
+  background: linear-gradient(145deg, #f7dce6, #c99dce);
+  box-shadow: 0 4px 12px rgba(86, 55, 91, .16), 0 0 0 3px rgba(255, 255, 255, .70);
+  pointer-events: none;
+}
+
+html.codedrobe-host-workbuddy .chat-container:not(.chat-container--welcome) :is(table, th, td) {
+  border-color: rgba(145, 99, 151, .16) !important;
+}
+
+html.codedrobe-host-workbuddy .chat-container:not(.chat-container--welcome) th {
+  background: rgba(240, 221, 234, .55) !important;
+  color: #5e4864 !important;
+}
+
+@media (max-width: 1050px) {
+  html.codedrobe-host-workbuddy .wb-home-page {
+    width: calc(100% - 24px) !important;
+  }
+
+  html.codedrobe-host-workbuddy .wb-home-header {
+    background-size: 100% 100%, auto 205% !important;
+  }
+}
+
+@media (max-height: 720px) {
+  html.codedrobe-host-workbuddy .wb-home-page {
+    min-height: 566px !important;
+    height: 566px !important;
+  }
+
+  html.codedrobe-host-workbuddy .wb-home-header {
+    height: 195px !important;
+    min-height: 195px !important;
+    flex-basis: 195px !important;
+    background-size: 100% 100%, auto 230% !important;
+  }
+
+  html.codedrobe-host-workbuddy .wb-home-composer {
+    height: 254px !important;
+    min-height: 254px !important;
+    flex-basis: 254px !important;
+  }
+
+  html.codedrobe-host-workbuddy .wb-home-composer__input-slot,
+  html.codedrobe-host-workbuddy .wb-home-composer__input-slot > section {
+    height: 198px !important;
+    min-height: 198px !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.codedrobe-host-workbuddy :is(
+    .conversation-list-tab-button,
+    .conversation-agent-card,
+    .wb-scene-tabs__pill,
+    .quick-actions__item
+  ) {
+    transition: none !important;
+  }
+}

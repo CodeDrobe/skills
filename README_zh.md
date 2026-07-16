@@ -69,10 +69,20 @@ bunx @codedrobe/core@latest apps
 示例：
 
 ```bash
+codedrobe dom snapshot --app workbuddy --output /absolute/workbuddy-dom.json
 codedrobe apply --app workbuddy --theme /absolute/theme.codedrobe-theme
 codedrobe verify --app workbuddy --theme /absolute/theme.codedrobe-theme --screenshot /absolute/preview.png
 codedrobe restore --app workbuddy
 ```
+
+## 主题制作资源
+
+安装后的 `codedrobe-theme` Skill 包含两套可复制源码：
+
+- `assets/theme-starter/`：覆盖 Codex/WorkBuddy 主要界面的完整中性 CSS 起始模板。
+- `assets/examples/doll-sister/`：完整的“玩偶姐姐”双应用主题，包含生成的 hero 和 texture 素材。
+
+模板不会被当作永久 DOM 合约。Skill 会在应用首页和会话页分别采集保护隐私的 `codedrobe dom snapshot`，从实机快照选择语义节点，再完成打包、预检、应用、截图和修正。
 
 ## 仓库结构
 
@@ -81,7 +91,8 @@ skills/
 ├── codedrobe-theme/
 │   ├── SKILL.md
 │   ├── agents/openai.yaml
-│   └── references/
+│   ├── references/
+│   └── assets/
 └── codedrobe-adapter-dev/
     ├── SKILL.md
     ├── agents/openai.yaml

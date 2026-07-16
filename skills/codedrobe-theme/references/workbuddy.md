@@ -21,6 +21,8 @@ Keep the adapter limited to stable cross-route landmarks:
 
 Keep home layout rules in the theme package. For a theme that styles the WorkBuddy home and conversation screens, verify at least:
 
+Capture separate home and conversation snapshots before adapting `assets/theme-starter/workbuddy.css` or `assets/examples/doll-sister/workbuddy.css`. Prefer the live semantic classes over any stale example selector.
+
 1. Home header/hero, scene tabs, quick actions, home composer, and named images.
 2. A conversation with long text, tables or code, scrolling, and the conversation composer shell.
 3. Sidebar selection, hover states, menus, input, microphone, model selector, and send controls.

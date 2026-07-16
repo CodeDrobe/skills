@@ -1,6 +1,6 @@
 ---
 name: codedrobe-theme
-description: Create, inspect, convert, apply, replace, verify, troubleshoot, update, or restore reversible CodeDrobe themes for supported Chromium/Electron AI desktop apps, including OpenAI Codex and Tencent WorkBuddy. Use for .codedrobe-theme packages, app-specific CDP ports or installation paths, theme images and CSS, DOM compatibility failures, screenshots, or migration from legacy .codex-theme files.
+description: Create, inspect, convert, apply, replace, verify, troubleshoot, update, or restore reversible CodeDrobe themes for supported Chromium/Electron AI desktop apps, including OpenAI Codex and Tencent WorkBuddy. Use for .codedrobe-theme packages, live CDP DOM snapshots, starter or example CSS, app-specific ports or installation paths, theme images, DOM compatibility failures, screenshots, or migration from legacy .codex-theme files.
 ---
 
 # CodeDrobe Theme
@@ -15,7 +15,9 @@ Use the published `@codedrobe/core` CLI as the only runtime. Keep this Skill ins
    - Codex: [references/codex.md](references/codex.md)
    - WorkBuddy: [references/workbuddy.md](references/workbuddy.md)
 4. For theme creation, images, CSS, packaging, or legacy conversion, read [references/theme-authoring.md](references/theme-authoring.md).
-5. For probe, verification, screenshots, missing nodes, CDP failures, or app updates, read [references/verification.md](references/verification.md).
+5. For new or repaired CSS, read [references/dom-snapshot.md](references/dom-snapshot.md) and [references/css-templates.md](references/css-templates.md).
+6. For the complete Doll Sister / 玩偶姐姐 example, read [references/doll-sister-example.md](references/doll-sister-example.md).
+7. For probe, verification, screenshots, missing nodes, CDP failures, or app updates, read [references/verification.md](references/verification.md).
 
 ## Apply an existing theme
 
@@ -37,11 +39,13 @@ codedrobe verify --app <app-id> --theme /absolute/theme.codedrobe-theme --screen
 
 ## Create or repair a theme
 
-1. Start from a source `theme.json`, app-specific CSS files, and local image assets.
-2. Keep shared artwork in named `images`; keep app-specific selectors under the relevant target CSS.
-3. Keep adapter landmarks generic and theme layout assumptions in theme-specific verification nodes.
-4. Pack with Core, inspect the output, then probe and apply it on a real renderer.
-5. Iterate from screenshots. Do not claim success from static CSS or package validation alone.
+1. Copy `assets/theme-starter/` for a neutral base or `assets/examples/doll-sister/` for a complete multi-app example. Never edit the installed Skill in place.
+2. Open each app context the theme will style and capture a separate `codedrobe dom snapshot`; do not infer selectors from the template alone.
+3. Select semantic candidates from the snapshot, then write app-specific CSS under `html.codedrobe-host-<app-id>`.
+4. Keep shared artwork in named `images`; keep app-specific selectors under the relevant target CSS.
+5. Keep adapter landmarks generic and theme layout assumptions in theme-specific verification nodes.
+6. Pack with Core, inspect the output, then probe and apply it on a real renderer.
+7. Iterate from home and conversation screenshots. Do not claim success from static CSS, a snapshot, or package validation alone.
 
 ## Restore
 

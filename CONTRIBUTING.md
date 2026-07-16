@@ -9,7 +9,7 @@
 5. Keep runtime code out of Skills. Add CLI, adapters, package parsing, CDP, host settings, and deterministic runtime behavior to [`CodeDrobe/core`](https://github.com/CodeDrobe/core).
 6. Include matching `agents/openai.yaml` metadata with a default prompt that names the Skill.
 7. Do not add a root `SKILL.md`; it can shadow the multi-Skill catalog during discovery.
-8. Do not commit generated themes, screenshots, credentials, tokens, private reference images, or application binaries.
+8. Do not commit generated `.codedrobe-theme` packages, screenshots, credentials, tokens, private reference images, or application binaries. Curated source-theme assets are allowed only when their provenance and redistribution status are documented in a directly linked Skill reference.
 
 ## Validate
 

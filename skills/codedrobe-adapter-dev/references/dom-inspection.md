@@ -10,6 +10,15 @@
 
 Do not expose CDP on public interfaces.
 
+After the adapter can identify the renderer, prefer Core's read-only snapshot over arbitrary page dumps:
+
+```bash
+codedrobe dom snapshot --app <app-id> --port <port> \
+  --max-nodes 1500 --output /absolute/dom-<context>.json
+```
+
+Capture each route separately. The snapshot excludes text, form values, accessible names, links, and media sources while retaining selector candidates, match counts, geometry, computed style, and adapter landmark results.
+
 ## Collect evidence
 
 Inspect every route the adapter must support:
