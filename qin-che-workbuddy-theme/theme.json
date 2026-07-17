@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "id": "qin-che-nocturne",
+  "displayName": "Qin Che Nocturne / 秦彻夜幕",
+  "version": "1.0.2",
+  "images": {
+    "hero": "assets/qin-che.png"
+  },
+  "copy": {
+    "brandTitle": "秦彻 · 夜幕工作台",
+    "brandSubtitle": "在秩序与锋芒之间，掌控每一项任务",
+    "signature": "SYLUS · NOCTURNE",
+    "tagline": "目标已锁定。现在，开始行动。",
+    "projectPrefix": "N109 区域 · ",
+    "projectLabel": "选择当前行动项目",
+    "ribbon": "◆"
+  },
+  "targets": {
+    "workbuddy": {
+      "css": "workbuddy.css",
+      "verification": {
+        "required": [
+          {
+            "name": "chat-surface",
+            "any": [".chat-container", ".wb-cb-chat"]
+          },
+          {
+            "name": "project-cards",
+            "any": [".collapsible-section-header"]
+          }
+        ],
+        "contexts": [
+          {
+            "name": "home",
+            "when": { "any": [".wb-home-page"] },
+            "required": [
+              { "name": "home-hero", "any": [".wb-home-header"] },
+              { "name": "home-composer", "any": [".wb-home-composer"] }
+            ],
+            "recommended": [
+              { "name": "scene-tabs", "any": [".wb-scene-tabs"] },
+              { "name": "quick-actions", "any": [".quick-actions"] }
+            ]
+          },
+          {
+            "name": "conversation",
+            "when": { "any": [".chat-container:not(.chat-container--welcome)"] },
+            "required": [
+              {
+                "name": "conversation-composer-shell",
+                "any": [".chat-container:not(.chat-container--welcome) section:has([role='textbox'][contenteditable='true'])"]
+              }
+            ],
+            "recommended": [
+              { "name": "user-message", "any": ["[id^='user-message-']"] },
+              { "name": "markdown-code", "any": [".cb-markdown-pre"] }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}
