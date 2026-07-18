@@ -50,6 +50,22 @@ npx skills add CodeDrobe/skills \
 
 `--agent codex` selects the AI agent that receives the Skill. It does not select the desktop app to theme. The target app is selected later through `codedrobe --app codex` or `codedrobe --app workbuddy`.
 
+## Ask the AI
+
+After installing `codedrobe-theme`, attach a reference image when relevant and describe the target app. For example:
+
+> Use this reference image to create a Codex skin. Preserve the native interaction, create a portable theme package, and verify both the home and conversation screens in the real app.
+
+Other useful requests:
+
+- “Turn this visual style into one theme for both Codex and WorkBuddy.”
+- “Use the bundled Doll Sister example as a starting point and make a blue Codex version.”
+- “This WorkBuddy theme broke after an app update. Analyze the live CDP DOM and repair it.”
+- “Inspect, apply, and verify this `.codedrobe-theme` file in Codex.”
+- “Restore Codex to its native look and confirm the theme left nothing behind.”
+
+The Skill uses the image for art direction and a privacy-preserving live CDP DOM snapshot for selectors. It styles the real application instead of placing a screenshot overlay over the interface. Applying a theme may require the user to launch the app with CDP enabled; restarting an existing app still requires explicit approval.
+
 ## Runtime
 
 Install Core once:

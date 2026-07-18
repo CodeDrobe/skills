@@ -1,4 +1,4 @@
 interface:
   display_name: "CodeDrobe Theme"
   short_description: "Create and apply themes to supported AI desktop apps"
-  default_prompt: "Use $codedrobe-theme to create or apply a reversible theme to Codex or WorkBuddy."
+  default_prompt: "Use $codedrobe-theme to turn my attached reference image into a reversible Codex theme, preserve the native UI, analyze the live CDP DOM, and verify the result in the app."

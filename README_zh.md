@@ -50,6 +50,22 @@ npx skills add CodeDrobe/skills \
 
 `--agent codex` 表示把 Skill 安装给哪个 AI Agent，不表示要给哪个桌面软件换肤。运行时目标由 `codedrobe --app codex` 或 `codedrobe --app workbuddy` 选择。
 
+## 直接告诉 AI 你的需求
+
+安装 `codedrobe-theme` 后，可以附上参考图片，并明确目标软件。例如：
+
+> 参考这张图片，帮我生成一个 Codex 皮肤。保留原生交互，生成可移植的主题包，并在真实应用中验证首页和会话页。
+
+还可以这样说：
+
+- “把这套视觉风格同时做成 Codex 和 WorkBuddy 皮肤。”
+- “使用自带的玩偶姐姐示例作为起点，帮我改成蓝色 Codex 版本。”
+- “WorkBuddy 更新后这个主题错位了，请分析实时 CDP DOM 并修复。”
+- “帮我检查、应用并验证这个 `.codedrobe-theme` 文件。”
+- “把 Codex 恢复到原生外观，并确认主题没有残留。”
+
+Skill 会用参考图确定配色、材质和视觉元素，用保护隐私的实时 CDP DOM 快照选择节点；它修改真实应用样式，不会把截图作为覆盖层贴在界面上。应用主题可能需要用户以 CDP 模式启动软件；如果必须重启已经运行的软件，AI 仍需先取得明确授权。
+
 ## Core 运行时
 
 推荐全局安装：
