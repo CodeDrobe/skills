@@ -63,6 +63,7 @@ Other useful requests:
 - “This WorkBuddy theme broke after an app update. Analyze the live CDP DOM and repair it.”
 - “Inspect, apply, and verify this `.codedrobe-theme` file in Codex.”
 - “Restore Codex to its native look and confirm the theme left nothing behind.”
+- “Fill in the store listing metadata and publish this theme to the CodeDrobe store.”
 
 The Skill uses the image for art direction and a privacy-preserving live CDP DOM snapshot for selectors. It styles the real application instead of placing a screenshot overlay over the interface. Applying a theme may require the user to launch the app with CDP enabled; restarting an existing app still requires explicit approval.
 

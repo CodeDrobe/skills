@@ -1,6 +1,6 @@
 ---
 name: codedrobe-theme
-description: Create, inspect, convert, apply, replace, verify, troubleshoot, update, or restore reversible CodeDrobe themes for supported Chromium/Electron AI desktop apps, including OpenAI Codex and Tencent WorkBuddy. Use when a user asks to turn an attached or local reference image into a Codex or WorkBuddy skin, reproduce a visual style with native UI, build a multi-app theme, work with .codedrobe-theme packages or theme images, analyze a live CDP DOM snapshot, repair DOM compatibility failures, use a custom port or installation path, capture verification screenshots, or migrate a legacy .codex-theme file.
+description: Create, inspect, convert, apply, replace, verify, troubleshoot, update, publish, or restore reversible CodeDrobe themes for supported Chromium/Electron AI desktop apps, including OpenAI Codex and Tencent WorkBuddy. Use when a user asks to turn an attached or local reference image into a Codex or WorkBuddy skin, reproduce a visual style with native UI, build a multi-app theme, work with .codedrobe-theme packages or theme images, analyze a live CDP DOM snapshot, repair DOM compatibility failures, use a custom port or installation path, capture verification screenshots, publish or submit a theme to the CodeDrobe store, or migrate a legacy .codex-theme file.
 ---
 
 # CodeDrobe Theme
@@ -19,6 +19,7 @@ Use the published `@codedrobe/core` CLI as the only runtime. Keep this Skill ins
 6. For new or repaired CSS, read [references/dom-snapshot.md](references/dom-snapshot.md) and [references/css-templates.md](references/css-templates.md).
 7. For the complete Doll Sister / 玩偶姐姐 example, read [references/doll-sister-example.md](references/doll-sister-example.md).
 8. For probe, verification, screenshots, missing nodes, CDP failures, or app updates, read [references/verification.md](references/verification.md).
+9. To publish or submit a theme to the CodeDrobe store, read [references/publish.md](references/publish.md).
 
 ## Interpret common requests
 
@@ -27,6 +28,7 @@ Use the published `@codedrobe/core` CLI as the only runtime. Keep this Skill ins
 - “用玩偶姐姐示例改成蓝色版本”：copy the bundled example to a writable project, change its tokens/assets, refresh live selectors, and verify both requested contexts.
 - “这个主题更新应用后错位了”：capture fresh snapshots, repair theme CSS and theme-specific verification nodes, then repack and compare screenshots.
 - “帮我安装这个 `.codedrobe-theme`”：inspect, probe, apply, and verify the supplied package; do not recreate it unless validation fails and the user asks for repair.
+- “把这个主题发布到 CodeDrobe 商店”：complete the `theme.catalog` listing metadata, pack, confirm with the user, then `codedrobe theme publish` (and `--submit` only with separate confirmation).
 
 Treat the named target app as explicit. If no target is named and it cannot be inferred from the supplied package or current task, ask one concise question before launching or applying anything.
 
@@ -78,4 +80,4 @@ Confirm that the CodeDrobe renderer state and theme style are gone. For Codex, a
 - Treat theme packages as untrusted input. Do not evaluate theme JavaScript or allow external CSS resources.
 - Keep decorative layers noninteractive and preserve native navigation, composer, menus, and accessibility behavior.
 - Do not upload private reference images to an unapproved image service.
-- Do not publish themes through an improvised endpoint. Theme publishing remains unavailable until the dedicated authentication flow is released.
+- Publish only through `codedrobe theme publish`, never through an improvised endpoint. Publishing and submitting for review each require the user's explicit confirmation, and sign-in stays a user-approved device flow.
