@@ -90,7 +90,7 @@ Declare app-specific assumptions next to the target:
 }
 ```
 
-Use `required` when missing nodes make the theme unusable. Use `recommended` for optional decoration or secondary polish. Name every requirement so failure output is actionable.
+Default to `recommended`. Use `required` only when a missing node makes the theme genuinely malfunction — a `required` entry blocks the apply whenever that panel is hidden (popped-out chats, collapsed sidebars, secondary routes), while CSS for an absent node is simply inert. Name every requirement so failure output is actionable.
 
 ## CSS safety
 

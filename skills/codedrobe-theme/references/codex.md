@@ -6,8 +6,8 @@ Use app id `codex`. Read current defaults and the last verified application vers
 
 Codex themes may declare a `baseTheme`. Core updates only its managed `[desktop]` appearance keys in `~/.codex/config.toml` and creates a transactional backup in the CodeDrobe state directory.
 
-- If Codex is already running and those host settings change, Core requires `--restart-existing` for a complete result.
-- Do not add that flag or close Codex until the user authorizes the restart.
+- Codex hot-reloads the managed appearance keys, so switching themes on an already-attached Codex never requires a restart by itself.
+- A restart (`--restart-existing`) is only needed when Codex is running without the CDP debugging flag. Do not add that flag or close Codex until the user authorizes the restart; manually restarting Codex never enables theming.
 - Do not edit `config.toml` manually to work around the guard.
 - Repeated applies replace renderer CSS, copy, profile state, and image URLs. Restore returns host settings to the saved pre-CodeDrobe state.
 

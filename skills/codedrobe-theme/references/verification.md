@@ -14,10 +14,14 @@ codedrobe probe --app <app-id> --theme /absolute/theme.codedrobe-theme --timeout
 codedrobe verify --app <app-id> --theme /absolute/theme.codedrobe-theme --screenshot /absolute/result.png
 ```
 
+Compatibility is judged per renderer window: windows missing `required` landmarks are skipped (and reported with their title/url), and the apply fails only when no window qualifies. Loading screens whose root landmark has not rendered yet are re-probed for the full apply budget before failing.
+
+Prefer `recommended` entries when authoring theme verification. Reserve `required` for landmarks without which the theme genuinely malfunctions — a `required` entry blocks the apply whenever that panel is hidden (popped-out chats, collapsed sidebars, secondary routes).
+
 ## Interpret failures
 
-- `adapter:<name>` missing: the application renderer changed or the wrong CDP target was selected. Repair Core's adapter after inspecting the real app.
-- `theme:<name>` missing: the theme relies on an app-specific node that changed. Repair the target CSS and its verification entry.
+- `adapter:<name>` missing: the application renderer changed, the window is on a route without that landmark, or the wrong CDP target was selected. Check which window the error names before repairing Core's adapter.
+- `theme:<name>` missing: the theme relies on an app-specific node that changed or is hidden in that window. Repair the target CSS and its verification entry, or demote the entry to `recommended` if the theme still works without the node.
 - invalid selector: fix the selector syntax; do not silently drop the requirement.
 - `installed: false`: apply did not run against this target or another watcher removed/replaced it.
 - theme id/version mismatch: stale injection or a competing watcher is active.

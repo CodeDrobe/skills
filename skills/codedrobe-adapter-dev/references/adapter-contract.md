@@ -23,6 +23,7 @@ const example = {
     },
     win32: {
       executableCandidates: ["%LOCALAPPDATA%\\Programs\\Example\\Example.exe"],
+      uninstallKeys: ["Example"],
       processNames: ["Example.exe"]
     }
   },
@@ -32,13 +33,17 @@ const example = {
   verification: {
     rootAny: ["#root"],
     required: [
-      { name: "sidebar", any: [".stable-sidebar"] },
       { name: "workspace", any: [".stable-workspace"] },
       { name: "composer", any: ["[role='textbox'][contenteditable='true']"] }
+    ],
+    recommended: [
+      { name: "sidebar", any: [".stable-sidebar"] }
     ]
   }
 };
 ```
+
+`uninstallKeys` lets Windows discovery read the installer's registry uninstall entry (`InstallLocation`/`DisplayIcon`), which covers installs on non-default drives that path candidates miss.
 
 ## Required qualities
 
@@ -48,6 +53,7 @@ const example = {
 - Include platform paths as candidates rather than assuming one fixed installation.
 - Name every requirement for useful failure output.
 - Keep `rootAny` and required landmarks valid across home, conversation, settings, and other normal routes.
+- Treat `rootAny` as the only truly blocking landmark: it doubles as the boot detector (pages without it are treated as still loading) and the minimum app fingerprint. Put panels the app can hide — sidebars, secondary toolbars, detail panes — in `recommended`, because compatibility is judged per window and a hidden `required` panel blocks theming that window (popped-out chats, collapsed layouts).
 
 ## Optional modules
 

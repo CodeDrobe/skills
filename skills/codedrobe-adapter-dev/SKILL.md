@@ -20,7 +20,7 @@ Work in the `@codedrobe/core` repository. Keep the adapter lightweight and prove
 2. Locate the actual installed app and record its app version/build. Do not overwrite unrelated local changes.
 3. Launch the real app with loopback CDP on a configurable, unoccupied port. Do not restart or terminate it without authorization.
 4. Inspect `/json/list`, select the actual renderer, and run `codedrobe dom snapshot` on every relevant route to collect privacy-preserving semantic DOM evidence.
-5. Choose only cross-route landmarks for the adapter: root, sidebar/navigation, workspace/content, and composer/input.
+5. Choose only cross-route landmarks for the adapter: root, sidebar/navigation, workspace/content, and composer/input. Only `rootAny` should block (it doubles as the boot detector); declare panels the app can hide — sidebars in popped-out or collapsed windows — as `recommended`, since compatibility is judged per window.
 6. Put app- or theme-specific layout nodes in theme verification contexts, not the adapter.
 7. Implement the adapter, registry export, types, and focused tests. Add a renderer profile or host-settings module only when the application requires that behavior.
 8. Probe the real renderer, then apply and verify a minimal package. Validate the home and conversation contexts separately.
