@@ -64,6 +64,15 @@ codedrobe theme convert /absolute/legacy.codex-theme --output /absolute/theme.co
 
 Use `--force` only when replacing the destination is intentional.
 
+## Store search and download
+
+```bash
+codedrobe theme search <keywords> --app <app-id> --json
+codedrobe theme download <slug> --json
+```
+
+No sign-in is required. Downloads land in `~/.codedrobe/themes/<slug>-<version>.codedrobe-theme` (`--output` overrides), are verified against the store's size and SHA-256 record before anything is written, and legacy-format store packages are converted automatically. Paid themes are refused with the store purchase link — never attempt payment from the CLI. After downloading, continue with the normal inspect → probe → apply → verify flow.
+
 ## Updates
 
 ```bash

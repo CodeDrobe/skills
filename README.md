@@ -41,6 +41,7 @@ Other useful requests:
 - “Use the bundled Doll Sister example as a starting point and make a blue Codex version.”
 - “This WorkBuddy theme broke after an app update. Analyze the live CDP DOM and repair it.”
 - “Inspect, apply, and verify this `.codedrobe-theme` file in Codex.”
+- “Find a retro theme in the CodeDrobe store and install it into Codex.”
 - “Restore Codex to its native look and confirm the theme left nothing behind.”
 - “Fill in the store listing metadata and publish this theme to the CodeDrobe store.”
 

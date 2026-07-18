@@ -1,6 +1,6 @@
 ---
 name: codedrobe-theme
-description: Create, inspect, convert, apply, replace, verify, troubleshoot, update, publish, or restore reversible CodeDrobe themes for supported Chromium/Electron AI desktop apps, including OpenAI Codex and Tencent WorkBuddy. Use when a user asks to turn an attached or local reference image into a Codex or WorkBuddy skin, reproduce a visual style with native UI, build a multi-app theme, work with .codedrobe-theme packages or theme images, analyze a live CDP DOM snapshot, repair DOM compatibility failures, use a custom port or installation path, capture verification screenshots, publish or submit a theme to the CodeDrobe store, or migrate a legacy .codex-theme file.
+description: Create, inspect, convert, apply, replace, verify, troubleshoot, update, publish, or restore reversible CodeDrobe themes for supported Chromium/Electron AI desktop apps, including OpenAI Codex and Tencent WorkBuddy. Use when a user asks to turn an attached or local reference image into a Codex or WorkBuddy skin, reproduce a visual style with native UI, build a multi-app theme, work with .codedrobe-theme packages or theme images, analyze a live CDP DOM snapshot, repair DOM compatibility failures, use a custom port or installation path, capture verification screenshots, search the CodeDrobe store or install a store theme by name, publish or submit a theme to the CodeDrobe store, or migrate a legacy .codex-theme file.
 ---
 
 # CodeDrobe Theme
@@ -28,6 +28,7 @@ Use the published `@codedrobe/core` CLI as the only runtime. Keep this Skill ins
 - “用玩偶姐姐示例改成蓝色版本”：copy the bundled example to a writable project, change its tokens/assets, refresh live selectors, and verify both requested contexts.
 - “这个主题更新应用后错位了”：capture fresh snapshots, repair theme CSS and theme-specific verification nodes, then repack and compare screenshots.
 - “帮我安装这个 `.codedrobe-theme`”：inspect, probe, apply, and verify the supplied package; do not recreate it unless validation fails and the user asks for repair.
+- “从商店装一个复古主题到 Codex”：`codedrobe theme search` to resolve the slug (confirm the pick when several match), `codedrobe theme download` (integrity-verified, lands in `~/.codedrobe/themes`), then the normal inspect → probe → apply → verify flow.
 - “把这个主题发布到 CodeDrobe 商店”：complete the `theme.catalog` listing metadata, pack, confirm with the user, then `codedrobe theme publish` (and `--submit` only with separate confirmation).
 
 Treat the named target app as explicit. If no target is named and it cannot be inferred from the supplied package or current task, ask one concise question before launching or applying anything.

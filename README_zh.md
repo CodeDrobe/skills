@@ -41,6 +41,7 @@ npx skills add CodeDrobe/skills \
 - “使用自带的玩偶姐姐示例作为起点，帮我改成蓝色 Codex 版本。”
 - “WorkBuddy 更新后这个主题错位了，请分析实时 CDP DOM 并修复。”
 - “帮我检查、应用并验证这个 `.codedrobe-theme` 文件。”
+- “在 CodeDrobe 商店找一个复古主题装到 Codex。”
 - “把 Codex 恢复到原生外观，并确认主题没有残留。”
 - “补全商店上架信息，把这个主题发布到 CodeDrobe 商店。”
 
