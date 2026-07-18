@@ -14,7 +14,8 @@
 | --- | --- | --- |
 | [`codedrobe-theme`](skills/codedrobe-theme/SKILL.md) | 普通用户、主题作者 | 可安装 |
 | [`codedrobe-adapter-dev`](skills/codedrobe-adapter-dev/SKILL.md) | Core 维护者、贡献者 | 可安装 |
-| `codedrobe-publish-theme` | 主题发布者 | 主题仓库认证完成后开放 |
+
+商店发布已包含在 `codedrobe-theme` 中（见 [references/publish.md](skills/codedrobe-theme/references/publish.md)）：先 `codedrobe auth login` 登录，再用 `codedrobe theme publish` 上传主题，可选提交审核。
 
 `codedrobe-theme` 同时支持 Core 当前提供的应用目标，包括 OpenAI Codex 和腾讯 WorkBuddy。以后增加新软件时扩展 Core 适配器，不再为每个应用复制一个换肤 Skill。
 
@@ -92,6 +93,13 @@ codedrobe verify --app workbuddy --theme /absolute/theme.codedrobe-theme --scree
 codedrobe restore --app workbuddy
 ```
 
+发布到 CodeDrobe 商店（需要登录，并需要你本人确认）：
+
+```bash
+codedrobe auth login
+codedrobe theme publish /absolute/theme.codedrobe-theme --submit
+```
+
 ## 主题制作资源
 
 安装后的 `codedrobe-theme` Skill 包含两套可复制源码：
@@ -123,7 +131,7 @@ skills/
 - [`CodeDrobe/core`](https://github.com/CodeDrobe/core)：CLI、适配器、CDP、主机设置、主题包校验和公共 API。
 - [`CodeDrobe/skills`](https://github.com/CodeDrobe/skills)：可安装的 Agent 工作流和参考文档。
 - [`CodeDrobe/desktop`](https://github.com/CodeDrobe/desktop)：基于 Core 的可视化主题管理器。
-- 主题发布：认证、所有权、审核和撤销机制完成前不开放。
+- 主题发布：已通过 `codedrobe theme publish` 开放——设备授权登录、服务端主题包校验、审核通过后才会上架。
 
 新增或修改 Skill 前请阅读 [CONTRIBUTING.md](CONTRIBUTING.md)。
 

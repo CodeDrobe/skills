@@ -14,7 +14,8 @@ Installable Agent Skills for creating and managing reversible themes across supp
 | --- | --- | --- |
 | [`codedrobe-theme`](skills/codedrobe-theme/SKILL.md) | Users and theme authors | Available |
 | [`codedrobe-adapter-dev`](skills/codedrobe-adapter-dev/SKILL.md) | Core maintainers and contributors | Available |
-| `codedrobe-publish-theme` | Theme publishers | Planned after registry authentication is complete |
+
+Store publishing is part of `codedrobe-theme` (see [references/publish.md](skills/codedrobe-theme/references/publish.md)): sign in with `codedrobe auth login`, then `codedrobe theme publish` uploads and optionally submits the theme for review.
 
 `codedrobe-theme` supports the application targets currently provided by Core, including OpenAI Codex and Tencent WorkBuddy. New apps are added to Core adapters rather than creating one user Skill per application.
 
@@ -92,6 +93,13 @@ codedrobe verify --app workbuddy --theme /absolute/theme.codedrobe-theme --scree
 codedrobe restore --app workbuddy
 ```
 
+Publish to the CodeDrobe store (requires sign-in and your confirmation):
+
+```bash
+codedrobe auth login
+codedrobe theme publish /absolute/theme.codedrobe-theme --submit
+```
+
 ## Theme authoring resources
 
 The installed `codedrobe-theme` Skill includes two copyable source resources:
@@ -123,7 +131,7 @@ There is intentionally no root `SKILL.md`: the standard `skills/<name>/SKILL.md`
 - [`CodeDrobe/core`](https://github.com/CodeDrobe/core): CLI, adapters, CDP runtime, host settings, package validation, and public API.
 - [`CodeDrobe/skills`](https://github.com/CodeDrobe/skills): installable agent workflows and references.
 - [`CodeDrobe/desktop`](https://github.com/CodeDrobe/desktop): visual theme manager built on Core.
-- Theme publishing: intentionally withheld until authentication, ownership, moderation, and revocation are implemented.
+- Theme publishing: available through `codedrobe theme publish` — device-flow sign-in, store-side package validation, and review before a listing goes live.
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) before adding or changing a Skill.
 
