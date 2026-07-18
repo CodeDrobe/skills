@@ -4,32 +4,20 @@
 [![Validate Skills](https://github.com/CodeDrobe/skills/actions/workflows/ci.yml/badge.svg)](https://github.com/CodeDrobe/skills/actions/workflows/ci.yml)
 [![License](https://img.shields.io/badge/license-Apache--2.0-blue.svg?style=flat-square)](LICENSE)
 
-Installable Agent Skills for creating and managing reversible themes across supported Chromium/Electron AI desktop apps. Runtime behavior lives in [`@codedrobe/core`](https://github.com/CodeDrobe/core); this repository contains concise workflows and app-specific guidance only.
+Installable Agent Skills for creating and managing reversible themes across supported Chromium/Electron AI desktop apps, including OpenAI Codex and Tencent WorkBuddy. Runtime behavior lives in [`@codedrobe/core`](https://github.com/CodeDrobe/core); this repository contains concise workflows and app-specific guidance only.
 
 [简体中文](README_zh.md)
 
-## Skill catalog
+Two Skills ship here:
 
-| Skill | Audience | Status |
-| --- | --- | --- |
-| [`codedrobe-theme`](skills/codedrobe-theme/SKILL.md) | Users and theme authors | Available |
-| [`codedrobe-adapter-dev`](skills/codedrobe-adapter-dev/SKILL.md) | Core maintainers and contributors | Available |
+- [`codedrobe-theme`](skills/codedrobe-theme/SKILL.md) — create, apply, verify, repair, restore, and [publish](skills/codedrobe-theme/references/publish.md) themes. For users and theme authors.
+- [`codedrobe-adapter-dev`](skills/codedrobe-adapter-dev/SKILL.md) — adapter development workflows for Core maintainers and contributors.
 
-Store publishing is part of `codedrobe-theme` (see [references/publish.md](skills/codedrobe-theme/references/publish.md)): sign in with `codedrobe auth login`, then `codedrobe theme publish` uploads and optionally submits the theme for review.
-
-`codedrobe-theme` supports the application targets currently provided by Core, including OpenAI Codex and Tencent WorkBuddy. New apps are added to Core adapters rather than creating one user Skill per application.
+New apps are added as Core adapters, not as new Skills.
 
 ## Install
 
-The installer command is `npx skills` (plural).
-
-List the Skills in this repository:
-
-```bash
-npx skills add CodeDrobe/skills --list
-```
-
-Install the user-facing theme Skill globally for Codex:
+The installer command is `npx skills` (plural):
 
 ```bash
 npx skills add CodeDrobe/skills \
@@ -39,17 +27,7 @@ npx skills add CodeDrobe/skills \
   --yes
 ```
 
-Install the adapter-development Skill separately:
-
-```bash
-npx skills add CodeDrobe/skills \
-  --skill codedrobe-adapter-dev \
-  --global \
-  --agent codex \
-  --yes
-```
-
-`--agent codex` selects the AI agent that receives the Skill. It does not select the desktop app to theme. The target app is selected later through `codedrobe --app codex` or `codedrobe --app workbuddy`.
+`--agent codex` selects the AI agent that receives the Skill. It does not select the desktop app to theme — the target app is chosen later through `codedrobe --app codex` or `codedrobe --app workbuddy`. Maintainers install `codedrobe-adapter-dev` the same way, and `npx skills add CodeDrobe/skills --list` shows everything available.
 
 ## Ask the AI
 
@@ -66,34 +44,18 @@ Other useful requests:
 - “Restore Codex to its native look and confirm the theme left nothing behind.”
 - “Fill in the store listing metadata and publish this theme to the CodeDrobe store.”
 
-The Skill uses the image for art direction and a privacy-preserving live CDP DOM snapshot for selectors. It styles the real application instead of placing a screenshot overlay over the interface. Applying a theme may require the user to launch the app with CDP enabled; restarting an existing app still requires explicit approval.
+The Skill uses the image for art direction and a privacy-preserving live CDP DOM snapshot for selectors — it styles the real application instead of overlaying a screenshot. Applying a theme may require launching the app with CDP enabled, and restarting a running app always requires your explicit approval.
 
 ## Runtime
 
-Install Core once:
+The Skill drives the `@codedrobe/core` CLI; install it once (no-install runners like `npx`/`bunx` are covered inside the Skill):
 
 ```bash
 npm install --global @codedrobe/core
 codedrobe apps
 ```
 
-Or run it without a global install:
-
-```bash
-npx --yes @codedrobe/core@latest apps
-bunx @codedrobe/core@latest apps
-```
-
-Example:
-
-```bash
-codedrobe dom snapshot --app workbuddy --output /absolute/workbuddy-dom.json
-codedrobe apply --app workbuddy --theme /absolute/theme.codedrobe-theme
-codedrobe verify --app workbuddy --theme /absolute/theme.codedrobe-theme --screenshot /absolute/preview.png
-codedrobe restore --app workbuddy
-```
-
-Publish to the CodeDrobe store (requires sign-in and your confirmation):
+Day-to-day commands — snapshot, apply, verify, restore — are run by the AI on your behalf. Publishing to the CodeDrobe store requires sign-in and your confirmation:
 
 ```bash
 codedrobe auth login
@@ -107,31 +69,13 @@ The installed `codedrobe-theme` Skill includes two copyable source resources:
 - `assets/theme-starter/`: a complete neutral Codex/WorkBuddy CSS starting point.
 - `assets/examples/doll-sister/`: the complete Doll Sister / 玩偶姐姐 multi-app theme with generated hero and texture artwork.
 
-Templates are not treated as permanent application DOM contracts. The Skill captures a privacy-preserving `codedrobe dom snapshot` from each live home/conversation context, selects semantic candidates from that snapshot, then packs, probes, applies, screenshots, and repairs the theme.
+Templates are not permanent DOM contracts: the Skill captures a live `codedrobe dom snapshot` per app context, selects semantic nodes from it, then packs, probes, applies, screenshots, and repairs.
 
-## Repository layout
-
-```text
-skills/
-├── codedrobe-theme/
-│   ├── SKILL.md
-│   ├── agents/openai.yaml
-│   ├── references/
-│   └── assets/
-└── codedrobe-adapter-dev/
-    ├── SKILL.md
-    ├── agents/openai.yaml
-    └── references/
-```
-
-There is intentionally no root `SKILL.md`: the standard `skills/<name>/SKILL.md` layout allows `npx skills` to discover and install each Skill independently.
-
-## Project boundaries
+## Related repositories
 
 - [`CodeDrobe/core`](https://github.com/CodeDrobe/core): CLI, adapters, CDP runtime, host settings, package validation, and public API.
-- [`CodeDrobe/skills`](https://github.com/CodeDrobe/skills): installable agent workflows and references.
 - [`CodeDrobe/desktop`](https://github.com/CodeDrobe/desktop): visual theme manager built on Core.
-- Theme publishing: available through `codedrobe theme publish` — device-flow sign-in, store-side package validation, and review before a listing goes live.
+- Store publishing runs through `codedrobe theme publish`: device-flow sign-in, server-side package validation, and review before a listing goes live.
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) before adding or changing a Skill.
 

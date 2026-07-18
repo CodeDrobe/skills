@@ -4,32 +4,20 @@
 [![Validate Skills](https://github.com/CodeDrobe/skills/actions/workflows/ci.yml/badge.svg)](https://github.com/CodeDrobe/skills/actions/workflows/ci.yml)
 [![License](https://img.shields.io/badge/license-Apache--2.0-blue.svg?style=flat-square)](LICENSE)
 
-面向 Chromium/Electron AI 桌面软件的可安装 Agent Skills。实际换肤、应用发现、CDP、验证和恢复能力统一由 [`@codedrobe/core`](https://github.com/CodeDrobe/core) 提供；本仓库只保留精简工作流和按需加载的应用参考。
+面向 Chromium/Electron AI 桌面软件（包括 OpenAI Codex 和腾讯 WorkBuddy）的可安装 Agent Skills。实际换肤、应用发现、CDP、验证和恢复能力统一由 [`@codedrobe/core`](https://github.com/CodeDrobe/core) 提供；本仓库只保留精简工作流和按需加载的应用参考。
 
 [English](README.md)
 
-## Skill 目录
+本仓库提供两个 Skill：
 
-| Skill | 面向用户 | 状态 |
-| --- | --- | --- |
-| [`codedrobe-theme`](skills/codedrobe-theme/SKILL.md) | 普通用户、主题作者 | 可安装 |
-| [`codedrobe-adapter-dev`](skills/codedrobe-adapter-dev/SKILL.md) | Core 维护者、贡献者 | 可安装 |
+- [`codedrobe-theme`](skills/codedrobe-theme/SKILL.md) —— 创建、应用、验证、修复、恢复和[发布](skills/codedrobe-theme/references/publish.md)主题，面向普通用户和主题作者。
+- [`codedrobe-adapter-dev`](skills/codedrobe-adapter-dev/SKILL.md) —— 适配器开发工作流，面向 Core 维护者和贡献者。
 
-商店发布已包含在 `codedrobe-theme` 中（见 [references/publish.md](skills/codedrobe-theme/references/publish.md)）：先 `codedrobe auth login` 登录，再用 `codedrobe theme publish` 上传主题，可选提交审核。
-
-`codedrobe-theme` 同时支持 Core 当前提供的应用目标，包括 OpenAI Codex 和腾讯 WorkBuddy。以后增加新软件时扩展 Core 适配器，不再为每个应用复制一个换肤 Skill。
+以后支持新软件时扩展 Core 适配器，不新增 Skill。
 
 ## 安装
 
-统一安装命令是复数形式的 `npx skills`。
-
-查看本仓库可安装的 Skills：
-
-```bash
-npx skills add CodeDrobe/skills --list
-```
-
-为 Codex 全局安装普通用户换肤 Skill：
+统一安装命令是复数形式的 `npx skills`：
 
 ```bash
 npx skills add CodeDrobe/skills \
@@ -39,17 +27,7 @@ npx skills add CodeDrobe/skills \
   --yes
 ```
 
-按需单独安装适配器开发 Skill：
-
-```bash
-npx skills add CodeDrobe/skills \
-  --skill codedrobe-adapter-dev \
-  --global \
-  --agent codex \
-  --yes
-```
-
-`--agent codex` 表示把 Skill 安装给哪个 AI Agent，不表示要给哪个桌面软件换肤。运行时目标由 `codedrobe --app codex` 或 `codedrobe --app workbuddy` 选择。
+`--agent codex` 表示把 Skill 安装给哪个 AI Agent，不表示要给哪个桌面软件换肤——运行时目标由 `codedrobe --app codex` 或 `codedrobe --app workbuddy` 选择。维护者用同样方式安装 `codedrobe-adapter-dev`；`npx skills add CodeDrobe/skills --list` 可列出全部可装项。
 
 ## 直接告诉 AI 你的需求
 
@@ -66,34 +44,18 @@ npx skills add CodeDrobe/skills \
 - “把 Codex 恢复到原生外观，并确认主题没有残留。”
 - “补全商店上架信息，把这个主题发布到 CodeDrobe 商店。”
 
-Skill 会用参考图确定配色、材质和视觉元素，用保护隐私的实时 CDP DOM 快照选择节点；它修改真实应用样式，不会把截图作为覆盖层贴在界面上。应用主题可能需要用户以 CDP 模式启动软件；如果必须重启已经运行的软件，AI 仍需先取得明确授权。
+Skill 会用参考图确定配色、材质和视觉元素，用保护隐私的实时 CDP DOM 快照选择节点——它修改的是真实应用样式，不会把截图作为覆盖层贴在界面上。应用主题可能需要以 CDP 模式启动软件；重启正在运行的软件始终需要你的明确授权。
 
 ## Core 运行时
 
-推荐全局安装：
+Skill 依赖 `@codedrobe/core` CLI，全局安装一次即可（免安装的 `npx`/`bunx` 方式在 Skill 内文档中有说明）：
 
 ```bash
 npm install --global @codedrobe/core
 codedrobe apps
 ```
 
-也可以直接运行 npm 或 Bun 包：
-
-```bash
-npx --yes @codedrobe/core@latest apps
-bunx @codedrobe/core@latest apps
-```
-
-示例：
-
-```bash
-codedrobe dom snapshot --app workbuddy --output /absolute/workbuddy-dom.json
-codedrobe apply --app workbuddy --theme /absolute/theme.codedrobe-theme
-codedrobe verify --app workbuddy --theme /absolute/theme.codedrobe-theme --screenshot /absolute/preview.png
-codedrobe restore --app workbuddy
-```
-
-发布到 CodeDrobe 商店（需要登录，并需要你本人确认）：
+日常命令——快照、应用、验证、恢复——由 AI 替你执行。发布到 CodeDrobe 商店需要登录并经你本人确认：
 
 ```bash
 codedrobe auth login
@@ -107,31 +69,13 @@ codedrobe theme publish /absolute/theme.codedrobe-theme --submit
 - `assets/theme-starter/`：覆盖 Codex/WorkBuddy 主要界面的完整中性 CSS 起始模板。
 - `assets/examples/doll-sister/`：完整的“玩偶姐姐”双应用主题，包含生成的 hero 和 texture 素材。
 
-模板不会被当作永久 DOM 合约。Skill 会在应用首页和会话页分别采集保护隐私的 `codedrobe dom snapshot`，从实机快照选择语义节点，再完成打包、预检、应用、截图和修正。
+模板不会被当作永久 DOM 合约：Skill 会在各应用上下文分别采集实时 `codedrobe dom snapshot`，从实机快照选择语义节点，再完成打包、预检、应用、截图和修正。
 
-## 仓库结构
+## 相关仓库
 
-```text
-skills/
-├── codedrobe-theme/
-│   ├── SKILL.md
-│   ├── agents/openai.yaml
-│   ├── references/
-│   └── assets/
-└── codedrobe-adapter-dev/
-    ├── SKILL.md
-    ├── agents/openai.yaml
-    └── references/
-```
-
-仓库根目录不再放 `SKILL.md`，确保 `npx skills` 可以按标准 `skills/<name>/SKILL.md` 结构发现和选择安装每个 Skill。
-
-## 仓库职责
-
-- [`CodeDrobe/core`](https://github.com/CodeDrobe/core)：CLI、适配器、CDP、主机设置、主题包校验和公共 API。
-- [`CodeDrobe/skills`](https://github.com/CodeDrobe/skills)：可安装的 Agent 工作流和参考文档。
+- [`CodeDrobe/core`](https://github.com/CodeDrobe/core)：CLI、适配器、CDP 运行时、主机设置、主题包校验和公共 API。
 - [`CodeDrobe/desktop`](https://github.com/CodeDrobe/desktop)：基于 Core 的可视化主题管理器。
-- 主题发布：已通过 `codedrobe theme publish` 开放——设备授权登录、服务端主题包校验、审核通过后才会上架。
+- 主题发布通过 `codedrobe theme publish` 完成：设备授权登录、服务端主题包校验、审核通过后才会上架。
 
 新增或修改 Skill 前请阅读 [CONTRIBUTING.md](CONTRIBUTING.md)。
 
