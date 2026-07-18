@@ -60,4 +60,8 @@ Codex currently exposes semantic shell classes such as `main.main-surface`, `asi
 
 WorkBuddy currently exposes semantic classes such as `.teams-container`, `.conversation-sidebar`, `.teams-main-content`, `.chat-container`, `.wb-home-page`, and `.wb-home-composer`.
 
+QoderWork currently exposes semantic classes such as `.agents-layout-root`, `.agents-sidebar`, `.agents-content-area`, `.agents-chat-panel`, and `.chat-input-editor-text[contenteditable='true']` (the class alone matches a placeholder twin, so the attribute filter is load-bearing; `.chat-input-primary-glow` is a conditional focus class and must not be a landmark).
+
+TRAE SOLO's main window is the custom solo-lite shell of a VS Code derivative — not the Monaco workbench — and currently exposes `.task-list-base`, `.panel-container` (home), `.solo-lite-layout` (conversation), and `.chat-input-v2-input-box-editable[contenteditable='true']`. Its home and conversation routes render different main-layout containers, so the root any-list must cover both.
+
 Treat these as examples, not permanent facts. Re-read the live renderer before changing compatibility claims.

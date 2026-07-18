@@ -43,7 +43,17 @@ const example = {
 };
 ```
 
-`uninstallKeys` lets Windows discovery read the installer's registry uninstall entry (`InstallLocation`/`DisplayIcon`), which covers installs on non-default drives that path candidates miss.
+`uninstallKeys` lets Windows discovery read the installer's registry uninstall entry (`InstallLocation`/`DisplayIcon`), which covers installs on non-default drives that path candidates miss. electron-builder NSIS keys the entry by app id or product name; VS Code-style Inno Setup keys it by the product AppId GUID plus an `_is1` suffix — list the literal key names either way.
+
+## Multi-edition apps
+
+One adapter id should serve every edition of the same product (CN/global) whenever their renderers are interchangeable, so themes apply unchanged. Prove interchangeability with static package extraction (byte-compare the renderer stylesheets, compare landmark class inventories) before claiming it. The platform config supports this:
+
+- `bundleIds` (array) supplements `bundleId` for Spotlight discovery of several editions.
+- macOS discovery also derives `Contents/MacOS/<bundle name>` per app candidate, covering editions whose binary is named after the bundle while `executableRelative` stays on the verified default.
+- `devToolsActivePortFile` accepts one path or a list (one user-data directory per edition). Some hosts (e.g. QoderWork) force `remote-debugging-port=0` in their main process, so a caller-chosen port never binds — the live port is only published through Chromium's `DevToolsActivePort` file. Core resolves these files automatically when `--port` is omitted; an explicit port always wins, and a file port is only trusted while it serves targets matching the adapter.
+
+Record `lastVerified` only for the edition/platform combinations that passed a real-app run; document statically-derived support separately in the README.
 
 ## Required qualities
 

@@ -1,66 +1,77 @@
 :root.codedrobe-codex-skin {
   color-scheme: light !important;
-  --doll-ink: #49384f;
-  --doll-ink-soft: #765f7d;
-  --doll-plum: #76507e;
-  --doll-lavender: #b688ba;
-  --doll-pink: #dc9fb6;
-  --doll-blush: #f8e8ed;
-  --doll-cream: #fffaf7;
-  --doll-line: rgba(145, 99, 151, .24);
-  --doll-shadow: rgba(86, 55, 91, .14);
+  --miku-ink: #163f4b;
+  --miku-ink-soft: #557480;
+  --miku-teal: #16bfc4;
+  --miku-deep-teal: #087b86;
+  --miku-cyan: #74dce4;
+  --miku-pink: #ff8fc8;
+  --miku-lavender: #9f92f8;
+  --miku-ice: #eefbff;
+  --miku-white: #fbfdff;
+  --miku-line: rgba(22, 191, 196, .24);
+  --miku-shadow: rgba(20, 102, 118, .14);
+  --doll-ink: var(--miku-ink);
+  --doll-ink-soft: var(--miku-ink-soft);
+  --doll-plum: var(--miku-deep-teal);
+  --doll-lavender: var(--miku-lavender);
+  --doll-pink: var(--miku-pink);
+  --doll-blush: #e8faff;
+  --doll-cream: var(--miku-white);
+  --doll-line: var(--miku-line);
+  --doll-shadow: var(--miku-shadow);
 
-  --color-token-bg-primary: #fff9f7 !important;
-  --color-token-bg-secondary: rgba(255, 250, 248, .94) !important;
-  --color-token-bg-tertiary: rgba(248, 232, 237, .72) !important;
-  --color-token-main-surface-primary: #fffaf8 !important;
-  --color-token-side-bar-background: #fff7f5 !important;
-  --color-token-foreground: #49384f !important;
-  --color-token-text-primary: #49384f !important;
-  --color-token-text-secondary: rgba(73, 56, 79, .72) !important;
-  --color-token-text-tertiary: rgba(73, 56, 79, .58) !important;
-  --color-token-description-foreground: #765f7d !important;
-  --color-token-icon-foreground: #76507e !important;
-  --color-token-input-background: rgba(255, 253, 251, .95) !important;
-  --color-token-input-foreground: #49384f !important;
-  --color-token-input-placeholder-foreground: rgba(73, 56, 79, .48) !important;
-  --color-token-input-border: rgba(145, 99, 151, .25) !important;
-  --color-token-border: rgba(145, 99, 151, .18) !important;
-  --color-token-border-default: rgba(145, 99, 151, .18) !important;
-  --color-token-border-heavy: rgba(145, 99, 151, .28) !important;
-  --color-token-border-light: rgba(145, 99, 151, .11) !important;
-  --color-token-list-hover-background: rgba(220, 159, 182, .16) !important;
-  --color-token-list-active-selection-background: rgba(203, 166, 207, .28) !important;
-  --color-token-list-active-selection-foreground: #49384f !important;
-  --color-token-toolbar-hover-background: rgba(220, 159, 182, .18) !important;
-  --color-token-button-background: #8e6397 !important;
+  --color-token-bg-primary: #f7fdff !important;
+  --color-token-bg-secondary: rgba(249, 254, 255, .94) !important;
+  --color-token-bg-tertiary: rgba(218, 247, 251, .76) !important;
+  --color-token-main-surface-primary: #f8fdff !important;
+  --color-token-side-bar-background: #eaf9fc !important;
+  --color-token-foreground: #163f4b !important;
+  --color-token-text-primary: #163f4b !important;
+  --color-token-text-secondary: rgba(22, 63, 75, .74) !important;
+  --color-token-text-tertiary: rgba(22, 63, 75, .58) !important;
+  --color-token-description-foreground: #557480 !important;
+  --color-token-icon-foreground: #087b86 !important;
+  --color-token-input-background: rgba(251, 254, 255, .96) !important;
+  --color-token-input-foreground: #163f4b !important;
+  --color-token-input-placeholder-foreground: rgba(22, 63, 75, .48) !important;
+  --color-token-input-border: rgba(22, 191, 196, .28) !important;
+  --color-token-border: rgba(29, 139, 154, .18) !important;
+  --color-token-border-default: rgba(29, 139, 154, .18) !important;
+  --color-token-border-heavy: rgba(29, 139, 154, .30) !important;
+  --color-token-border-light: rgba(29, 139, 154, .11) !important;
+  --color-token-list-hover-background: rgba(72, 209, 213, .16) !important;
+  --color-token-list-active-selection-background: rgba(116, 220, 228, .28) !important;
+  --color-token-list-active-selection-foreground: #163f4b !important;
+  --color-token-toolbar-hover-background: rgba(255, 143, 200, .16) !important;
+  --color-token-button-background: #0ca9b2 !important;
   --color-token-button-foreground: #fff !important;
-  --color-token-button-border: rgba(118, 80, 126, .28) !important;
-  --color-token-link: #895b92 !important;
-  --color-token-text-link-foreground: #895b92 !important;
-  --color-token-text-link-active-foreground: #6e4078 !important;
-  --color-token-primary: #895b92 !important;
-  --color-token-focus-border: rgba(142, 99, 151, .62) !important;
-  --color-token-dropdown-background: rgba(255, 250, 248, .98) !important;
-  --color-token-dropdown-foreground: #49384f !important;
-  --color-token-menu-background: rgba(255, 250, 248, .98) !important;
-  --color-token-menu-border: rgba(145, 99, 151, .20) !important;
-  --color-token-checkbox-background: #fffaf8 !important;
-  --color-token-checkbox-border: rgba(145, 99, 151, .28) !important;
-  --color-token-checkbox-foreground: #76507e !important;
-  --color-token-badge-background: rgba(182, 136, 186, .20) !important;
-  --color-token-badge-foreground: #6f4778 !important;
-  --color-token-scrollbar-slider-background: rgba(182, 136, 186, .22) !important;
-  --color-token-scrollbar-slider-hover-background: rgba(182, 136, 186, .34) !important;
-  --color-token-scrollbar-slider-active-background: rgba(182, 136, 186, .46) !important;
-  --color-token-conversation-header: rgba(73, 56, 79, .40) !important;
-  --color-token-conversation-body: rgba(73, 56, 79, .72) !important;
-  --color-token-conversation-summary-leading: rgba(73, 56, 79, .68) !important;
-  --color-token-conversation-summary-trailing: rgba(73, 56, 79, .45) !important;
-  --color-token-non-assistant-body-descendant: rgba(73, 56, 79, .64) !important;
-  --color-token-text-preformat-foreground: #664d6e !important;
-  --color-token-text-preformat-background: rgba(236, 215, 231, .54) !important;
-  --color-token-text-code-block-background: rgba(255, 252, 250, .88) !important;
+  --color-token-button-border: rgba(8, 123, 134, .28) !important;
+  --color-token-link: #087b86 !important;
+  --color-token-text-link-foreground: #087b86 !important;
+  --color-token-text-link-active-foreground: #075f69 !important;
+  --color-token-primary: #0ca9b2 !important;
+  --color-token-focus-border: rgba(22, 191, 196, .68) !important;
+  --color-token-dropdown-background: rgba(249, 254, 255, .98) !important;
+  --color-token-dropdown-foreground: #163f4b !important;
+  --color-token-menu-background: rgba(249, 254, 255, .98) !important;
+  --color-token-menu-border: rgba(29, 139, 154, .20) !important;
+  --color-token-checkbox-background: #f7fdff !important;
+  --color-token-checkbox-border: rgba(22, 191, 196, .30) !important;
+  --color-token-checkbox-foreground: #087b86 !important;
+  --color-token-badge-background: rgba(255, 143, 200, .20) !important;
+  --color-token-badge-foreground: #b33578 !important;
+  --color-token-scrollbar-slider-background: rgba(22, 191, 196, .22) !important;
+  --color-token-scrollbar-slider-hover-background: rgba(22, 191, 196, .36) !important;
+  --color-token-scrollbar-slider-active-background: rgba(22, 191, 196, .50) !important;
+  --color-token-conversation-header: rgba(22, 63, 75, .42) !important;
+  --color-token-conversation-body: rgba(22, 63, 75, .74) !important;
+  --color-token-conversation-summary-leading: rgba(22, 63, 75, .68) !important;
+  --color-token-conversation-summary-trailing: rgba(22, 63, 75, .45) !important;
+  --color-token-non-assistant-body-descendant: rgba(22, 63, 75, .64) !important;
+  --color-token-text-preformat-foreground: #255965 !important;
+  --color-token-text-preformat-background: rgba(207, 242, 247, .62) !important;
+  --color-token-text-code-block-background: rgba(248, 253, 255, .92) !important;
 }
 
 html.codedrobe-codex-skin body {
@@ -502,6 +513,171 @@ html.codedrobe-codex-skin code {
   color: #6f5175 !important;
   box-shadow: 0 4px 11px rgba(86, 55, 91, .08) !important;
 }
+
+/* Miku Future Beats: cyber-pop visual layer */
+html.codedrobe-codex-skin body {
+  background:
+    linear-gradient(135deg, rgba(247, 253, 255, .88), rgba(234, 249, 252, .91) 45%, rgba(250, 242, 255, .91)),
+    var(--codedrobe-image-texture) center / 650px auto repeat !important;
+  color: var(--miku-ink) !important;
+}
+
+html.codedrobe-codex-skin body::before {
+  background:
+    radial-gradient(circle at 85% 8%, rgba(255, 255, 255, .98) 0 2px, transparent 3px),
+    radial-gradient(circle at 16% 20%, rgba(22, 191, 196, .42) 0 1px, transparent 2px),
+    linear-gradient(118deg, transparent 0 47%, rgba(159, 146, 248, .08) 49%, transparent 52%);
+  background-size: 79px 79px, 67px 67px, 100% 100%;
+  opacity: .62;
+}
+
+html.codedrobe-codex-skin aside.app-shell-left-panel {
+  background:
+    linear-gradient(180deg, rgba(246, 253, 255, .95), rgba(221, 247, 250, .92) 62%, rgba(246, 238, 255, .90)),
+    var(--codedrobe-image-texture) center / 560px auto repeat !important;
+  border-color: rgba(22, 191, 196, .24) !important;
+  box-shadow: 12px 0 34px rgba(12, 105, 119, .10), inset -1px 0 rgba(255, 255, 255, .94) !important;
+}
+
+html.codedrobe-codex-skin aside.app-shell-left-panel button:hover {
+  background: linear-gradient(90deg, rgba(160, 238, 239, .44), rgba(255, 225, 242, .58)) !important;
+  box-shadow: inset 0 0 0 1px rgba(22, 191, 196, .18), 0 5px 15px rgba(12, 105, 119, .08) !important;
+}
+
+html.codedrobe-codex-skin aside.app-shell-left-panel button[aria-label^="切换模式"] {
+  color: var(--miku-deep-teal) !important;
+  font-family: "Avenir Next", "PingFang SC", sans-serif !important;
+  text-shadow: 0 2px 12px rgba(22, 191, 196, .20);
+}
+
+html.codedrobe-codex-skin aside.app-shell-left-panel button[aria-label^="切换模式"]::after {
+  content: " ♫";
+  color: var(--miku-pink);
+}
+
+html.codedrobe-codex-skin aside.app-shell-left-panel [class~="bg-token-list-hover-background"],
+html.codedrobe-codex-skin aside.app-shell-left-panel [aria-current="page"] {
+  background: linear-gradient(90deg, rgba(151, 235, 238, .70), rgba(255, 218, 239, .70)) !important;
+  border-color: rgba(22, 191, 196, .30) !important;
+  box-shadow: 0 6px 18px rgba(12, 105, 119, .11), inset 0 0 0 2px rgba(255, 255, 255, .55) !important;
+}
+
+html.codedrobe-codex-skin main.main-surface {
+  background:
+    linear-gradient(rgba(248, 254, 255, .91), rgba(237, 250, 253, .93)),
+    var(--codedrobe-image-texture) center / 760px auto repeat !important;
+  border-color: rgba(22, 191, 196, .20) !important;
+  box-shadow: inset 0 1px rgba(255, 255, 255, .98), -9px 0 30px rgba(12, 105, 119, .08) !important;
+}
+
+html.codedrobe-codex-skin main.main-surface > header.app-header-tint {
+  background: linear-gradient(90deg, rgba(249, 254, 255, .97), rgba(214, 247, 251, .92), rgba(240, 226, 255, .90)) !important;
+  border-bottom-color: rgba(22, 191, 196, .22) !important;
+}
+
+html.codedrobe-codex-skin:not(:has([data-testid="home-icon"]))
+  main.main-surface > header.app-header-tint > div.flex-1.isolate::before {
+  content: "♫  Miku Future Beats · 灵感同频中";
+  position: absolute;
+  left: 50%;
+  top: 6px;
+  z-index: 2;
+  height: 32px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 18px;
+  border: 1px solid rgba(22, 191, 196, .28);
+  border-radius: 999px;
+  background: linear-gradient(135deg, rgba(248, 254, 255, .96), rgba(215, 248, 250, .93), rgba(249, 226, 243, .92));
+  color: var(--miku-deep-teal);
+  font: 750 13px/1 "Avenir Next", "PingFang SC", sans-serif;
+  letter-spacing: .05em;
+  white-space: nowrap;
+  text-shadow: 0 1px rgba(255, 255, 255, .95);
+  box-shadow: 0 5px 16px rgba(12, 105, 119, .12), inset 0 0 0 2px rgba(255, 255, 255, .48);
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+.dream-brand { color: var(--miku-deep-teal); }
+.dream-brand .dream-note {
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border-radius: 12px;
+  background: linear-gradient(145deg, #77e0e4, #0ca9b2 58%, #9f92f8);
+  color: transparent;
+  font-size: 0;
+  box-shadow: 0 5px 14px rgba(12, 105, 119, .20), inset 0 0 0 2px rgba(255, 255, 255, .44);
+}
+.dream-brand .dream-note::before { content: "01"; color: white; font: 850 13px/1 "SF Mono", monospace; }
+.dream-brand b { font-family: "Avenir Next", "PingFang SC", sans-serif; }
+.dream-brand small { color: var(--miku-ink-soft); }
+.dream-signature { color: var(--miku-deep-teal); text-shadow: 0 0 9px white, 0 2px 9px rgba(22, 191, 196, .18); }
+.dream-sparkles i { background: #f4ffff; box-shadow: 0 0 12px 3px rgba(22, 191, 196, .35), 0 0 18px 5px rgba(255, 143, 200, .14); }
+.dream-polaroid { border-color: rgba(252, 254, 255, .98); box-shadow: 0 11px 25px rgba(12, 105, 119, .20), 0 0 0 1px rgba(22, 191, 196, .22); }
+.dream-polaroid::before { content: "♫"; color: var(--miku-pink); filter: drop-shadow(0 3px 5px rgba(12, 105, 119, .20)); }
+.dream-ribbon { color: var(--miku-pink); filter: drop-shadow(0 4px 7px rgba(12, 105, 119, .16)); }
+.dream-ribbon span { color: var(--miku-teal); }
+
+.dream-home > div:first-child > div:first-child > div:first-child {
+  border-color: rgba(22, 191, 196, .34) !important;
+  background-color: #f5fcff !important;
+  background-image:
+    linear-gradient(90deg, #f7fdff 0%, rgba(247, 253, 255, .99) 43%, rgba(239, 252, 255, .72) 60%, rgba(240, 246, 255, .06) 82%),
+    var(--codedrobe-image-hero) !important;
+  background-size: 100% 100%, auto 164% !important;
+  background-position: center, right 5% center !important;
+  box-shadow: 0 18px 42px rgba(12, 105, 119, .17), 0 7px 22px rgba(159, 146, 248, .08), inset 0 0 0 4px rgba(255, 255, 255, .42) !important;
+}
+
+.dream-home > div:first-child > div:first-child > div:first-child::before {
+  background: linear-gradient(90deg, rgba(247, 253, 255, .98) 0%, rgba(247, 253, 255, .93) 58%, rgba(231, 249, 252, .61) 82%, transparent 100%);
+}
+
+.dream-home [data-feature="game-source"] { color: var(--miku-ink) !important; font-family: "Avenir Next", "PingFang SC", sans-serif !important; }
+.dream-home [data-feature="game-source"]::after { content: var(--dream-tagline, "让灵感、代码与旋律同频闪耀"); color: var(--miku-ink-soft); }
+.dream-home [data-feature="game-source"] button { border-color: rgba(22, 191, 196, .30); background: rgba(250, 254, 255, .78); color: var(--miku-deep-teal) !important; text-decoration-color: rgba(22, 191, 196, .46) !important; }
+.dream-home [data-feature="game-source"] button::before { content: var(--dream-project-prefix, "未来舞台 · "); }
+
+.dream-home .group\/home-suggestions button {
+  border-color: rgba(22, 191, 196, .26) !important;
+  background:
+    linear-gradient(145deg, rgba(251, 254, 255, .94), rgba(219, 248, 251, .90) 62%, rgba(250, 228, 243, .88)),
+    var(--codedrobe-image-texture) center / 480px auto !important;
+  color: var(--miku-ink) !important;
+  box-shadow: 0 10px 23px rgba(12, 105, 119, .11), inset 0 0 0 3px rgba(255, 255, 255, .58) !important;
+}
+.dream-home .group\/home-suggestions button:hover { box-shadow: 0 16px 30px rgba(12, 105, 119, .17), 0 0 0 2px rgba(255, 143, 200, .16) !important; }
+.dream-home .group\/home-suggestions button > span:first-child > span:first-child {
+  background: linear-gradient(145deg, #ff9dcc, #9f92f8 48%, #0cb7bf);
+  box-shadow: 0 0 0 7px rgba(193, 243, 246, .72), 0 7px 15px rgba(12, 105, 119, .20);
+}
+
+html.codedrobe-codex-skin .composer-surface-chrome {
+  border-color: rgba(22, 191, 196, .34) !important;
+  background:
+    linear-gradient(145deg, rgba(251, 254, 255, .97), rgba(215, 247, 250, .93) 64%, rgba(247, 227, 243, .90)),
+    var(--codedrobe-image-texture) center / 580px auto !important;
+  box-shadow: 0 13px 31px rgba(12, 105, 119, .14), inset 0 0 0 4px rgba(255, 255, 255, .56) !important;
+}
+html.codedrobe-codex-skin .composer-surface-chrome::before { content: "♫"; color: white; background: linear-gradient(145deg, #ff9dcc, #16bfc4 62%, #9f92f8); box-shadow: 0 5px 14px rgba(12, 105, 119, .19), 0 0 0 3px rgba(255, 255, 255, .74); }
+html.codedrobe-codex-skin .ProseMirror { color: var(--miku-ink) !important; caret-color: var(--miku-teal) !important; }
+html.codedrobe-codex-skin button[class~="bg-token-foreground"] { background: linear-gradient(145deg, #ff8fc8, #9f92f8 45%, #0ca9b2) !important; box-shadow: 0 7px 16px rgba(12, 105, 119, .24) !important; }
+
+html.codedrobe-codex-skin :is(pre, code) { border-color: rgba(22, 191, 196, .18) !important; }
+html.codedrobe-codex-skin pre { background: linear-gradient(145deg, rgba(245, 252, 255, .96), rgba(229, 246, 250, .94)) !important; box-shadow: inset 3px 0 0 rgba(22, 191, 196, .45); }
+html.codedrobe-codex-skin :is(blockquote, table, th, td) { border-color: rgba(22, 191, 196, .20) !important; }
+html.codedrobe-codex-skin blockquote { background: rgba(226, 248, 251, .54) !important; border-left-color: var(--miku-pink) !important; }
+html.codedrobe-codex-skin th { background: linear-gradient(90deg, rgba(199, 242, 246, .64), rgba(244, 224, 242, .58)) !important; }
+
+.dream-home div:has(> .horizontal-scroll-fade-mask .group\/project-selector) { border-color: rgba(22, 191, 196, .24); background: linear-gradient(180deg, rgba(251, 254, 255, .97), rgba(217, 247, 250, .92)) !important; }
+.dream-home div:has(> .horizontal-scroll-fade-mask .group\/project-selector)::before { content: var(--dream-project-label, "♫  选择今天要点亮的创作项目"); color: var(--miku-deep-teal); }
+.dream-home .group\/project-selector > button { border-color: rgba(22, 191, 196, .28) !important; background: linear-gradient(135deg, rgba(255, 255, 255, .97), rgba(214, 246, 249, .91), rgba(248, 230, 244, .88)) !important; color: #276d78 !important; box-shadow: 0 5px 12px rgba(12, 105, 119, .09) !important; }
+
+html.codedrobe-codex-skin *:focus-visible { outline-color: rgba(22, 191, 196, .78) !important; box-shadow: 0 0 0 3px rgba(22, 191, 196, .17) !important; }
 
 @media (max-width: 1120px) {
   .dream-polaroid { display: none !important; }

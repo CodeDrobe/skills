@@ -15,7 +15,7 @@ Codex themes may declare a `baseTheme`. Core updates only its managed `[desktop]
 
 Keep the adapter limited to cross-route landmarks such as the main surface, left sidebar, and composer. Keep home hero, suggestion-card, project-selector, and other layout assumptions in the theme package.
 
-Capture separate home and normal-task snapshots before adapting `assets/theme-starter/codex.css` or `assets/examples/doll-sister/codex.css`. Do not assume the example's structural home selectors survived a Codex update.
+Capture separate home and normal-task snapshots before adapting `assets/theme-starter/codex.css` or `assets/examples/miku-future-beats/codex.css`. Do not assume the example's structural home selectors survived a Codex update.
 
 Verify at least:
 

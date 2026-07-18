@@ -1,0 +1,252 @@
+{
+  "schemaVersion": 1,
+  "id": "miku-future-beats",
+  "displayName": "初音未来 · Future Beats",
+  "version": "1.2.0",
+  "catalog": {
+    "name": { "en": "Hatsune Miku · Future Beats", "zh": "初音未来 · Future Beats" },
+    "description": {
+      "en": "An ice-teal, sakura-pink, and lavender future-beats workstation: full Miku hero artwork, original textures, and musical accents, deep-themed for Codex, WorkBuddy, QoderWork, and TRAE SOLO.",
+      "zh": "冰青、樱粉与薰衣草紫交织的未来节拍工作台：全幅初音主视觉、原创纹理与音符点缀，深度适配 Codex、WorkBuddy、QoderWork 与 TRAE SOLO 四端。"
+    },
+    "categories": ["character", "futuristic", "artistic"]
+  },
+  "images": {
+    "hero": "assets/hero.png",
+    "texture": "assets/texture.png"
+  },
+  "copy": {
+    "brandTitle": "初音未来 · Future Beats",
+    "brandSubtitle": "Codex × WorkBuddy × QoderWork × TRAE · 未来节拍工作台",
+    "signature": "Miku Future Beats ♫",
+    "tagline": "和初音未来一起，让灵感、代码与旋律同频闪耀",
+    "projectPrefix": "未来舞台 · ",
+    "projectLabel": "♫  选择今天要点亮的创作项目",
+    "ribbon": "♫"
+  },
+  "targets": {
+    "codex": {
+      "css": "codex.css",
+      "options": {
+        "rendererProfile": "codex-theme-v1",
+        "baseTheme": {
+          "mode": "light",
+          "codeTheme": "codex",
+          "accent": "#16BFC4",
+          "contrast": 78,
+          "ink": "#163F4B",
+          "surface": "#F7FDFF",
+          "opaqueWindows": true,
+          "fonts": {
+            "windowsCode": "Cascadia Code",
+            "windowsUi": "Microsoft YaHei UI",
+            "macCode": "SF Mono",
+            "macUi": "PingFang SC"
+          },
+          "semanticColors": {
+            "diffAdded": "#CFF4E9",
+            "diffRemoved": "#FFE0EC",
+            "skill": "#9B8AFB"
+          }
+        }
+      },
+      "verification": {
+        "contexts": [
+          {
+            "name": "home",
+            "when": {
+              "any": ["[role='main']:has([data-testid='home-icon'])"]
+            },
+            "required": [
+              {
+                "name": "home-hero-shell",
+                "any": ["[role='main']:has([data-testid='home-icon']) > div:first-child > div:first-child > div:first-child"]
+              }
+            ],
+            "recommended": [
+              {
+                "name": "home-suggestions",
+                "any": [".group\\/home-suggestions"]
+              },
+              {
+                "name": "home-project-selector",
+                "any": [".group\\/project-selector"]
+              }
+            ]
+          },
+          {
+            "name": "conversation",
+            "when": {
+              "any": ["main.main-surface:not(:has([data-testid='home-icon']))"]
+            },
+            "recommended": [
+              {
+                "name": "conversation-theme-topbar",
+                "any": ["main.main-surface > header.app-header-tint > div.flex-1.isolate"]
+              },
+              {
+                "name": "conversation-composer",
+                "any": [".composer-surface-chrome"]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "qoderwork": {
+      "css": "qoderwork.css",
+      "verification": {
+        "contexts": [
+          {
+            "name": "home",
+            "when": { "any": [".welcome-title"] },
+            "required": [
+              {
+                "name": "home-composer-editor",
+                "any": [".chat-input-editor-text[contenteditable='true']"]
+              }
+            ],
+            "recommended": [
+              {
+                "name": "home-send-button",
+                "any": [".SendButton-send"]
+              },
+              {
+                "name": "home-composer-shell",
+                "any": ["div.bg-bg-base.squircle-xl"]
+              }
+            ]
+          },
+          {
+            "name": "conversation",
+            "when": { "any": [".agents-chat-panel"] },
+            "required": [
+              {
+                "name": "conversation-panel-surface",
+                "any": [".agents-chat-panel.agents-parchment-paper-surface", ".agents-chat-panel"]
+              }
+            ],
+            "recommended": [
+              {
+                "name": "conversation-panel-header",
+                "any": [".agents-chat-panel > .chat-panel-header", ".chat-panel-header"]
+              },
+              {
+                "name": "conversation-message",
+                "any": [".group\\/message"]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "traework": {
+      "css": "traework.css",
+      "verification": {
+        "contexts": [
+          {
+            "name": "home",
+            "when": { "any": [".initial-chat-panel"] },
+            "required": [
+              {
+                "name": "home-composer",
+                "any": [".messageInputContainer"]
+              }
+            ],
+            "recommended": [
+              {
+                "name": "home-welcome-title",
+                "any": [".welcomeTitleWrapper"]
+              },
+              {
+                "name": "home-send-button",
+                "any": [".chat-input-v2-send-button"]
+              }
+            ]
+          },
+          {
+            "name": "conversation",
+            "when": { "any": [".session-view"] },
+            "required": [
+              {
+                "name": "conversation-panel-card",
+                "any": [".solo-lite-chat-panel-container", ".solo-lite-chat-container"]
+              }
+            ],
+            "recommended": [
+              {
+                "name": "conversation-message-list",
+                "any": [".virtualized-message-list-view", ".chat-session"]
+              },
+              {
+                "name": "conversation-user-bubble",
+                "any": [".user-message__text-box"]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "workbuddy": {
+      "css": "workbuddy.css",
+      "verification": {
+        "required": [
+          {
+            "name": "chat-surface",
+            "any": [".chat-container", ".wb-cb-chat"]
+          }
+        ],
+        "contexts": [
+          {
+            "name": "home",
+            "when": {
+              "any": [".wb-home-page"]
+            },
+            "required": [
+              {
+                "name": "home-hero",
+                "any": [".wb-home-header"]
+              },
+              {
+                "name": "home-composer",
+                "any": [".wb-home-composer"]
+              }
+            ],
+            "recommended": [
+              {
+                "name": "scene-tabs",
+                "any": [".wb-scene-tabs"]
+              },
+              {
+                "name": "quick-actions",
+                "any": [".quick-actions"]
+              }
+            ]
+          },
+          {
+            "name": "conversation",
+            "when": {
+              "any": [".chat-container:not(.chat-container--welcome)"]
+            },
+            "required": [
+              {
+                "name": "conversation-composer-shell",
+                "any": [".chat-container:not(.chat-container--welcome) section:has([role='textbox'][contenteditable='true'])"]
+              }
+            ],
+            "recommended": [
+              {
+                "name": "conversation-markdown",
+                "any": [".cb-markdown"]
+              },
+              {
+                "name": "conversation-theme-topbar",
+                "any": [".main-content--chat .workbuddy-topbar"]
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

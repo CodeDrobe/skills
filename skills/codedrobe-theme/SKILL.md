@@ -1,6 +1,6 @@
 ---
 name: codedrobe-theme
-description: Create, inspect, convert, apply, replace, verify, troubleshoot, update, publish, or restore reversible CodeDrobe themes for supported Chromium/Electron AI desktop apps, including OpenAI Codex and Tencent WorkBuddy. Use when a user asks to turn an attached or local reference image into a Codex or WorkBuddy skin, reproduce a visual style with native UI, build a multi-app theme, work with .codedrobe-theme packages or theme images, analyze a live CDP DOM snapshot, repair DOM compatibility failures, use a custom port or installation path, capture verification screenshots, search the CodeDrobe store or install a store theme by name, publish or submit a theme to the CodeDrobe store, or migrate a legacy .codex-theme file.
+description: Create, inspect, convert, apply, replace, verify, troubleshoot, update, publish, or restore reversible CodeDrobe themes for supported Chromium/Electron AI desktop apps, including OpenAI Codex, Tencent WorkBuddy, QoderWork (CN/global), and TRAE SOLO (global/CN). Use when a user asks to turn an attached or local reference image into a Codex, WorkBuddy, QoderWork, or TRAE SOLO skin, reproduce a visual style with native UI, build a multi-app theme, work with .codedrobe-theme packages or theme images, analyze a live CDP DOM snapshot, repair DOM compatibility failures, use a custom port or installation path, capture verification screenshots, search the CodeDrobe store or install a store theme by name, publish or submit a theme to the CodeDrobe store, or migrate a legacy .codex-theme file.
 ---
 
 # CodeDrobe Theme
@@ -14,10 +14,12 @@ Use the published `@codedrobe/core` CLI as the only runtime. Keep this Skill ins
 3. Read only the target-specific reference:
    - Codex: [references/codex.md](references/codex.md)
    - WorkBuddy: [references/workbuddy.md](references/workbuddy.md)
+   - QoderWork: [references/qoderwork.md](references/qoderwork.md)
+   - TRAE SOLO: [references/traework.md](references/traework.md)
 4. For theme creation, images, CSS, packaging, or legacy conversion, read [references/theme-authoring.md](references/theme-authoring.md).
 5. When the request includes an attached or local visual reference, read [references/reference-image.md](references/reference-image.md).
 6. For new or repaired CSS, read [references/dom-snapshot.md](references/dom-snapshot.md) and [references/css-templates.md](references/css-templates.md).
-7. For the complete Doll Sister / 玩偶姐姐 example, read [references/doll-sister-example.md](references/doll-sister-example.md).
+7. For the complete Miku Future Beats / 初音未来 example, read [references/miku-future-beats-example.md](references/miku-future-beats-example.md).
 8. For probe, verification, screenshots, missing nodes, CDP failures, or app updates, read [references/verification.md](references/verification.md).
 9. To publish or submit a theme to the CodeDrobe store, read [references/publish.md](references/publish.md).
 
@@ -54,7 +56,7 @@ codedrobe verify --app <app-id> --theme /absolute/theme.codedrobe-theme --screen
 ## Create or repair a theme
 
 1. Inspect any supplied reference image and turn it into a short visual brief before writing CSS. Never use the reference screenshot as a full-window overlay.
-2. Copy `assets/theme-starter/` for a neutral base or `assets/examples/doll-sister/` for a complete multi-app example. Never edit the installed Skill in place.
+2. Copy `assets/theme-starter/` for a neutral base or `assets/examples/miku-future-beats/` for a complete multi-app example. Never edit the installed Skill in place.
 3. Open each app context the theme will style and capture a separate `codedrobe dom snapshot`; do not infer selectors from the template alone.
 4. Select semantic candidates from the snapshot, then write app-specific CSS under `html.codedrobe-host-<app-id>`.
 5. Keep shared artwork in named `images`; keep app-specific selectors under the relevant target CSS.

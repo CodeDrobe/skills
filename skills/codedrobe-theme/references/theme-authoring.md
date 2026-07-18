@@ -51,7 +51,7 @@ Use a manifest shaped like:
 
 Only include supported targets. A single package may support multiple apps and shares its embedded named images across targets.
 
-For a new theme, copy `assets/theme-starter/`. For a complete authored example, copy `assets/examples/doll-sister/`. Read `references/dom-snapshot.md` and replace detailed selectors from a fresh snapshot before treating either source as compatible with the installed app version.
+For a new theme, copy `assets/theme-starter/`. For a complete authored example, copy `assets/examples/miku-future-beats/`. Read `references/dom-snapshot.md` and replace detailed selectors from a fresh snapshot before treating either source as compatible with the installed app version.
 
 ## Image variables
 

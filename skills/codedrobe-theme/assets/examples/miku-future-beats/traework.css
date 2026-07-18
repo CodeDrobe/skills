@@ -1,0 +1,249 @@
+/* Miku Future Beats · TRAE SOLO (solo-lite shell)
+   Deep adaptation: override the shell's --vscode-* design tokens (the app
+   defines them on plain `body` selectors inside style tags, so the host-class
+   scope below always outranks them), then layer texture, hero, and ♫
+   decorations on stable solo-lite surfaces. */
+
+html.codedrobe-host-traework body {
+  color-scheme: light;
+
+  --miku-tw-ink: #163f4b;
+  --miku-tw-muted: #557480;
+  --miku-tw-teal: #16bfc4;
+  --miku-tw-deep-teal: #087b86;
+  --miku-tw-pink: #ff8fc8;
+  --miku-tw-lavender: #9f92f8;
+  --miku-tw-line: rgba(22, 191, 196, .24);
+  --miku-tw-shadow: rgba(12, 105, 119, .12);
+
+  /* Ink */
+  --vscode-foreground: #163f4b;
+  --vscode-icube-colorDefaultText: #163f4b;
+  --vscode-icube--text-text-default: #163f4b;
+  --vscode-icube-colorHighlightText: #0e2f38;
+  --vscode-descriptionForeground: #557480;
+  --vscode-icube-colorGrayText: #557480;
+  --vscode-icube-colorDisableText: #8aa6ad;
+
+  /* Brand and links */
+  --vscode-textLink-foreground: #0e9ba1;
+  --vscode-textLink-activeForeground: #12a9ae;
+  --vscode-button-background: #16bfc4;
+  --vscode-button-foreground: #ffffff;
+  --vscode-icube-colorBrand: #0e9ba1;
+  --vscode-focusBorder: rgba(22, 191, 196, .6);
+
+  /* Lines */
+  --vscode-icube-colorLine1: rgba(22, 191, 196, .14);
+  --vscode-icube-colorLine2: rgba(22, 191, 196, .28);
+  --vscode-icube--border-border-neutral-l1: rgba(22, 191, 196, .14);
+  --vscode-chat-requestBorder: rgba(22, 191, 196, .25);
+
+  /* Fills and hovers */
+  --vscode-toolbar-hoverBackground: rgba(22, 191, 196, .12);
+  --vscode-icube-colorBtnHover: rgba(22, 191, 196, .12);
+  --vscode-icube-colorBtnHover2: rgba(22, 191, 196, .18);
+  --vscode-list-hoverBackground: rgba(22, 191, 196, .12);
+  --vscode-icube--bg-bg-overlay-l2: rgba(22, 191, 196, .12);
+  --vscode-icube--bg-bg-overlay-l3: rgba(22, 191, 196, .18);
+  --vscode-input-background: rgba(22, 191, 196, .07);
+
+  /* Surfaces */
+  --vscode-editor-background: #fbfeff;
+  --vscode-icube-colorBg1: #fbfeff;
+  --vscode-icube-colorBg2: #e6f6f9;
+  --vscode-icube-colorBg3: #fbfeff;
+  --vscode-editorWidget-background: #f0fafc;
+  --vscode-widget-shadow: rgba(12, 105, 119, .15);
+  --vscode-badge-background: #a5e3e6;
+}
+
+/* ---- application shell and background ---------------------------------- */
+
+html.codedrobe-host-traework body.solo-lite {
+  background:
+    linear-gradient(135deg, rgba(247, 253, 255, .80), rgba(230, 248, 251, .86) 48%, rgba(249, 239, 255, .84)),
+    var(--codedrobe-image-texture) center / 560px auto repeat !important;
+  color: var(--miku-tw-ink) !important;
+}
+
+/* ---- sidebar ------------------------------------------------------------ */
+
+html.codedrobe-host-traework .task-list-base {
+  background:
+    linear-gradient(180deg,
+      rgba(247, 253, 255, .55) 0%,
+      rgba(218, 247, 250, .42) 56%,
+      rgba(246, 236, 255, .30) 82%,
+      rgba(255, 236, 247, .18) 100%),
+    var(--codedrobe-image-hero) left calc(100% + 40px) / 130% auto no-repeat,
+    var(--codedrobe-image-texture) center / 460px auto repeat !important;
+  box-shadow: inset -1px 0 var(--miku-tw-line) !important;
+}
+
+html.codedrobe-host-traework .task-list-heading {
+  color: var(--miku-tw-deep-teal) !important;
+  letter-spacing: .04em;
+}
+
+/* ---- workspace cards (home .panel-content + conversation chat panel) ---- */
+
+html.codedrobe-host-traework .solo-lite-panel-border {
+  border: 1px solid var(--miku-tw-line) !important;
+}
+
+html.codedrobe-host-traework .panel-content,
+html.codedrobe-host-traework .solo-lite-chat-panel-container {
+  background:
+    linear-gradient(160deg, rgba(251, 254, 255, .96), rgba(236, 250, 252, .94) 55%, rgba(248, 242, 255, .93)),
+    var(--codedrobe-image-texture) center / 760px auto repeat !important;
+  box-shadow: 0 10px 30px var(--miku-tw-shadow), inset 0 0 0 1px rgba(255, 255, 255, .65) !important;
+}
+
+/* ---- home hero ---------------------------------------------------------- */
+
+/* Full-height Miku artwork on the right of the home card, fading under the
+   centered welcome copy — the same treatment as the QoderWork home canvas. */
+html.codedrobe-host-traework .panel-content:has(.initial-chat-panel) {
+  background-color: #f7fdff !important;
+  background-image:
+    linear-gradient(90deg,
+      rgba(247, 253, 255, .97) 0%,
+      rgba(240, 251, 253, .95) 44%,
+      rgba(240, 251, 253, .80) 62%,
+      rgba(243, 240, 255, .38) 82%,
+      rgba(255, 236, 247, .12) 100%),
+    var(--codedrobe-image-hero),
+    var(--codedrobe-image-texture) !important;
+  background-repeat: no-repeat, no-repeat, repeat !important;
+  background-size: 100% 100%, auto 112%, 560px auto !important;
+  background-position: center, right -36px center, center !important;
+}
+
+html.codedrobe-host-traework .initial-chat-panel {
+  position: relative !important;
+}
+
+html.codedrobe-host-traework .initial-chat-panel::after {
+  content: "Miku Future Beats ♫ TRAE SOLO";
+  position: absolute;
+  right: 22px;
+  bottom: 16px;
+  z-index: 2;
+  color: var(--miku-tw-deep-teal);
+  font: italic 650 13px/1.2 "Avenir Next", "PingFang SC", sans-serif;
+  letter-spacing: .04em;
+  text-shadow: 0 1px white, 0 0 12px rgba(255, 255, 255, .85);
+  pointer-events: none;
+}
+
+/* Keep the animated per-mode title, add the Miku tagline underneath. */
+html.codedrobe-host-traework .welcomeTitleWrapper::after {
+  content: "和初音未来一起，让灵感、代码与旋律同频闪耀 ♫";
+  display: block;
+  margin-top: 10px;
+  text-align: center;
+  color: var(--miku-tw-muted);
+  font: 500 14px/1.6 "Avenir Next", "PingFang SC", sans-serif;
+  letter-spacing: .03em;
+}
+
+/* ---- composer ----------------------------------------------------------- */
+
+html.codedrobe-host-traework .messageInputContainer {
+  background:
+    linear-gradient(145deg, rgba(240, 251, 253, .90), rgba(224, 246, 250, .85) 65%, rgba(248, 234, 246, .82)),
+    var(--codedrobe-image-texture) center / 580px auto !important;
+}
+
+html.codedrobe-host-traework .chat-input-v2-editor-part {
+  border: 1px solid rgba(22, 191, 196, .38) !important;
+  background: linear-gradient(145deg, rgba(252, 255, 255, .98), rgba(238, 251, 253, .96) 65%, rgba(251, 240, 250, .95)) !important;
+  box-shadow: 0 8px 22px rgba(12, 105, 119, .12), inset 0 0 0 3px rgba(255, 255, 255, .56) !important;
+}
+
+html.codedrobe-host-traework .messageInputContainer::before {
+  content: "♫";
+  position: absolute;
+  left: -12px;
+  top: -13px;
+  z-index: 30;
+  width: 27px;
+  height: 27px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  font-size: 14px;
+  color: white;
+  background: linear-gradient(145deg, #ff9dcc, #16bfc4 62%, #9f92f8);
+  box-shadow: 0 4px 12px rgba(12, 105, 119, .19), 0 0 0 3px rgba(255, 255, 255, .74);
+  pointer-events: none;
+}
+
+/* Tilted Miku polaroid peeking over the home composer's top-right corner. */
+html.codedrobe-host-traework .initial-chat-panel .messageInputContainer::after {
+  content: "";
+  position: absolute;
+  right: 14px;
+  top: -74px;
+  z-index: 30;
+  width: 74px;
+  height: 92px;
+  border: 6px solid rgba(252, 254, 255, .98);
+  border-bottom-width: 16px;
+  border-radius: 3px;
+  background-image: var(--codedrobe-image-hero);
+  background-repeat: no-repeat;
+  background-size: 290% auto;
+  background-position: 80% 18%;
+  box-shadow: 0 9px 22px rgba(12, 105, 119, .20), 0 0 0 1px rgba(22, 191, 196, .22);
+  transform: rotate(5deg);
+  pointer-events: none;
+}
+
+html.codedrobe-host-traework .chat-input-v2-input-box-editable[contenteditable='true'] {
+  color: var(--miku-tw-ink) !important;
+  caret-color: var(--miku-tw-teal) !important;
+}
+
+html.codedrobe-host-traework .chat-input-v2-send-button {
+  background: linear-gradient(160deg, #ff9dcc, #16bfc4 55%, #9f92f8) !important;
+  box-shadow: 0 4px 12px rgba(12, 105, 119, .28), inset 0 1px rgba(255, 255, 255, .40) !important;
+}
+
+html.codedrobe-host-traework .chat-input-v2-send-button :is(svg, span) {
+  color: white !important;
+}
+
+/* ---- conversation content ----------------------------------------------- */
+
+html.codedrobe-host-traework .user-message__text-box {
+  background: linear-gradient(135deg, rgba(214, 247, 250, .75), rgba(249, 236, 248, .70)) !important;
+  border: 1px solid rgba(22, 191, 196, .22) !important;
+}
+
+/* ---- focus, responsive, reduced motion ---------------------------------- */
+
+html.codedrobe-host-traework *:focus-visible {
+  outline-color: rgba(22, 191, 196, .78) !important;
+}
+
+@media (max-width: 760px) {
+  html.codedrobe-host-traework .initial-chat-panel .messageInputContainer::after,
+  html.codedrobe-host-traework .initial-chat-panel::after {
+    display: none;
+  }
+
+  html.codedrobe-host-traework .panel-content:has(.initial-chat-panel) {
+    background-image:
+      linear-gradient(90deg, rgba(247, 253, 255, .97), rgba(240, 251, 253, .95)),
+      none,
+      var(--codedrobe-image-texture) !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.codedrobe-host-traework .chat-input-v2-send-button {
+    transition: none !important;
+  }
+}

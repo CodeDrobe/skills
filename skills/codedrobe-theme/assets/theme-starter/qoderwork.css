@@ -1,0 +1,82 @@
+/* Replace selectors that are not present in the current `codedrobe dom snapshot`. */
+/* QoderWork exposes an app-owned --color-* token system defined on
+   :root[data-theme=...]; html:root.codedrobe-host-qoderwork (0,2,1) outranks
+   those blocks in every appearance mode, so token overrides restyle most
+   controls before any surface rule runs. */
+
+html:root.codedrobe-host-qoderwork {
+  color-scheme: light !important;
+
+  --theme-bg: #f8f7fc;
+  --theme-surface: rgba(255, 255, 255, .92);
+  --theme-text: #2f2b3a;
+  --theme-muted: #756f82;
+  --theme-accent: #7867a8;
+  --theme-border: rgba(74, 62, 98, .16);
+  --theme-shadow: rgba(47, 43, 58, .12);
+
+  /* App tokens: keep the full set from the app's :root[data-theme=light]
+     block in mind; these are the high-traffic ones. */
+  --color-primary: var(--theme-accent);
+  --color-primary-hover: #675691;
+  --color-primary-text: var(--theme-text);
+  --color-text: var(--theme-text);
+  --color-text-secondary: #565064;
+  --color-text-tertiary: var(--theme-muted);
+  --color-border-tertiary: var(--theme-border);
+  --color-fill-secondary: rgba(120, 103, 168, .12);
+  --color-fill-tertiary: rgba(120, 103, 168, .07);
+  --color-bg-base: #fcfbfe;
+  --color-bg-layout: var(--theme-bg);
+  --color-bg-container: #ffffff;
+  --color-link: var(--theme-accent);
+}
+
+/* Shell: .agents-layout-root is the app chrome; the sidebar and the content
+   card sit inside .agents-layout-body. */
+html.codedrobe-host-qoderwork .agents-layout-root {
+  background:
+    linear-gradient(rgba(248, 247, 252, .88), rgba(244, 241, 250, .94)),
+    var(--codedrobe-image-texture, none) center / 720px auto repeat !important;
+  color: var(--theme-text) !important;
+}
+
+html.codedrobe-host-qoderwork .agents-sidebar {
+  background: rgba(244, 241, 250, .55) !important;
+  box-shadow: inset -1px 0 var(--theme-border);
+}
+
+/* The main card class survives every appearance style despite its name. */
+html.codedrobe-host-qoderwork .agents-parchment-paper-surface {
+  background: var(--theme-surface) !important;
+  border-color: var(--theme-border) !important;
+  box-shadow: 0 10px 30px var(--theme-shadow) !important;
+}
+
+/* Composer: the editable div has a placeholder twin with the same class, so
+   the contenteditable filter is load-bearing. The container carries only
+   utility classes; anchor with :has(). */
+html.codedrobe-host-qoderwork div.bg-bg-base.squircle-xl:has(.chat-input-editor-text) {
+  border-color: var(--theme-border) !important;
+  box-shadow: 0 8px 22px var(--theme-shadow) !important;
+}
+
+html.codedrobe-host-qoderwork .chat-input-editor-text[contenteditable='true'] {
+  color: var(--theme-text) !important;
+  caret-color: var(--theme-accent) !important;
+}
+
+/* Send button ships a near-black gradient by default. */
+html.codedrobe-host-qoderwork .SendButton-send {
+  background: linear-gradient(160deg, #9484c0, var(--theme-accent)) !important;
+}
+
+html.codedrobe-host-qoderwork *:focus-visible {
+  outline-color: var(--theme-accent) !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.codedrobe-host-qoderwork .SendButton-send {
+    transition: none !important;
+  }
+}

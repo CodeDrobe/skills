@@ -1,13 +1,23 @@
 :root.codedrobe-host-workbuddy {
   color-scheme: light !important;
-  --doll-wb-ink: #4b3851;
-  --doll-wb-muted: #806b84;
-  --doll-wb-plum: #76507e;
-  --doll-wb-lavender: #b688ba;
-  --doll-wb-pink: #d99ab3;
-  --doll-wb-cream: #fffaf7;
-  --doll-wb-line: rgba(145, 99, 151, .23);
-  --doll-wb-shadow: rgba(86, 55, 91, .13);
+  --miku-wb-ink: #163f4b;
+  --miku-wb-muted: #557480;
+  --miku-wb-teal: #16bfc4;
+  --miku-wb-deep-teal: #087b86;
+  --miku-wb-cyan: #74dce4;
+  --miku-wb-pink: #ff8fc8;
+  --miku-wb-lavender: #9f92f8;
+  --miku-wb-ice: #eefbff;
+  --miku-wb-line: rgba(22, 191, 196, .24);
+  --miku-wb-shadow: rgba(20, 102, 118, .14);
+  --doll-wb-ink: var(--miku-wb-ink);
+  --doll-wb-muted: var(--miku-wb-muted);
+  --doll-wb-plum: var(--miku-wb-deep-teal);
+  --doll-wb-lavender: var(--miku-wb-lavender);
+  --doll-wb-pink: var(--miku-wb-pink);
+  --doll-wb-cream: #fbfdff;
+  --doll-wb-line: var(--miku-wb-line);
+  --doll-wb-shadow: var(--miku-wb-shadow);
 }
 
 html.codedrobe-host-workbuddy,
@@ -190,7 +200,7 @@ html.codedrobe-host-workbuddy .wb-home-header::before {
 }
 
 html.codedrobe-host-workbuddy .wb-home-header::after {
-  content: "Doll Sister  ♡  WorkBuddy";
+  content: "Miku Future Beats  ♫  WorkBuddy";
   position: absolute;
   left: 42px;
   bottom: 28px;
@@ -216,7 +226,7 @@ html.codedrobe-host-workbuddy .wb-home-header__title {
 }
 
 html.codedrobe-host-workbuddy .wb-home-header__title::before {
-  content: "玩偶姐姐 × WorkBuddy";
+  content: "初音未来 × WorkBuddy";
   display: block;
   font: 760 clamp(25px, 3vw, 34px)/1.22 "Iowan Old Style", "Songti SC", serif;
   letter-spacing: .025em;
@@ -471,6 +481,207 @@ html.codedrobe-host-workbuddy .chat-container:not(.chat-container--welcome) :is(
 html.codedrobe-host-workbuddy .chat-container:not(.chat-container--welcome) th {
   background: rgba(240, 221, 234, .55) !important;
   color: #5e4864 !important;
+}
+
+/* Miku Future Beats: WorkBuddy cyber-pop visual layer */
+html.codedrobe-host-workbuddy,
+html.codedrobe-host-workbuddy body,
+html.codedrobe-host-workbuddy #root,
+html.codedrobe-host-workbuddy .teams-container {
+  background:
+    linear-gradient(135deg, rgba(247, 253, 255, .88), rgba(230, 248, 251, .92) 48%, rgba(249, 239, 255, .91)),
+    var(--codedrobe-image-texture) center / 650px auto repeat !important;
+  color: var(--miku-wb-ink) !important;
+}
+
+html.codedrobe-host-workbuddy body::before {
+  background:
+    radial-gradient(circle at 85% 8%, rgba(255, 255, 255, .98) 0 2px, transparent 3px),
+    radial-gradient(circle at 15% 19%, rgba(22, 191, 196, .42) 0 1px, transparent 2px),
+    linear-gradient(118deg, transparent 0 47%, rgba(159, 146, 248, .08) 49%, transparent 52%);
+  background-size: 79px 79px, 67px 67px, 100% 100%;
+  opacity: .60;
+}
+
+html.codedrobe-host-workbuddy .conversation-sidebar,
+html.codedrobe-host-workbuddy .conversation-list {
+  background:
+    linear-gradient(180deg, rgba(247, 253, 255, .96), rgba(218, 247, 250, .92) 62%, rgba(246, 236, 255, .90)),
+    var(--codedrobe-image-texture) center / 540px auto repeat !important;
+  border-right-color: rgba(22, 191, 196, .25) !important;
+  box-shadow: 12px 0 34px rgba(12, 105, 119, .10), inset -1px 0 rgba(255, 255, 255, .94) !important;
+}
+
+html.codedrobe-host-workbuddy .conversation-list-logo {
+  color: var(--miku-wb-deep-teal) !important;
+  font-family: "Avenir Next", "PingFang SC", sans-serif !important;
+  text-shadow: 0 2px 12px rgba(22, 191, 196, .18);
+}
+html.codedrobe-host-workbuddy .conversation-list-logo::after { content: "  ♫"; color: var(--miku-wb-pink); }
+
+html.codedrobe-host-workbuddy :is(
+  .conversation-list-tab-button:hover,
+  .conversation-agent-card:hover,
+  .conversation-list-topbar button:hover
+) {
+  background: linear-gradient(90deg, rgba(160, 238, 239, .45), rgba(255, 224, 241, .58)) !important;
+  border-color: rgba(22, 191, 196, .18) !important;
+  box-shadow: 0 5px 14px rgba(12, 105, 119, .08) !important;
+}
+
+html.codedrobe-host-workbuddy :is(
+  .conversation-list-tab-button.active,
+  .conversation-agent-card[aria-selected="true"],
+  .conversation-agent-card.active
+) {
+  background: linear-gradient(90deg, rgba(145, 233, 236, .72), rgba(255, 216, 238, .72)) !important;
+  border-color: rgba(22, 191, 196, .31) !important;
+  box-shadow: 0 6px 18px rgba(12, 105, 119, .11), inset 0 0 0 2px rgba(255, 255, 255, .53) !important;
+}
+
+html.codedrobe-host-workbuddy .teams-content-wrapper {
+  box-shadow: inset 1px 1px rgba(255, 255, 255, .95), -8px 0 27px rgba(12, 105, 119, .07);
+}
+
+html.codedrobe-host-workbuddy .main-content--welcome,
+html.codedrobe-host-workbuddy .main-content:not(.main-content--welcome),
+html.codedrobe-host-workbuddy .chat-container:not(.chat-container--welcome) {
+  background:
+    linear-gradient(rgba(248, 254, 255, .91), rgba(235, 250, 252, .94)),
+    var(--codedrobe-image-texture) center / 760px auto repeat !important;
+}
+
+html.codedrobe-host-workbuddy .workbuddy-topbar {
+  border-bottom: 1px solid rgba(22, 191, 196, .20) !important;
+  background: linear-gradient(90deg, rgba(249, 254, 255, .96), rgba(214, 247, 250, .90), rgba(240, 226, 255, .88)) !important;
+  backdrop-filter: blur(18px) saturate(1.08) !important;
+}
+
+html.codedrobe-host-workbuddy .main-content--chat .workbuddy-topbar::after {
+  content: "♫  Miku Future Beats · 灵感同频中";
+  position: absolute;
+  left: 50%;
+  top: 10px;
+  z-index: 3;
+  height: 32px;
+  display: inline-flex;
+  align-items: center;
+  padding: 0 17px;
+  border: 1px solid rgba(22, 191, 196, .28);
+  border-radius: 999px;
+  background: linear-gradient(135deg, rgba(249, 254, 255, .96), rgba(212, 247, 250, .93), rgba(249, 226, 243, .91));
+  color: var(--miku-wb-deep-teal);
+  font: 750 13px/1 "Avenir Next", "PingFang SC", sans-serif;
+  letter-spacing: .04em;
+  white-space: nowrap;
+  text-shadow: 0 1px white;
+  box-shadow: 0 5px 15px rgba(12, 105, 119, .12), inset 0 0 0 2px rgba(255, 255, 255, .46);
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+html.codedrobe-host-workbuddy .wb-home-header {
+  border-color: rgba(22, 191, 196, .34) !important;
+  background-color: #f5fcff !important;
+  background-image:
+    linear-gradient(90deg, #f7fdff 0%, rgba(247, 253, 255, .99) 42%, rgba(235, 251, 253, .70) 61%, rgba(239, 245, 255, .05) 83%),
+    var(--codedrobe-image-hero) !important;
+  background-size: 100% 100%, auto 164% !important;
+  background-position: center, right 5% center !important;
+  box-shadow: 0 18px 42px rgba(12, 105, 119, .17), 0 7px 22px rgba(159, 146, 248, .08), inset 0 0 0 4px rgba(255, 255, 255, .42) !important;
+}
+
+html.codedrobe-host-workbuddy .wb-home-header::before {
+  background:
+    radial-gradient(circle at 54% 25%, rgba(255, 255, 255, .98) 0 2px, transparent 3px),
+    radial-gradient(circle at 26% 76%, rgba(22, 191, 196, .48) 0 1px, transparent 2px),
+    linear-gradient(110deg, transparent 0 58%, rgba(255, 143, 200, .10) 61%, transparent 65%);
+  background-size: 73px 73px, 91px 91px, 100% 100%;
+}
+
+html.codedrobe-host-workbuddy .wb-home-header::after {
+  content: "Miku Future Beats  ♫  WorkBuddy";
+  color: var(--miku-wb-deep-teal);
+  font-family: "Avenir Next", "PingFang SC", sans-serif;
+  font-style: italic;
+  font-weight: 650;
+}
+
+html.codedrobe-host-workbuddy .wb-home-header__title::before {
+  content: "初音未来 × WorkBuddy";
+  font-family: "Avenir Next", "PingFang SC", sans-serif;
+  color: var(--miku-wb-ink);
+}
+
+html.codedrobe-host-workbuddy .wb-home-header__subtitle::before {
+  content: "让灵感、代码与旋律在今天同频闪耀 ♫";
+  color: var(--miku-wb-muted);
+}
+
+html.codedrobe-host-workbuddy .wb-home-page > div:has(> .wb-scene-tabs) {
+  border-color: rgba(22, 191, 196, .22) !important;
+  background: linear-gradient(90deg, rgba(251, 254, 255, .93), rgba(212, 246, 249, .88), rgba(248, 226, 243, .84)) !important;
+  box-shadow: 0 8px 19px rgba(12, 105, 119, .09), inset 0 0 0 3px rgba(255, 255, 255, .48) !important;
+}
+
+html.codedrobe-host-workbuddy .wb-scene-tabs { background: rgba(164, 234, 237, .52) !important; }
+html.codedrobe-host-workbuddy .wb-scene-tabs__pill { color: #276d78 !important; }
+html.codedrobe-host-workbuddy .wb-scene-tabs__pill--active {
+  border-color: rgba(22, 191, 196, .24) !important;
+  background: linear-gradient(145deg, #ff9dcc, #9f92f8 46%, #0cb7bf) !important;
+  box-shadow: 0 6px 14px rgba(12, 105, 119, .20), inset 0 1px rgba(255, 255, 255, .38) !important;
+}
+
+html.codedrobe-host-workbuddy .quick-actions__item {
+  border-color: rgba(22, 191, 196, .25) !important;
+  background:
+    linear-gradient(145deg, rgba(251, 254, 255, .94), rgba(216, 247, 250, .90), rgba(249, 229, 244, .87)),
+    var(--codedrobe-image-texture) center / 460px auto !important;
+  color: #2c6873 !important;
+  box-shadow: 0 6px 14px rgba(12, 105, 119, .09), inset 0 1px rgba(255, 255, 255, .88) !important;
+}
+html.codedrobe-host-workbuddy .quick-actions__item:hover { box-shadow: 0 11px 21px rgba(12, 105, 119, .15) !important; }
+html.codedrobe-host-workbuddy .quick-actions__item :is(span, svg) { color: var(--miku-wb-deep-teal) !important; }
+
+html.codedrobe-host-workbuddy .wb-home-composer__input-slot > section,
+html.codedrobe-host-workbuddy .chat-container:not(.chat-container--welcome) section:has([role="textbox"][contenteditable="true"]) {
+  border-color: rgba(22, 191, 196, .34) !important;
+  background:
+    linear-gradient(145deg, rgba(251, 254, 255, .97), rgba(214, 247, 250, .93) 65%, rgba(248, 226, 243, .90)),
+    var(--codedrobe-image-texture) center / 580px auto !important;
+  color: var(--miku-wb-ink) !important;
+  box-shadow: 0 13px 31px rgba(12, 105, 119, .14), inset 0 0 0 4px rgba(255, 255, 255, .56) !important;
+}
+
+html.codedrobe-host-workbuddy .wb-home-composer__input-slot::before,
+html.codedrobe-host-workbuddy .chat-container:not(.chat-container--welcome) section:has([role="textbox"][contenteditable="true"])::before {
+  content: "♫";
+  color: white;
+  background: linear-gradient(145deg, #ff9dcc, #16bfc4 62%, #9f92f8);
+  box-shadow: 0 5px 14px rgba(12, 105, 119, .19), 0 0 0 3px rgba(255, 255, 255, .74);
+}
+
+html.codedrobe-host-workbuddy .wb-home-composer__input-slot::after {
+  border-color: rgba(252, 254, 255, .98);
+  box-shadow: 0 11px 25px rgba(12, 105, 119, .20), 0 0 0 1px rgba(22, 191, 196, .22);
+}
+
+html.codedrobe-host-workbuddy :is(
+  .wb-home-composer [role="textbox"][contenteditable="true"],
+  .chat-container:not(.chat-container--welcome) [role="textbox"][contenteditable="true"]
+) {
+  color: var(--miku-wb-ink) !important;
+  caret-color: var(--miku-wb-teal) !important;
+}
+
+html.codedrobe-host-workbuddy .wb-input-footer { border-top-color: rgba(22, 191, 196, .14) !important; background: rgba(248, 254, 255, .38) !important; }
+html.codedrobe-host-workbuddy :is(.cb-markdown-pre, .cb-markdown-pre-container, .cb-markdown-pre-wrapper) { border-color: rgba(22, 191, 196, .18) !important; background: linear-gradient(145deg, rgba(245, 252, 255, .97), rgba(228, 246, 249, .94)) !important; }
+html.codedrobe-host-workbuddy .chat-container:not(.chat-container--welcome) :is(table, th, td) { border-color: rgba(22, 191, 196, .20) !important; }
+html.codedrobe-host-workbuddy .chat-container:not(.chat-container--welcome) th { background: linear-gradient(90deg, rgba(199, 242, 246, .64), rgba(244, 224, 242, .58)) !important; color: #2e606a !important; }
+html.codedrobe-host-workbuddy *:focus-visible { outline-color: rgba(22, 191, 196, .78) !important; box-shadow: 0 0 0 3px rgba(22, 191, 196, .17) !important; }
+
+@media (max-width: 960px) {
+  html.codedrobe-host-workbuddy .main-content--chat .workbuddy-topbar::after { display: none; }
 }
 
 @media (max-width: 1050px) {

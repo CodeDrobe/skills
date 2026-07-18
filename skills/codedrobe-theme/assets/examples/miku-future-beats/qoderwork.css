@@ -1,0 +1,328 @@
+/* Miku Future Beats · QoderWork CN
+   Deep adaptation: override the app's --color-* design tokens (teal cyber-pop),
+   then layer texture, hero, and ♫ decorations on stable semantic surfaces.
+   html:root.codedrobe-host-qoderwork (0,2,1) outranks the app's
+   :root[data-theme=...] (0,2,0) token blocks in every appearance mode. */
+
+html:root.codedrobe-host-qoderwork {
+  color-scheme: light !important;
+
+  --miku-qw-ink: #163f4b;
+  --miku-qw-muted: #557480;
+  --miku-qw-teal: #16bfc4;
+  --miku-qw-deep-teal: #087b86;
+  --miku-qw-cyan: #74dce4;
+  --miku-qw-pink: #ff8fc8;
+  --miku-qw-lavender: #9f92f8;
+  --miku-qw-ice: #eefbff;
+  --miku-qw-line: rgba(22, 191, 196, .24);
+  --miku-qw-shadow: rgba(12, 105, 119, .12);
+
+  /* Primary: native mint green -> Miku teal */
+  --color-primary-bg: #eafbfc;
+  --color-primary-bg-hover: #d9f6f8;
+  --color-primary-border: #aeeaed;
+  --color-primary-border-hover: #85e0e5;
+  --color-primary-hover: #12a9ae;
+  --color-primary: #16bfc4;
+  --color-primary-active: #0e9ba1;
+  --color-primary-text-hover: #0e9ba1;
+  --color-primary-text: #163f4b;
+  --color-primary-text-active: #0e9ba1;
+  --color-text-on-primary: #ffffff;
+
+  /* Ink */
+  --color-text: #163f4b;
+  --color-text-base: #10333d;
+  --color-text-secondary: #3f6470;
+  --color-text-tertiary: #557480;
+  --color-text-quaternary: #7f9aa3;
+
+  /* Lines and fills: iced teal */
+  --color-border: #9fd6dc;
+  --color-border-secondary: #c2e7eb;
+  --color-border-tertiary: #d8f0f3;
+  --color-fill: #cfeef1;
+  --color-fill-secondary: #ddf4f6;
+  --color-fill-tertiary: #eefafb;
+  --color-fill-quaternary: #f7fdfd;
+  --color-fill-disable: #d5e5e8;
+
+  /* Surfaces */
+  --color-bg-container: #ffffff;
+  --color-bg-elevated: #f3fbfc;
+  --color-bg-layout: #ecf9fc;
+  --color-bg-spotlight: #f3fbfc;
+  --color-bg-base: #fbfeff;
+  --color-link: #0e9ba1;
+}
+
+/* ---- application shell and background ---------------------------------- */
+
+html.codedrobe-host-qoderwork .agents-layout-root {
+  background:
+    linear-gradient(135deg, rgba(247, 253, 255, .78), rgba(230, 248, 251, .84) 48%, rgba(249, 239, 255, .82)),
+    var(--codedrobe-image-texture) center / 560px auto repeat !important;
+  color: var(--miku-qw-ink) !important;
+}
+
+html.codedrobe-host-qoderwork .agents-layout-root::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 85% 8%, rgba(255, 255, 255, .98) 0 2px, transparent 3px),
+    radial-gradient(circle at 15% 19%, rgba(22, 191, 196, .42) 0 1px, transparent 2px),
+    linear-gradient(118deg, transparent 0 47%, rgba(159, 146, 248, .08) 49%, transparent 52%);
+  background-size: 79px 79px, 67px 67px, 100% 100%;
+  opacity: .6;
+}
+
+/* ---- sidebar ------------------------------------------------------------ */
+
+html.codedrobe-host-qoderwork .agents-sidebar {
+  background:
+    linear-gradient(180deg, rgba(247, 253, 255, .82), rgba(218, 247, 250, .72) 62%, rgba(246, 236, 255, .70)),
+    var(--codedrobe-image-texture) center / 460px auto repeat !important;
+  box-shadow: inset -1px 0 var(--miku-qw-line);
+}
+
+html.codedrobe-host-qoderwork .agents-sidebar .sidebar-section-title {
+  color: var(--miku-qw-deep-teal) !important;
+  letter-spacing: .05em;
+}
+
+/* ---- workspace card ----------------------------------------------------- */
+
+html.codedrobe-host-qoderwork .agents-content-area {
+  background: transparent !important;
+}
+
+html.codedrobe-host-qoderwork .agents-parchment-paper-surface {
+  background:
+    linear-gradient(160deg, rgba(251, 254, 255, .95), rgba(236, 250, 252, .93) 55%, rgba(248, 242, 255, .92)),
+    var(--codedrobe-image-texture) center / 760px auto repeat !important;
+  border-color: var(--miku-qw-line) !important;
+  box-shadow: 0 10px 30px var(--miku-qw-shadow), inset 0 0 0 1px rgba(255, 255, 255, .65) !important;
+}
+
+html.codedrobe-host-qoderwork :is(.chat-header, .chat-panel-header) {
+  background: linear-gradient(90deg, rgba(249, 254, 255, .60), rgba(214, 247, 250, .45), rgba(240, 226, 255, .40)) !important;
+  box-shadow: inset 0 -1px rgba(22, 191, 196, .16);
+}
+
+/* Aux dock panel (task monitor) gets a soft Miku watermark at its foot. */
+html.codedrobe-host-qoderwork .agents-chat-panel.workbench-aux-card {
+  background-color: #f7fdff !important;
+  background-image:
+    linear-gradient(180deg,
+      rgba(247, 253, 255, .97) 0%,
+      rgba(240, 251, 253, .95) 52%,
+      rgba(240, 251, 253, .82) 74%,
+      rgba(243, 240, 255, .48) 100%),
+    var(--codedrobe-image-hero),
+    var(--codedrobe-image-texture) !important;
+  background-repeat: no-repeat, no-repeat, repeat !important;
+  background-size: 100% 100%, auto 52%, 560px auto !important;
+  background-position: center, right bottom, center !important;
+}
+
+/* Conversation panels carry the Future Beats signature pill. */
+html.codedrobe-host-qoderwork .agents-chat-panel > .chat-panel-header {
+  position: relative !important;
+}
+
+html.codedrobe-host-qoderwork .agents-chat-panel:not(.workbench-aux-card) > .chat-panel-header::after {
+  content: "♫ Miku Future Beats · 灵感同频中";
+  position: absolute;
+  right: 118px;
+  top: 50%;
+  z-index: 3;
+  height: 24px;
+  display: inline-flex;
+  align-items: center;
+  padding: 0 12px;
+  border: 1px solid rgba(22, 191, 196, .28);
+  border-radius: 999px;
+  background: linear-gradient(135deg, rgba(249, 254, 255, .96), rgba(212, 247, 250, .93), rgba(249, 226, 243, .91));
+  color: var(--miku-qw-deep-teal);
+  font: 700 11px/1 "Avenir Next", "PingFang SC", sans-serif;
+  letter-spacing: .04em;
+  white-space: nowrap;
+  text-shadow: 0 1px white;
+  box-shadow: 0 4px 12px rgba(12, 105, 119, .12), inset 0 0 0 2px rgba(255, 255, 255, .46);
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+/* ---- home hero ---------------------------------------------------------- */
+
+/* Full-height Miku artwork on the right of the home canvas, fading under the
+   centered welcome copy exactly like the WorkBuddy home header treatment. */
+html.codedrobe-host-qoderwork .agents-chat-view-root:has(.welcome-title) .agents-parchment-paper-surface {
+  background-color: #f7fdff !important;
+  background-image:
+    linear-gradient(90deg,
+      rgba(247, 253, 255, .97) 0%,
+      rgba(240, 251, 253, .95) 44%,
+      rgba(240, 251, 253, .78) 62%,
+      rgba(243, 240, 255, .34) 82%,
+      rgba(255, 236, 247, .10) 100%),
+    var(--codedrobe-image-hero),
+    var(--codedrobe-image-texture) !important;
+  background-repeat: no-repeat, no-repeat, repeat !important;
+  background-size: 100% 100%, auto 112%, 560px auto !important;
+  background-position: center, right -36px center, center !important;
+}
+
+html.codedrobe-host-qoderwork .agents-chat-view-root:has(.welcome-title)::after {
+  content: "Miku Future Beats ♫ QoderWork";
+  position: absolute;
+  right: 22px;
+  bottom: 18px;
+  z-index: 2;
+  color: var(--miku-qw-deep-teal);
+  font: italic 650 13px/1.2 "Avenir Next", "PingFang SC", sans-serif;
+  letter-spacing: .04em;
+  text-shadow: 0 1px white, 0 0 12px rgba(255, 255, 255, .85);
+  pointer-events: none;
+}
+
+html.codedrobe-host-qoderwork .welcome-title {
+  font-size: 0 !important;
+  line-height: 1 !important;
+}
+
+html.codedrobe-host-qoderwork .welcome-title::before {
+  content: "初音未来 × QoderWork";
+  display: block;
+  background: linear-gradient(100deg, #0e9ba1, #16bfc4 42%, #9f92f8 78%, #ff8fc8);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font: 750 30px/1.25 "Avenir Next", "PingFang SC", sans-serif;
+  letter-spacing: .02em;
+}
+
+html.codedrobe-host-qoderwork .welcome-title + p {
+  font-size: 0 !important;
+  line-height: 1 !important;
+}
+
+html.codedrobe-host-qoderwork .welcome-title + p::before {
+  content: "和初音未来一起，让灵感、代码与旋律同频闪耀 ♫";
+  display: block;
+  color: var(--miku-qw-muted);
+  font: 500 14px/1.6 "Avenir Next", "PingFang SC", sans-serif;
+  letter-spacing: .03em;
+}
+
+/* ---- composer ----------------------------------------------------------- */
+
+html.codedrobe-host-qoderwork div.bg-bg-base.squircle-xl:has(.chat-input-editor-text) {
+  border-color: rgba(22, 191, 196, .38) !important;
+  background:
+    linear-gradient(145deg, rgba(251, 254, 255, .97), rgba(214, 247, 250, .90) 65%, rgba(248, 226, 243, .88)),
+    var(--codedrobe-image-texture) center / 580px auto !important;
+  box-shadow: 0 10px 26px rgba(12, 105, 119, .14), inset 0 0 0 3px rgba(255, 255, 255, .56) !important;
+}
+
+html.codedrobe-host-qoderwork div.bg-bg-base.squircle-xl:has(.chat-input-editor-text)::before {
+  content: "♫";
+  position: absolute;
+  left: -12px;
+  top: -13px;
+  z-index: 20;
+  width: 27px;
+  height: 27px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  font-size: 14px;
+  color: white;
+  background: linear-gradient(145deg, #ff9dcc, #16bfc4 62%, #9f92f8);
+  box-shadow: 0 4px 12px rgba(12, 105, 119, .19), 0 0 0 3px rgba(255, 255, 255, .74);
+  pointer-events: none;
+}
+
+/* Tilted Miku polaroid peeking over the composer's top-right corner. */
+html.codedrobe-host-qoderwork div.bg-bg-base.squircle-xl:has(.chat-input-editor-text)::after {
+  content: "";
+  position: absolute;
+  right: 14px;
+  top: -74px;
+  z-index: 20;
+  width: 74px;
+  height: 92px;
+  border: 6px solid rgba(252, 254, 255, .98);
+  border-bottom-width: 16px;
+  border-radius: 3px;
+  background-image: var(--codedrobe-image-hero);
+  background-repeat: no-repeat;
+  background-size: 290% auto;
+  background-position: 80% 18%;
+  box-shadow: 0 9px 22px rgba(12, 105, 119, .20), 0 0 0 1px rgba(22, 191, 196, .22);
+  transform: rotate(5deg);
+  pointer-events: none;
+}
+
+html.codedrobe-host-qoderwork .chat-input-editor-text[contenteditable='true'] {
+  color: var(--miku-qw-ink) !important;
+  caret-color: var(--miku-qw-teal) !important;
+}
+
+/* Send button: native near-black gradient -> Miku beam */
+html.codedrobe-host-qoderwork .SendButton-send {
+  border-color: rgba(12, 105, 119, .38) !important;
+  background: linear-gradient(160deg, #ff9dcc, #16bfc4 55%, #9f92f8) !important;
+  box-shadow: 0 4px 12px rgba(12, 105, 119, .28), inset 0 1px rgba(255, 255, 255, .40) !important;
+}
+
+/* ---- conversation content ----------------------------------------------- */
+
+html.codedrobe-host-qoderwork .group\/message :is(pre, code) {
+  border-color: rgba(22, 191, 196, .18) !important;
+}
+
+html.codedrobe-host-qoderwork .group\/message :is(table, th, td) {
+  border-color: rgba(22, 191, 196, .20) !important;
+}
+
+html.codedrobe-host-qoderwork .group\/message th {
+  background: linear-gradient(90deg, rgba(199, 242, 246, .64), rgba(244, 224, 242, .58)) !important;
+  color: #2e606a !important;
+}
+
+/* ---- focus, responsive, reduced motion ---------------------------------- */
+
+html.codedrobe-host-qoderwork *:focus-visible {
+  outline-color: rgba(22, 191, 196, .78) !important;
+}
+
+@media (max-width: 760px) {
+  html.codedrobe-host-qoderwork .agents-chat-view-root:has(.welcome-title)::after,
+  html.codedrobe-host-qoderwork div.bg-bg-base.squircle-xl:has(.chat-input-editor-text)::after {
+    display: none;
+  }
+
+  html.codedrobe-host-qoderwork .agents-chat-view-root:has(.welcome-title) .agents-parchment-paper-surface {
+    background-image:
+      linear-gradient(90deg, rgba(247, 253, 255, .97), rgba(240, 251, 253, .95)),
+      none,
+      var(--codedrobe-image-texture) !important;
+  }
+}
+
+@media (max-width: 1180px) {
+  html.codedrobe-host-qoderwork .agents-chat-panel:not(.workbench-aux-card) > .chat-panel-header::after {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.codedrobe-host-qoderwork .agents-layout-root::before {
+    opacity: .3;
+  }
+}

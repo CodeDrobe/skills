@@ -1,0 +1,90 @@
+/* Replace selectors that are not present in the current `codedrobe dom snapshot`. */
+/* TRAE SOLO's main window is the custom solo-lite shell (a VS Code
+   derivative, but not the Monaco workbench). It defines --vscode-* design
+   tokens on plain `body` selectors inside style tags, so the host-class
+   scope below always outranks them. */
+
+html.codedrobe-host-traework body {
+  color-scheme: light;
+
+  --theme-bg: #f8f7fc;
+  --theme-surface: rgba(255, 255, 255, .92);
+  --theme-text: #2f2b3a;
+  --theme-muted: #756f82;
+  --theme-accent: #7867a8;
+  --theme-border: rgba(74, 62, 98, .16);
+  --theme-shadow: rgba(47, 43, 58, .12);
+
+  /* High-traffic solo-lite tokens; enumerate more from the live style tags
+     when the theme needs deeper reach. */
+  --vscode-foreground: var(--theme-text);
+  --vscode-icube-colorDefaultText: var(--theme-text);
+  --vscode-descriptionForeground: var(--theme-muted);
+  --vscode-textLink-foreground: var(--theme-accent);
+  --vscode-button-background: var(--theme-accent);
+  --vscode-button-foreground: #ffffff;
+  --vscode-focusBorder: rgba(120, 103, 168, .6);
+  --vscode-icube-colorLine1: rgba(120, 103, 168, .14);
+  --vscode-icube-colorLine2: rgba(120, 103, 168, .28);
+  --vscode-toolbar-hoverBackground: rgba(120, 103, 168, .12);
+  --vscode-list-hoverBackground: rgba(120, 103, 168, .12);
+  --vscode-editor-background: #fcfbfe;
+  --vscode-icube-colorBg1: #fcfbfe;
+  --vscode-icube-colorBg2: #efecf6;
+  --vscode-widget-shadow: var(--theme-shadow);
+}
+
+html.codedrobe-host-traework body.solo-lite {
+  background:
+    linear-gradient(rgba(248, 247, 252, .88), rgba(244, 241, 250, .94)),
+    var(--codedrobe-image-texture, none) center / 720px auto repeat !important;
+  color: var(--theme-text) !important;
+}
+
+/* Sidebar (task list) survives the Work, Code, and Design modes. */
+html.codedrobe-host-traework .task-list-base {
+  background: rgba(244, 241, 250, .55) !important;
+  box-shadow: inset -1px 0 var(--theme-border) !important;
+}
+
+/* Main cards: home routes render .panel-content, conversations render
+   .solo-lite-chat-panel-container; both carry .solo-lite-panel-border. */
+html.codedrobe-host-traework .panel-content,
+html.codedrobe-host-traework .solo-lite-chat-panel-container {
+  background: var(--theme-surface) !important;
+  box-shadow: 0 10px 30px var(--theme-shadow) !important;
+}
+
+html.codedrobe-host-traework .solo-lite-panel-border {
+  border: 1px solid var(--theme-border) !important;
+}
+
+/* Composer (home and conversation share the chat-input-v2 component). */
+html.codedrobe-host-traework .chat-input-v2-editor-part {
+  border: 1px solid var(--theme-border) !important;
+  box-shadow: 0 8px 22px var(--theme-shadow) !important;
+}
+
+html.codedrobe-host-traework .chat-input-v2-input-box-editable[contenteditable='true'] {
+  color: var(--theme-text) !important;
+  caret-color: var(--theme-accent) !important;
+}
+
+html.codedrobe-host-traework .chat-input-v2-send-button {
+  background: linear-gradient(160deg, #9484c0, var(--theme-accent)) !important;
+}
+
+html.codedrobe-host-traework .user-message__text-box {
+  background: rgba(120, 103, 168, .10) !important;
+  border: 1px solid var(--theme-border) !important;
+}
+
+html.codedrobe-host-traework *:focus-visible {
+  outline-color: var(--theme-accent) !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.codedrobe-host-traework .chat-input-v2-send-button {
+    transition: none !important;
+  }
+}

@@ -26,6 +26,54 @@
         ]
       }
     },
+    "qoderwork": {
+      "css": "qoderwork.css",
+      "verification": {
+        "contexts": [
+          {
+            "name": "home",
+            "when": { "any": [".welcome-title"] },
+            "required": [
+              { "name": "home-composer-editor", "any": [".chat-input-editor-text[contenteditable='true']"] }
+            ],
+            "recommended": [
+              { "name": "home-send-button", "any": [".SendButton-send"] }
+            ]
+          },
+          {
+            "name": "conversation",
+            "when": { "any": [".agents-chat-panel"] },
+            "required": [
+              { "name": "conversation-panel-surface", "any": [".agents-chat-panel"] }
+            ]
+          }
+        ]
+      }
+    },
+    "traework": {
+      "css": "traework.css",
+      "verification": {
+        "contexts": [
+          {
+            "name": "home",
+            "when": { "any": [".initial-chat-panel"] },
+            "required": [
+              { "name": "home-composer", "any": [".messageInputContainer"] }
+            ],
+            "recommended": [
+              { "name": "home-send-button", "any": [".chat-input-v2-send-button"] }
+            ]
+          },
+          {
+            "name": "conversation",
+            "when": { "any": [".session-view"] },
+            "required": [
+              { "name": "conversation-panel-card", "any": [".solo-lite-chat-panel-container", ".solo-lite-chat-container"] }
+            ]
+          }
+        ]
+      }
+    },
     "workbuddy": {
       "css": "workbuddy.css",
       "verification": {

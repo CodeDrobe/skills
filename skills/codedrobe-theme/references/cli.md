@@ -51,6 +51,8 @@ codedrobe restore --app <app-id> --port <port>
 
 Add `--no-launch` only when the renderer is already reachable. Add `--restart-existing` only after the user authorizes restarting the app.
 
+Port notes: QoderWork forces an app-chosen debug port, so omit `--port` and Core resolves it from the per-edition `DevToolsActivePort` files automatically (an explicit `--port` always wins). TRAE SOLO must be launched with `--remote-debugging-port` first; pass that same port to every later command.
+
 `dom snapshot` is read-only and excludes text, form values, accessible names, links, and media sources. Use `--max-nodes 1500` when the default snapshot reports `summary.truncated: true`; use `--include-hidden` only for a hidden route or dialog that must be styled.
 
 ## Theme operations

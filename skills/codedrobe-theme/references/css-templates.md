@@ -4,9 +4,11 @@
 
 Copy the complete multi-app starter from `assets/theme-starter/` into a new writable project directory. It contains:
 
-- `theme.json`: Codex and WorkBuddy targets with context validation.
+- `theme.json`: Codex, WorkBuddy, QoderWork, and TRAE SOLO targets with context validation.
 - `codex.css`: tokens, sidebar, main surface, header, home hero, suggestions, composer, content, focus, responsive, and reduced-motion rules.
 - `workbuddy.css`: shell, sidebar, workspace, home hero, tabs/actions, home and conversation composers, content, focus, responsive, and reduced-motion rules.
+- `qoderwork.css`: app `--color-*` token overrides, shell, sidebar, main card, `:has()`-anchored composer, send button, focus, and reduced-motion rules.
+- `traework.css`: solo-lite `--vscode-*` token overrides, shell, task-list sidebar, home/conversation cards, chat-input-v2 composer, message bubbles, focus, and reduced-motion rules.
 
 Add named images to the copied manifest when needed:
 
@@ -26,7 +28,7 @@ The CSS already uses optional `--codedrobe-image-hero` and `--codedrobe-image-te
 3. Remove selectors for features the theme does not style.
 4. Replace stale or generated selectors with semantic candidates from the current renderer.
 5. Add named verification requirements for essential theme layout nodes.
-6. Keep rules scoped under `html.codedrobe-host-codex` or `html.codedrobe-host-workbuddy`.
+6. Keep rules scoped under the host class for the target app (`html.codedrobe-host-codex`, `html.codedrobe-host-workbuddy`, `html.codedrobe-host-qoderwork`, or `html.codedrobe-host-traework`).
 
 Do not place application-independent color and spacing decisions in the adapter. Do not turn a full example's layout selectors into Core landmarks.
 
