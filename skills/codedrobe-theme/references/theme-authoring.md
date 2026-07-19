@@ -22,6 +22,11 @@ Use a manifest shaped like:
   "id": "my-theme",
   "displayName": "My Theme",
   "version": "1.0.0",
+  "catalog": {
+    "name": { "en": "My Theme", "zh": "我的主题" },
+    "description": { "en": "One-line store pitch.", "zh": "一句话商店简介。" },
+    "categories": ["artistic"]
+  },
   "images": {
     "hero": "assets/hero.png",
     "texture": "assets/texture.png"
@@ -50,6 +55,8 @@ Use a manifest shaped like:
 ```
 
 Only include supported targets. A single package may support multiple apps and shares its embedded named images across targets.
+
+`catalog` is optional for local use but feeds the store listing on publish: `name`/`description` are localized (`en`/`zh`), and `categories` must use store taxonomy slugs — never invent one; see the taxonomy table in `references/publish.md`. Without it, the listing falls back to `copy.tagline` and the `other` shelf.
 
 For a new theme, copy `assets/theme-starter/`. For a complete authored example, copy `assets/examples/miku-future-beats/`. Read `references/dom-snapshot.md` and replace detailed selectors from a fresh snapshot before treating either source as compatible with the installed app version.
 

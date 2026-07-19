@@ -28,6 +28,10 @@ Prefer `recommended` entries when authoring theme verification. Reserve `require
 - named image missing: repack the source manifest and confirm the image key/path.
 - horizontal overflow: inspect the screenshot and repair fixed widths, transforms, or overlays.
 
+## Screenshot capture needs a visible window
+
+`verify --screenshot` uses CDP `Page.captureScreenshot`, which needs the compositor to produce frames. When the target window is occluded, minimized, or on another desktop, the capture fails with `CDP request timed out: Page.captureScreenshot` or `CDP socket closed` while probe, dom snapshot, and screenshot-less verify keep working. This is not a theme or adapter incompatibility — do not repair CSS for it. Ask the user to bring the application window to the foreground, then retry the same verify command.
+
 ## Connection failures
 
 1. Pass a short explicit timeout while diagnosing.
