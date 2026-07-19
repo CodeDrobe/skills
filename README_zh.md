@@ -72,6 +72,11 @@ codedrobe theme publish /absolute/theme.codedrobe-theme --submit
 
 模板不会被当作永久 DOM 合约：Skill 会在各应用上下文分别采集实时 `codedrobe dom snapshot`，从实机快照选择语义节点，再完成打包、预检、应用、截图和修正。
 
+## 社区
+
+- Linux.do：https://linux.do/
+- 主题商店：https://codedrobe.app
+
 ## 相关仓库
 
 - [`CodeDrobe/core`](https://github.com/CodeDrobe/core)：CLI、适配器、CDP 运行时、主机设置、主题包校验和公共 API。

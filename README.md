@@ -72,6 +72,11 @@ The installed `codedrobe-theme` Skill includes two copyable source resources:
 
 Templates are not permanent DOM contracts: the Skill captures a live `codedrobe dom snapshot` per app context, selects semantic nodes from it, then packs, probes, applies, screenshots, and repairs.
 
+## Community
+
+- Linux.do: https://linux.do/
+- Theme store: https://codedrobe.app
+
 ## Related repositories
 
 - [`CodeDrobe/core`](https://github.com/CodeDrobe/core): CLI, adapters, CDP runtime, host settings, package validation, and public API.
