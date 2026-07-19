@@ -31,13 +31,20 @@ jobs:
         run: npm test
 
       - name: Pack bundled theme sources
+        shell: bash
         run: |
-          npx --yes --package=@codedrobe/core@latest codedrobe theme pack \
-            skills/codedrobe-theme/assets/theme-starter/theme.json \
-            --output /tmp/theme-starter.codedrobe-theme
-          npx --yes --package=@codedrobe/core@latest codedrobe theme pack \
-            skills/codedrobe-theme/assets/examples/doll-sister/theme.json \
-            --output /tmp/doll-sister.codedrobe-theme
+          shopt -s globstar nullglob
+          manifests=(skills/*/assets/**/theme.json)
+          if [ "${#manifests[@]}" -eq 0 ]; then
+            echo "No bundled theme sources found; the skill assets moved without updating CI."
+            exit 1
+          fi
+          for manifest in "${manifests[@]}"; do
+            name="$(basename "$(dirname "$manifest")")"
+            echo "Packing $manifest"
+            npx --yes --package=@codedrobe/core@latest codedrobe theme pack \
+              "$manifest" --output "/tmp/${name}.codedrobe-theme"
+          done
 
       - name: Reject unfinished Skill placeholders
         shell: bash
