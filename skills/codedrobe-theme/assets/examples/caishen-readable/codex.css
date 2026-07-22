@@ -1,0 +1,172 @@
+/* Caishen Readable · Codex
+   Public-safe source example: no private Codex screenshots, no remote CSS,
+   no fake full-window overlay. The illustration stays on the right and the
+   left side remains calm enough for live Codex content. */
+
+:root.codedrobe-host-codex {
+  color-scheme: light !important;
+  --caishen-bg: #fff8ef;
+  --caishen-paper: rgba(255, 252, 247, .94);
+  --caishen-paper-strong: #fffefa;
+  --caishen-sidebar: rgba(255, 247, 235, .95);
+  --caishen-ink: #35251c;
+  --caishen-muted: #7c6253;
+  --caishen-accent: #d96b42;
+  --caishen-gold: #e8b866;
+  --caishen-jade: #2aa876;
+  --caishen-border: rgba(217, 107, 66, .20);
+  --caishen-shadow: rgba(132, 76, 42, .12);
+
+  --color-token-bg-primary: var(--caishen-bg) !important;
+  --color-token-bg-secondary: var(--caishen-paper) !important;
+  --color-token-main-surface-primary: var(--caishen-paper) !important;
+  --color-token-side-bar-background: var(--caishen-sidebar) !important;
+  --color-token-foreground: var(--caishen-ink) !important;
+  --color-token-text-primary: var(--caishen-ink) !important;
+  --color-token-text-secondary: var(--caishen-muted) !important;
+  --color-token-border: var(--caishen-border) !important;
+  --color-token-input-background: var(--caishen-paper-strong) !important;
+  --color-token-input-border: var(--caishen-border) !important;
+  --color-token-list-hover-background: rgba(232, 184, 102, .20) !important;
+  --color-token-list-active-selection-background: rgba(217, 107, 66, .18) !important;
+  --color-token-link: var(--caishen-accent) !important;
+  --color-token-primary: var(--caishen-accent) !important;
+  --color-token-focus-border: rgba(217, 107, 66, .62) !important;
+}
+
+html.codedrobe-host-codex body {
+  background:
+    linear-gradient(rgba(255, 248, 239, .92), rgba(255, 241, 222, .94)),
+    var(--codedrobe-image-texture, none) center / 640px auto repeat !important;
+  color: var(--caishen-ink) !important;
+}
+
+html.codedrobe-host-codex aside.app-shell-left-panel {
+  background:
+    linear-gradient(180deg, rgba(255, 252, 247, .97), rgba(255, 242, 224, .92)),
+    var(--codedrobe-image-texture, none) center / 540px auto repeat !important;
+  border-right: 1px solid var(--caishen-border) !important;
+  box-shadow: 10px 0 28px rgba(132, 76, 42, .07) !important;
+  color: var(--caishen-ink) !important;
+  backdrop-filter: blur(18px) saturate(1.04);
+}
+
+html.codedrobe-host-codex aside.app-shell-left-panel :is(a, button) {
+  border-radius: 10px !important;
+  color: var(--caishen-ink) !important;
+  transition: background-color .16s ease, transform .16s ease !important;
+}
+
+html.codedrobe-host-codex aside.app-shell-left-panel :is(a, button):hover {
+  background: rgba(232, 184, 102, .20) !important;
+  transform: translateX(2px);
+}
+
+html.codedrobe-host-codex aside.app-shell-left-panel :is([aria-current="page"], [aria-selected="true"]) {
+  background: rgba(217, 107, 66, .18) !important;
+  box-shadow: inset 0 0 0 1px var(--caishen-border) !important;
+}
+
+html.codedrobe-host-codex main.main-surface {
+  position: relative;
+  background:
+    linear-gradient(180deg, rgba(255, 252, 247, .96), rgba(255, 247, 236, .94)),
+    var(--codedrobe-image-texture, none) center / 760px auto repeat !important;
+  border: 1px solid var(--caishen-border) !important;
+  border-right: 0 !important;
+  border-bottom: 0 !important;
+  border-radius: 20px 0 0 !important;
+  box-shadow: -8px 0 28px rgba(132, 76, 42, .06) !important;
+}
+
+html.codedrobe-host-codex main.main-surface > header,
+html.codedrobe-host-codex header.app-header-tint {
+  background: rgba(255, 252, 247, .88) !important;
+  border-bottom: 1px solid var(--caishen-border) !important;
+  color: var(--caishen-ink) !important;
+  backdrop-filter: blur(16px);
+}
+
+html.codedrobe-host-codex [role="main"] {
+  background: transparent !important;
+  color: var(--caishen-ink) !important;
+}
+
+html.codedrobe-host-codex [role="main"]:has([data-testid="home-icon"]) {
+  position: relative !important;
+  overflow: hidden !important;
+  background-color: transparent !important;
+  background-image:
+    linear-gradient(90deg, rgba(255, 252, 247, .96) 0 42%, rgba(255, 248, 239, .76) 64%, rgba(255, 248, 239, .18) 88%),
+    var(--codedrobe-image-hero, linear-gradient(135deg, #fff8ef, #fff1de)) !important;
+  background-repeat: no-repeat !important;
+  background-position: center, right center !important;
+  background-size: 100% 100%, cover !important;
+}
+
+html.codedrobe-host-codex .group\/home-suggestions > * {
+  border: 1px solid var(--caishen-border) !important;
+  border-radius: 16px !important;
+  background: rgba(255, 252, 247, .92) !important;
+  box-shadow: 0 8px 20px rgba(132, 76, 42, .08) !important;
+}
+
+html.codedrobe-host-codex .composer-surface-chrome {
+  border: 1px solid var(--caishen-border) !important;
+  border-radius: 20px !important;
+  background: var(--caishen-paper-strong) !important;
+  color: var(--caishen-ink) !important;
+  box-shadow: 0 12px 30px var(--caishen-shadow) !important;
+}
+
+html.codedrobe-host-codex .composer-surface-chrome :is(textarea, .ProseMirror, [contenteditable="true"]) {
+  color: var(--caishen-ink) !important;
+  caret-color: var(--caishen-accent) !important;
+}
+
+html.codedrobe-host-codex :is(button, [role="button"]):focus-visible,
+html.codedrobe-host-codex :is(a, input, textarea, [contenteditable="true"]):focus-visible {
+  outline: 2px solid rgba(217, 107, 66, .68) !important;
+  outline-offset: 2px !important;
+}
+
+html.codedrobe-host-codex :is(article, [data-message-author-role]) {
+  color: var(--caishen-ink) !important;
+}
+
+html.codedrobe-host-codex :is(pre, table, blockquote) {
+  border: 1px solid var(--caishen-border) !important;
+  border-radius: 12px !important;
+  background: rgba(255, 254, 250, .82) !important;
+}
+
+html.codedrobe-host-codex pre {
+  overflow: auto !important;
+  box-shadow: inset 0 1px rgba(255, 255, 255, .8) !important;
+}
+
+html.codedrobe-host-codex :is(a, button, input, textarea, [contenteditable="true"]) {
+  accent-color: var(--caishen-accent);
+}
+
+html.codedrobe-host-codex * {
+  scrollbar-color: rgba(217, 107, 66, .36) transparent;
+}
+
+@media (max-width: 820px) {
+  html.codedrobe-host-codex [role="main"]:has([data-testid="home-icon"]) {
+    background-image:
+      linear-gradient(rgba(255, 252, 247, .88), rgba(255, 248, 239, .94)),
+      var(--codedrobe-image-hero, none) !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.codedrobe-host-codex *,
+  html.codedrobe-host-codex *::before,
+  html.codedrobe-host-codex *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+}

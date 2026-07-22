@@ -19,7 +19,9 @@ Use the published `@codedrobe/core` CLI as the only runtime. Keep this Skill ins
 4. For theme creation, images, CSS, packaging, or legacy conversion, read [references/theme-authoring.md](references/theme-authoring.md).
 5. When the request includes an attached or local visual reference, read [references/reference-image.md](references/reference-image.md).
 6. For new or repaired CSS, read [references/dom-snapshot.md](references/dom-snapshot.md) and [references/css-templates.md](references/css-templates.md).
-7. For the complete Miku Future Beats / 初音未来 example, read [references/miku-future-beats-example.md](references/miku-future-beats-example.md).
+7. For bundled examples, read the relevant note:
+   - Codex-only Caishen Readable / 财神护航: [references/caishen-readable-example.md](references/caishen-readable-example.md)
+   - Multi-app Miku Future Beats / 初音未来: [references/miku-future-beats-example.md](references/miku-future-beats-example.md)
 8. For probe, verification, screenshots, missing nodes, CDP failures, or app updates, read [references/verification.md](references/verification.md).
 9. To publish or submit a theme to the CodeDrobe store, read [references/publish.md](references/publish.md).
 
@@ -27,7 +29,8 @@ Use the published `@codedrobe/core` CLI as the only runtime. Keep this Skill ins
 
 - “参考这张图片，帮我生成一个 Codex 皮肤”：inspect the supplied image, create a Codex target from a live Codex DOM snapshot, package it, and verify the native UI in Codex.
 - “把这个视觉风格同时做成 Codex 和 WorkBuddy 皮肤”：create one theme package with separate target CSS and shared named image assets.
-- “用玩偶姐姐示例改成蓝色版本”：copy the bundled example to a writable project, change its tokens/assets, refresh live selectors, and verify both requested contexts.
+- “用财神护航示例改成更适合阅读的 Codex 版本”：copy the bundled Caishen Readable example to a writable project, change its tokens/assets, refresh live selectors, and verify both requested Codex contexts.
+- “用初音未来示例改成蓝色版本”：copy the bundled multi-app example to a writable project, change its tokens/assets, refresh live selectors, and verify both requested contexts.
 - “这个主题更新应用后错位了”：capture fresh snapshots, repair theme CSS and theme-specific verification nodes, then repack and compare screenshots.
 - “帮我安装这个 `.codedrobe-theme`”：inspect, probe, apply, and verify the supplied package; do not recreate it unless validation fails and the user asks for repair.
 - “从商店装一个复古主题到 Codex”：`codedrobe theme search` to resolve the slug (confirm the pick when several match), `codedrobe theme download` (integrity-verified, lands in `~/.codedrobe/themes`), then the normal inspect → probe → apply → verify flow.
@@ -56,7 +59,7 @@ codedrobe verify --app <app-id> --theme /absolute/theme.codedrobe-theme --screen
 ## Create or repair a theme
 
 1. Inspect any supplied reference image and turn it into a short visual brief before writing CSS. Never use the reference screenshot as a full-window overlay.
-2. Copy `assets/theme-starter/` for a neutral base or `assets/examples/miku-future-beats/` for a complete multi-app example. Never edit the installed Skill in place.
+2. Copy `assets/theme-starter/` for a neutral base, `assets/examples/caishen-readable/` for a public-safe Codex-only example, or `assets/examples/miku-future-beats/` for a complete multi-app example. Never edit the installed Skill in place.
 3. Open each app context the theme will style and capture a separate `codedrobe dom snapshot`; do not infer selectors from the template alone.
 4. Select semantic candidates from the snapshot, then write app-specific CSS under `html.codedrobe-host-<app-id>`.
 5. Keep shared artwork in named `images`; keep app-specific selectors under the relevant target CSS.

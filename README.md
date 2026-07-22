@@ -38,7 +38,8 @@ After installing `codedrobe-theme`, attach a reference image when relevant and d
 Other useful requests:
 
 - “Turn this visual style into one theme for both Codex and WorkBuddy.”
-- “Use the bundled Doll Sister example as a starting point and make a blue Codex version.”
+- “Use the bundled Caishen Readable example as a starting point and make a quieter Codex-only version.”
+- “Use the bundled Miku Future Beats example as a starting point and make a blue multi-app version.”
 - “This WorkBuddy theme broke after an app update. Analyze the live CDP DOM and repair it.”
 - “Inspect, apply, and verify this `.codedrobe-theme` file in Codex.”
 - “Find a retro theme in the CodeDrobe store and install it into Codex.”
@@ -68,7 +69,8 @@ codedrobe theme publish /absolute/theme.codedrobe-theme --submit
 The installed `codedrobe-theme` Skill includes two copyable source resources:
 
 - `assets/theme-starter/`: a complete neutral Codex/WorkBuddy CSS starting point.
-- `assets/examples/doll-sister/`: the complete Doll Sister / 玩偶姐姐 multi-app theme with generated hero and texture artwork.
+- `assets/examples/caishen-readable/`: a public-safe Codex-only Caishen source theme with readable left-side composition.
+- `assets/examples/miku-future-beats/`: the complete Miku Future Beats / 初音未来 multi-app theme with generated hero and texture artwork.
 
 Templates are not permanent DOM contracts: the Skill captures a live `codedrobe dom snapshot` per app context, selects semantic nodes from it, then packs, probes, applies, screenshots, and repairs.
 

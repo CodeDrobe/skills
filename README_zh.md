@@ -38,7 +38,8 @@ npx skills add CodeDrobe/skills \
 还可以这样说：
 
 - “把这套视觉风格同时做成 Codex 和 WorkBuddy 皮肤。”
-- “使用自带的玩偶姐姐示例作为起点，帮我改成蓝色 Codex 版本。”
+- “使用自带的财神护航示例作为起点，帮我改成更清爽的 Codex 单端版本。”
+- “使用自带的初音未来示例作为起点，帮我改成蓝色多应用版本。”
 - “WorkBuddy 更新后这个主题错位了，请分析实时 CDP DOM 并修复。”
 - “帮我检查、应用并验证这个 `.codedrobe-theme` 文件。”
 - “在 CodeDrobe 商店找一个复古主题装到 Codex。”
@@ -68,7 +69,8 @@ codedrobe theme publish /absolute/theme.codedrobe-theme --submit
 安装后的 `codedrobe-theme` Skill 包含两套可复制源码：
 
 - `assets/theme-starter/`：覆盖 Codex/WorkBuddy 主要界面的完整中性 CSS 起始模板。
-- `assets/examples/doll-sister/`：完整的“玩偶姐姐”双应用主题，包含生成的 hero 和 texture 素材。
+- `assets/examples/caishen-readable/`：public-safe 的 Codex 单端财神护航源主题，左侧留出清爽可读区域。
+- `assets/examples/miku-future-beats/`：完整的“初音未来 · Future Beats”多应用主题，包含生成的 hero 和 texture 素材。
 
 模板不会被当作永久 DOM 合约：Skill 会在各应用上下文分别采集实时 `codedrobe dom snapshot`，从实机快照选择语义节点，再完成打包、预检、应用、截图和修正。
 

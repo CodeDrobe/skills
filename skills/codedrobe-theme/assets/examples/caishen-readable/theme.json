@@ -1,0 +1,92 @@
+{
+  "schemaVersion": 1,
+  "id": "caishen-readable",
+  "displayName": "Caishen Readable",
+  "version": "1.0.0",
+  "catalog": {
+    "name": { "en": "Caishen Readable", "zh": "财神护航 · 清爽可读" },
+    "description": {
+      "en": "A warm public-safe Codex theme with Caishen artwork on the right and a calm readable workspace on the left.",
+      "zh": "温暖的 public-safe Codex 财神主题：右侧保留财神主视觉，左侧留给清爽可读的工作区。"
+    },
+    "categories": ["guofeng", "festive", "professional"]
+  },
+  "images": {
+    "hero": "assets/hero.jpg",
+    "texture": "assets/texture.png",
+    "cover": "assets/hero.jpg"
+  },
+  "copy": {
+    "brandTitle": "Caishen Readable",
+    "brandSubtitle": "Codex · 财神护航",
+    "signature": "Ship good things",
+    "tagline": "Warm fortune energy without sacrificing readable Codex work.",
+    "projectPrefix": "Fortune desk · ",
+    "projectLabel": "◉  Choose a project",
+    "ribbon": "¥"
+  },
+  "targets": {
+    "codex": {
+      "css": "codex.css",
+      "options": {
+        "rendererProfile": "codex-theme-v1",
+        "baseTheme": {
+          "mode": "light",
+          "codeTheme": "codex",
+          "accent": "#D96B42",
+          "contrast": 82,
+          "ink": "#35251C",
+          "surface": "#FFF8EF",
+          "opaqueWindows": true,
+          "fonts": {
+            "windowsCode": "Cascadia Code",
+            "windowsUi": "Microsoft YaHei UI",
+            "macCode": "SF Mono",
+            "macUi": "PingFang SC"
+          },
+          "semanticColors": {
+            "diffAdded": "#D8F3E5",
+            "diffRemoved": "#FFE0D3",
+            "skill": "#D96B42"
+          }
+        }
+      },
+      "verification": {
+        "contexts": [
+          {
+            "name": "home",
+            "when": {
+              "any": ["[role='main']:has([data-testid='home-icon'])"]
+            },
+            "recommended": [
+              {
+                "name": "home-suggestions",
+                "any": [".group\\/home-suggestions"]
+              },
+              {
+                "name": "home-project-selector",
+                "any": [".group\\/project-selector"]
+              }
+            ]
+          },
+          {
+            "name": "conversation",
+            "when": {
+              "any": ["main.main-surface:not(:has([data-testid='home-icon']))"]
+            },
+            "recommended": [
+              {
+                "name": "conversation-topbar",
+                "any": ["main.main-surface > header.app-header-tint", "header.app-header-tint"]
+              },
+              {
+                "name": "conversation-composer",
+                "any": [".composer-surface-chrome"]
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}
